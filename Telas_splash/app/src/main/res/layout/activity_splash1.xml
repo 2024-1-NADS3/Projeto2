@@ -9,67 +9,66 @@
 
     <ImageView
         android:id="@+id/quadrado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="405dp"
+        android:layout_height="360dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/rectangle_51" />
 
     <ImageView
         android:id="@+id/btn_tutorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="35dp"
         android:onClick="Avancar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/quadrado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.591"
         app:srcCompat="@drawable/btn_tutorial" />
 
     <ImageView
         android:id="@+id/barra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="384dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/quadrado"
         app:srcCompat="@drawable/group_118__1_" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center_horizontal"
         android:text="Boas Vindas"
         android:textColor="#2B9DFE"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="29dp"
+        android:layout_width="350dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Sua plataforma de gestão e divulgação das ações da nossa entidade de caridade. Aqui, você conhecerá nossas iniciativas e poderá fazer o bem de maneira simples e eficaz."
+        android:text="Sua plataforma de gestão e divulgação das ações da nossa entidade de projetos sociais. Aqui, você conhecerá nossas iniciativas e poderá fazer o bem de maneira simples e eficaz."
         android:textAlignment="center"
         android:textColor="#2E3E4B"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_tutorial"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -77,12 +76,11 @@
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/quadrado"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/mascote_fecap2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
