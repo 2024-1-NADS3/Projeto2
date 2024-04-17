@@ -25,41 +25,55 @@
 ## Descrição
 
 <p align="center">
-<img src="#" border="0" width="300"> <br>
+<img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/logo.jpg" border="0" width="300"> <br>
   Projeto Interdisciplinar Programação Mobile  <a href="/">
 </p>
 
 
 ### Objetivos: <br>
  
-<p> Descrição do projeto </p> <br>
+<p> Através do Android Studio, criaremos um app mobile para a  FECAP Social.   </p>
+<p> A FECAP Social é uma organização estudantil da Fundação Escola de 
+Comércio Álvares Penteado (FECAP), formada por alunos de graduação dos cursos 
+da instituição, onde são divididos nas áreas de Comunicação, Financeiro e Projetos. <br>
+Possui um portfólio com ações, que são realizadas durante o ano letivo, 
+buscando oferecer assistência a causas de vulnerabilidade social, que envolvem 
+Crianças e Adolescentes, Idosos, Mulheres, Moradores de Rua, Comunidade 
+LGBTQI+, Comunidade Negra e outros</p>
 
 ### Resumo do Projeto: <br>
 
-<p> Resumo do projeto. </p> 
+<p> Por meio do Android Studio, utilizando a linguagem JAVA, criaremos um aplicativo mobile a fim de auxiliar a FECAP Social a atingir melhor as pessoas
+interessadas em sua ações, bem como ter a possibilidade de doar de forma mais conveniente e saber das datas dos eventos promovidos pelas organização. </p> 
 
 
 ## Desenvolvimento do APP
 
-<p> x</p>
+<p> Antes do desenvolvimento no Android Studio, foi feito o processo de pesquisa de usuário e todo o desenvolvimento do UX Design por meio da metodologia 
+do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços focados nas necessidades, desejos e limitações dos usuários </p>
 <p align="center">
-<img src="#" border="0" width="300"> <br>
+<img src="#" border="0" width="300">
 </p>
 
-
 ### UX/UI Design
-- Auditoria competitiva dos concorrentes da região. Para entender o que já funciona no mercado, o que pode ser melhorado e o que pode ser implementado ao criar o site.
-- <a href="#"> Wireframes </a> <br>
-- <a href="#"> Protótipo de baixa fidelidade (com fluxos de usuário navegáveis) </a> <br>
-- <a href="#"> Protótipo de alta fidelidade (com tipografia e cores definidos) </a> <br>
-- <a href="#"> Design System </a> <br>
+#### Design Thinking
+- Fase de Empatia
+- Fase de Definição
+- Fase de Idealização
+- Fase de Prototipar
+    - <a href="#"> Wireframes </a> <br>
+    - <a href="#"> Protótipo de baixa fidelidade (com fluxos de usuário navegáveis) </a> <br>
+    - <a href="#"> Protótipo de alta fidelidade (com tipografia e cores definidos) </a> <br>
+    - <a href="#"> Design System </a> <br>
+- Fase de Testes 
 
+### Android Studio
 
-### Front-end
+#### Front-end
 
 - **Android Studio**: 
 
-### Back-end
+#### Back-end
 
 - **Android Studio**: 
 
