@@ -34,12 +34,8 @@
  
 <p> Através do Android Studio, criaremos um app mobile para a  FECAP Social.   </p>
 <p> A FECAP Social é uma organização estudantil da Fundação Escola de 
-Comércio Álvares Penteado (FECAP), formada por alunos de graduação dos cursos 
-da instituição, onde são divididos nas áreas de Comunicação, Financeiro e Projetos. <br>
-Possui um portfólio com ações, que são realizadas durante o ano letivo, 
-buscando oferecer assistência a causas de vulnerabilidade social, que envolvem 
-Crianças e Adolescentes, Idosos, Mulheres, Moradores de Rua, Comunidade 
-LGBTQI+, Comunidade Negra e outros</p>
+Comércio Álvares Penteado (FECAP), formada por alunos de graduação dos cursos da instituição, onde são divididos nas áreas de Comunicação, Financeiro e Projetos. <br>
+Possui um portfólio com ações, que são realizadas durante o ano letivo, buscando oferecer assistência a causas de vulnerabilidade social, que envolvem Crianças e Adolescentes, Idosos, Mulheres, Moradores de Rua, Comunidade LGBTQI+, Comunidade Negra e outros</p>
 
 ### Resumo do Projeto: <br>
 
@@ -50,22 +46,32 @@ interessadas em sua ações, bem como ter a possibilidade de doar de forma mais 
 ## Desenvolvimento do APP
 
 <p> Antes do desenvolvimento no Android Studio, foi feito o processo de pesquisa de usuário e todo o desenvolvimento do UX Design por meio da metodologia 
-do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços focados nas necessidades, desejos e limitações dos usuários </p>
-<p align="center">
-<img src="#" border="0" width="300">
-</p>
+do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços focados nas necessidades, desejos e limitações dos usuários. Toda a organização foi feita através do Trello, pela metodologia ágil Kanban. </p> <br>
+<p align="center"><img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/trello.PNG" border="0" width="1000"> <br>
+                                    Trello Oficial do Time SKL </p>
 
 ### UX/UI Design
 #### Design Thinking
-- Fase de Empatia
-- Fase de Definição
-- Fase de Idealização
-- Fase de Prototipar
+- **Fase de Empatia**
+  - Fase inicial do projeto, compreender profundamente as necessidades e experiências dos usuários. Foi feita uma conversa inicial com o time da FECAP Social e em seguida definição das personas do aplicativo. <br>
+<a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Persona%20e%20mapa%20de%20empatia.jpg/"> Clique aqui para acessar à persona. </a> <br>
+  - Dessa forma, com a persona criada, determinamos como seria a Jornada do Usuário, onde entendemos todas as interações e experiências que um usuário tem ao utilizar um produto ou serviço. <br>
+    <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Jornada%20do%20usu%C3%A1rio%20Fecap%20Social.pdf"> Clique aqui para acessar à Jornada do Usuário. </a> <br>
+    <br>
+    
+- **Fase de Definição**
+  - Nesta etapa definimos o problema, onde será o foco o grupo em solucionar este problema. <br>
+  <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/declara%C3%A7%C3%A3o%20de%20problema.pdf"> Clique aqui para acessar à Declaração de Problema. </a> <br>
+   <br>
+   
+- **Fase de Idealização**
+  -   
+- **Fase de Prototipar**
     - <a href="#"> Wireframes </a> <br>
     - <a href="#"> Protótipo de baixa fidelidade (com fluxos de usuário navegáveis) </a> <br>
     - <a href="#"> Protótipo de alta fidelidade (com tipografia e cores definidos) </a> <br>
     - <a href="#"> Design System </a> <br>
-- Fase de Testes 
+- **Fase de Testes**
 
 ### Android Studio
 
