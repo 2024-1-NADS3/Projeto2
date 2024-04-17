@@ -65,12 +65,23 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
    <br>
    
 - **Fase de Idealização**
-  -   
+  -   Aqui é a etapa onde geraremos diversas ideias para solucionar o problema apresentado na fase de definição, para isso fizemos uma auditoria competitiva, onde pesquisamos aplicativos que possuíam a mesma proposta que queríamos solucionar e em seguida o Crazy Eights, uma técnica de esboço rápido em um espaço de tempo limitado, onde oito ideias distintas são elaboradas em oito minutos. <br>
+ <a href="https://edufecap-my.sharepoint.com/:x:/g/personal/fernanda_kato_edu_fecap_br/EZ0S-kbxo3FBiUyrVaIHWg4BMpmvb_dG818y3W_KXnDUjA?e=x6dt4H"> Clique aqui para acessar à Auditoria Competitiva. </a> <br>
+<p align="center"><img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Crazy%20Eight%20-%20JPG.jpg" border="0" width="500"> <br> Crazy Eights </p>
+ <br>
+
 - **Fase de Prototipar**
-    - <a href="#"> Wireframes </a> <br>
-    - <a href="#"> Protótipo de baixa fidelidade (com fluxos de usuário navegáveis) </a> <br>
-    - <a href="#"> Protótipo de alta fidelidade (com tipografia e cores definidos) </a> <br>
-    - <a href="#"> Design System </a> <br>
+    - Nesta etapa iniciamos os primeiros esboços de design do aplicativo. Com a criação da arquitetura da informação e em seguida o Wireframe, o protótipo navegável de baixa fidelidade e finalmente, finalizando com o protótipo de alta fidelidade. <br>
+  <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Arquitetura-informa%C3%A7%C3%A3o.png"> Acessar à Arquitetura de Informação </a> <br>
+  <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/wireframe.png"> Acessar ao Wireframe </a> <br>
+  <a href="https://www.figma.com/proto/af0HUaKJ9iAsU6Z7dv9Z2E/FECAP-Social-APP?type=design&node-id=387-2026&t=hFp2SgtmLTB3BPfR-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=387%3A2040&mode=design"> Acessar ao protótipo de baixa fidelidade </a> <br>
+  <a href="https://www.figma.com/proto/af0HUaKJ9iAsU6Z7dv9Z2E/FECAP-Social-APP?type=design&node-id=310-2864&t=NcflbtVKzJitySnP-1&scaling=scale-down&page-id=287%3A719&starting-point-node-id=310%3A3034&mode=design"> Acessar ao protótipo de alta fidelidade </a> <br>
+
+  
+  
+  <br>
+
+      
 - **Fase de Testes**
 
 ### Android Studio
