@@ -20,7 +20,7 @@ public class Splash3 extends AppCompatActivity {
     }
 
     public void Avancar(View view){
-        Intent Avancar= new Intent(getApplicationContext(), Doacao.class);
+        Intent Avancar= new Intent(getApplicationContext(), Home.class);
         startActivity(Avancar);
     }
 

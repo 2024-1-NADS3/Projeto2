@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textFecapSocial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="100dp"
+            android:text="Fecap Social"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/slideimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="230dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="10"
+                    app:iss_delay="1000"
+                    app:iss_period="1000"
+                    app:iss_text_align="CENTER" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageRetangulo"
+            android:layout_width="370dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="250dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFecapSocial"
+
+            app:srcCompat="@drawable/retangulo1" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="Entidade estudantil da @fecap comprometida em despertar, incentivar e apoiar causas e iniciativas sociais."
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imageRetangulo"
+            app:layout_constraintEnd_toEndOf="@+id/imageRetangulo"
+            app:layout_constraintTop_toTopOf="@+id/imageRetangulo"
+            app:layout_constraintBottom_toBottomOf="@+id/imageRetangulo"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/estrela"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="350dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageRetangulo"
+            app:srcCompat="@drawable/star_border" />
+
+        <TextView
+            android:id="@+id/acoes"
+            android:layout_width="103dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="195dp"
+            android:layout_marginTop="30dp"
+            android:text="Ações"
+            android:textSize="32sp"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/estrela"
+            app:layout_constraintTop_toBottomOf="@+id/imageRetangulo"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="510dp" />
+
+        <TextView
+            android:id="@+id/acoes2"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:justificationMode="inter_word"
+            android:textSize="18sp"
+            android:textColor="#142755"
+            android:text="Nós somos Alvaristas comprometidos em despertar, incentivar e apoiar causas e iniciativas sociais."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acoes" />
+
+        <ImageView
+            android:id="@+id/image_acoes2"
+            android:layout_width="370dp"
+            android:layout_height="203dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acoes2"
+            app:srcCompat="@drawable/acoes_imagens" />
+
+        <Button
+            android:id="@+id/botao1"
+            android:layout_width="350dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="#FCBA51"
+            android:text="Saber Mais"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_acoes2" />
+
+        <ImageView
+            android:id="@+id/ondas"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            app:srcCompat="@drawable/ondas"
+            app:layout_constraintTop_toBottomOf="@+id/botao1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/info_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="350dp"
+
+            app:srcCompat="@drawable/info_image"
+            app:layout_constraintStart_toStartOf="@+id/ondas"
+            app:layout_constraintTop_toBottomOf="@+id/ondas"
+            app:layout_constraintTop_toTopOf="@+id/ondas"
+            app:layout_constraintEnd_toEndOf="@+id/ondas" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="130dp"
+            android:text="Sobre Nós"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ondas"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="@+id/info_image"
+
+            app:layout_constraintTop_toBottomOf="@+id/botao1" />
+
+        <TextView
+            android:id="@+id/text_info"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:justificationMode="inter_word"
+            android:textSize="18sp"
+            android:textColor="#142755"
+            android:text="Conheça mais de perto os integrantes da FECAP Social"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info"/>
+
+        <ImageView
+            android:id="@+id/imagem_info"
+            android:layout_width="370dp"
+            android:layout_height="203dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_info"
+            app:srcCompat="@drawable/image3" />
+
+        <Button
+            android:id="@+id/botao2"
+            android:layout_width="350dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="#FCBA51"
+            android:text="Conhecer Membros"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagem_info" />
+
+        <ImageView
+            android:id="@+id/rede_social"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="155dp"
+            android:layout_marginEnd="320dp"
+            app:layout_constraintEnd_toEndOf="@+id/botao2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botao2"
+            app:layout_constraintTop_toTopOf="@+id/botao2"
+            app:srcCompat="@drawable/social_rede" />
+
+        <TextView
+            android:id="@+id/redes"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="125dp"
+            android:text="Siga-nos"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ondas"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="@+id/rede_social"
+
+            app:layout_constraintTop_toBottomOf="@+id/botao2" />
+
+        <TextView
+            android:id="@+id/text_rede"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:justificationMode="inter_word"
+            android:textSize="18sp"
+            android:textColor="#142755"
+            android:text="Fique atualizado com nosso instagram oficial."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/redes" />
+
+        <ImageView
+            android:id="@+id/imagem_redes"
+            android:layout_width="396dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_rede"
+            app:srcCompat="@drawable/image_redes" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
