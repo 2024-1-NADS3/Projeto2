@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -21,6 +22,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
+
         imageSlider = findViewById(R.id.image_slider);
 
         //lista de imagem
@@ -35,7 +38,37 @@ public class Home extends AppCompatActivity {
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.menuHome:
+                    return true;
 
+                case R.id.menuCalendar:
+                    Intent menuCalendar = new Intent(getApplicationContext(), Calendario.class);
+                    startActivity(menuCalendar);
+                    finish();
+                    return true;
+
+                case R.id.menuDoacao:
+                    Intent menuDoacao = new Intent(getApplicationContext(), Doacao.class);
+                    startActivity(menuDoacao);
+                    finish();
+                    return true;
+
+                case R.id.menuConfig:
+                    Intent menuConfig = new Intent(getApplicationContext(), Config.class);
+                    startActivity(menuConfig);
+                    finish();
+                    return true;
+            }
+            return false;
+        });
+    }
+
+    public void botaoSaberMaisAcaoGeral(View view) {
+        Intent mudarTelaBotaoAcao = new Intent(getApplicationContext(), NossasAcoesGeral.class);
+        startActivity(mudarTelaBotaoAcao);
     }
 }
