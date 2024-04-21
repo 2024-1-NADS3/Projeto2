@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iconVoltar1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="-17dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="voltarTelaAcaoGeral1"
+            android:contentDescription="Botão para voltar para a tela anterior"
+            app:layout_constraintBottom_toBottomOf="@+id/textHambFeliz1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.040"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow_back"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textHambFeliz1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginBottom="-50dp"
+            android:text="Hamburgada Feliz"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageHamb2"
+            android:layout_width="375dp"
+            android:layout_height="175dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/imagem_hamburgada2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textHambFeliz1" />
+
+        <TextView
+            android:id="@+id/textHambFeliz2"
+            android:layout_width="375dp"
+            android:layout_height="450dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="5dp"
+            android:justificationMode="inter_word"
+            android:text="A Hamburgada Feliz é uma ação realizada pela FECAP Social em outubro para celebrar o Dia das Crianças. \n\nA partir de uma parceria com uma ONG ou orfanato, o objetivo é levar as  crianças à FECAP para um dia de diversão com brinquedos infláveis, jogos,  tintas, e muitos hambúrgueres. O evento também conta com a presença de  diversos voluntários, sejam eles alunos da faculdade ou não. \n\nNas inscrições dos voluntários, é possível escolher entre colaborar com a  preparação dos alimentos na cozinha, organização da ação e nas brincadeiras  com as crianças."
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular_"
+            app:layout_constraintBottom_toTopOf="@+id/imageHamb3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHamb2" />
+
+        <ImageView
+            android:id="@+id/imageHamb3"
+            android:layout_width="375dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="35dp"
+            app:srcCompat="@drawable/imagem_hamburgada3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textHambFeliz2" />
+
+        <TextView
+            android:id="@+id/textHambFeliz3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="-50dp"
+            android:text="9° edição da Hamburgada Feliz – 2023"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHamb3"/>
+
+        <TextView
+            android:layout_width="375dp"
+            android:layout_height="450dp"
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="100dp"
+            android:text="A 9° edição da Hamburgada Feliz ocorreu dia 21 de outubro, na FECAP,  com o tema de fazendinha.\n\nAlunos da faculdade e demais interessados optaram por participarem  como voluntário, comparecendo no evento e realizando a compra do ingresso de  R$ 45,00, ou como um padrinho, doando a quantia desejada.\n\nA ONG parceira foi a Missão El Pallet, que possui o objetivo de atender  pessoas em situação e rua e diversas famílias em vulnerabilidade em São Paulo.  Também tivemos o apoio da Bateria da FECAP (swing da liberdade), o  estacionamento Multi Park e o Melts Gastrobar.\n\nAo total, contamos com R$ 5.019,00 arrecadados, 66 voluntários  presentes, 25 padrinhos e 56 crianças."
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textHambFeliz3"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#55B1FE"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemTextColor="#142755"
+        app:itemIconTint="#142755"
+        app:itemIconSize="35dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

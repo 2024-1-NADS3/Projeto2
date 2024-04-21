@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textNossasAcoes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="100dp"
+            android:text="Nossas Ações"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageHamburgada"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028" />
+
+        <TextView
+            android:id="@+id/textHambFeliz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="73dp"
+            android:layout_marginBottom="-50dp"
+            android:text="Hamburgada Feliz"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageHamburgada"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageHamburgada"
+            android:layout_width="375dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/textHamb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textNossasAcoes"
+            app:srcCompat="@drawable/imagem_hamburgada1" />
+
+        <TextView
+            android:id="@+id/textHamb"
+            android:layout_width="375dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="A Hamburgada Feliz é uma ação realizada em outubro para celebrar o Dia das Crianças.   "
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            app:layout_constraintBottom_toTopOf="@+id/btnSaberMaisHamb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHamburgada"
+            app:layout_constraintVertical_bias="0.017" />
+
+        <Button
+            android:id="@+id/btnSaberMaisHamb"
+            android:layout_width="375dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="55dp"
+            android:backgroundTint="#FCBA51"
+            android:text="Saber mais"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@+id/textTroteSolidario"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textHamb" />
+
+        <TextView
+            android:id="@+id/textTroteSolidario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="13dp"
+            android:text="Trote Solidário"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageTroteSolidario"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSaberMaisHamb" />
+
+        <ImageView
+            android:id="@+id/imageTroteSolidario"
+            android:layout_width="375dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/textTrote"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario"
+            app:srcCompat="@drawable/imagem_trote_solidario1" />
+
+        <TextView
+            android:id="@+id/textTrote"
+            android:layout_width="375dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="5dp"
+            android:text="O Trote Solidário é uma ação realizada todo início  de semestre. Seu objetivo é promover na comunidade Alvarista a participação  em ações sociais, especialmente, os novos ingressantes de cada semestre da  FECAP."
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/poppins_regular_"
+            app:layout_constraintBottom_toTopOf="@+id/btnSaberMaisTrote"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageTroteSolidario" />
+
+        <Button
+            android:id="@+id/btnSaberMaisTrote"
+            android:layout_width="375dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#FCBA51"
+            android:text="Saber mais"
+            android:textSize="22sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@+id/textPascoaSolidaria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTrote" />
+
+        <TextView
+            android:id="@+id/textPascoaSolidaria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:layout_marginStart="5dp"
+            android:text="Páscoa Solidária"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@id/imagePascoaSolidaria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSaberMaisTrote" />
+
+        <ImageView
+            android:id="@+id/imagePascoaSolidaria"
+            android:layout_width="375dp"
+            android:layout_height="175dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@id/textPascoa"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textPascoaSolidaria"
+            app:srcCompat="@drawable/imagem_pascoa_solidaria1" />
+
+        <TextView
+            android:id="@+id/textPascoa"
+            android:layout_width="375dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:text="A Páscoa Solidária é uma ação promovida pela FECAP Social na  semana da Páscoa de cada ano. E tem como objetivo, levar ao público-alvo  escolhido, seja ele infantil, terceira-idade, etc., a magia da Páscoa, amor,  empatia e claro, muito chocolate!"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePascoaSolidaria" />
+
+        <Button
+            android:id="@+id/btnSaberMaisPascoa"
+            android:layout_width="375dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="105dp"
+            android:backgroundTint="#FCBA51"
+            android:text="Saber mais"
+            android:textSize="22sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textPascoa"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#55B1FE"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemTextColor="#142755"
+        app:itemIconTint="#142755"
+        app:itemIconSize="35dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
