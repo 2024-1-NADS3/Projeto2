@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuHome"
+        android:title="@string/menu_home"
+        android:icon="@drawable/icon_home" />
+
+    <item
+        android:id="@+id/menuCalendar"
+        android:title="@string/menu_calendar"
+        android:icon="@drawable/icon_calendar" />
+
+    <item
+        android:id="@+id/menuDoacao"
+        android:title="@string/menu_doacao"
+        android:icon="@drawable/icon_doacao" />
+
+    <item
+        android:id="@+id/menuConfig"
+        android:title="@string/menu_config"
+        android:icon="@drawable/icon_config" />
+
+</menu>
