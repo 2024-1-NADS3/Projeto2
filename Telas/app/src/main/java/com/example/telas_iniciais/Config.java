@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,4 +43,21 @@ public class Config extends AppCompatActivity {
             return false;
         });
     }
+
+    public void avancaSobre(View view) {
+        Intent avancar = new Intent(getApplicationContext(), sobreApp.class);
+        startActivity(avancar);
+    }
+
+    public void avancaTermos(View view) {
+        Intent avancar = new Intent(getApplicationContext(), termos.class);
+        startActivity(avancar);
+    }
+
+    public void avancaSuporte(View view) {
+        Intent avancar = new Intent(getApplicationContext(), suporte.class);
+        startActivity(avancar);
+    }
+
+
 }
