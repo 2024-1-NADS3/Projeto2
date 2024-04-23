@@ -51,7 +51,7 @@
             android:id="@+id/imageHamb2"
             android:layout_width="375dp"
             android:layout_height="175dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="6dp"
             app:srcCompat="@drawable/imagem_hamburgada2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
 
         <TextView
             android:layout_width="375dp"
-            android:layout_height="450dp"
+            android:layout_height="460dp"
             tools:ignore="MissingConstraints"
             android:layout_marginTop="15dp"
             android:layout_marginStart="6dp"
