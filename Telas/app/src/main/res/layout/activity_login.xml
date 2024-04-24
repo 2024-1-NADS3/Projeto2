@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/inputEmailLogin"
         android:layout_width="375dp"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textLogin" />
 
     <EditText
-        android:id="@+id/inputSenha"
+        android:id="@+id/inputSenhaLogin"
         android:layout_width="375dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
@@ -71,7 +71,7 @@
         android:hint="Digite sua senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin" />
 
     <Button
         android:id="@+id/btnEntrar"
@@ -85,9 +85,10 @@
         android:text="Entrar"
         android:textAllCaps="false"
         android:textSize="22sp"
+        android:onClick="botaoEntrarLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/inputSenhaLogin" />
 
     <TextView
         android:id="@+id/textRealizarCadastro"
