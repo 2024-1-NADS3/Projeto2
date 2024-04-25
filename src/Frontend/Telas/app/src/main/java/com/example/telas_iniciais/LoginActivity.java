@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         senha = inputSenhaLogin.getText().toString();
 
         try {
-            postRequestLogin("https://7pkqm4-37387.csb.app/login", email, senha);
+            postRequestLogin("https://7pkqm4-38883.csb.app/login", email, senha);
         } catch (IOException e) {
             e.printStackTrace();
         }

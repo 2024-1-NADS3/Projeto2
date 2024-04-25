@@ -43,7 +43,7 @@ public class CadastroActivity extends AppCompatActivity {
         senha = inputSenhaCadastro.getText().toString();
 
         try {
-            postRequestCadastro("https://7pkqm4-37387.csb.app/cadastro", nome, email, senha);
+            postRequestCadastro("https://7pkqm4-38883.csb.app/cadastro", nome, email, senha);
         } catch (IOException e) {
             e.printStackTrace();
         }
