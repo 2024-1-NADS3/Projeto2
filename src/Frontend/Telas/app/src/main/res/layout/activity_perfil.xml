@@ -6,14 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".PerfilActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="208dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_fecap" />
+
+    <TextView
+        android:id="@+id/campo_nome"
+        android:layout_width="375dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/campo_email"
+        android:layout_width="375dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_nome" />
+
+    <Button
+        android:id="@+id/btn_IrEv"
+        android:layout_width="375dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#FCBA51"
+        android:fontFamily="@font/poppins_bold"
+        android:onClick="IrTelaCadEv"
+        android:text="Cadastrar Evento"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_email"
+        app:layout_constraintVertical_bias="0.177" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="248dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="128dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Perfil"
+        android:textColor="#142755"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:text="TELA PERFIL COLOCAR AQUI"
-        android:textSize="24sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="336dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Nome"
+        android:textColor="#142755"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/campo_nome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="339dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Email"
+        android:textColor="#142755"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/campo_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
