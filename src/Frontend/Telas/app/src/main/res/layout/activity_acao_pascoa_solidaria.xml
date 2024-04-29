@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AcaoPascoaSolidaria">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconVoltar1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="-17dp"
+                android:layout_marginBottom="30dp"
+                android:onClick="voltarTelaAcaoGeral1"
+                android:contentDescription="Botão para voltar para a tela anterior"
+                app:layout_constraintBottom_toBottomOf="@+id/textPascoaSolidaria1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.040"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textPascoaSolidaria1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="105dp"
+                android:text="Páscoa Solidária"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imagePascoaSolidaria2"
+                android:layout_width="375dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/imagem_pascoa_solidaria2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPascoaSolidaria1" />
+
+            <TextView
+                android:id="@+id/textPascoaSolidaria2"
+                android:layout_width="370dp"
+                android:layout_height="230dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:justificationMode="inter_word"
+                android:text="A Páscoa Solidária é uma ação promovida pela FECAP Social na  semana da Páscoa de cada ano.  \n\nE tem como objetivo, levar ao público-alvo  escolhido, seja ele infantil, terceira-idade, etc., a magia da Páscoa, amor,  empatia e claro, muito chocolate!"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imagePascoaSolidaria2" />
+
+            <ImageView
+                android:id="@+id/imageOndaPascoa"
+                android:layout_width="match_parent"
+                android:layout_height="1490dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPascoaSolidaria2"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/fundo_onda_pascoa_solidaria"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textSubtituloPascoa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="80dp"
+                android:text="PÁSCOA SOLIDÁRIA 2024.1"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaPascoa"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toTopOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/carrosselImagensPascoa"/>
+
+            <HorizontalScrollView
+                android:id="@+id/carrosselImagensPascoa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="5dp"
+                android:scrollbars="none"
+                android:contentDescription="Carrossel de imagens da Páscoa Solidária 2024"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaPascoa"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/imageOndaPascoa"
+                app:layout_constraintTop_toTopOf="@id/imageOndaPascoa"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="145dp"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa1" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa2" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa3" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa4" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa5" />
+
+                    <ImageView
+                        android:id="@+id/carrosselPascoa6"
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_pascoa6" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/setaEsquerdaCarrossel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/arrow_esquerda_carrossel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/carrosselImagensPascoa"
+                app:layout_constraintBottom_toBottomOf="@+id/carrosselImagensPascoa" />
+
+            <ImageView
+                android:id="@+id/setaDireitaCarrossel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:srcCompat="@drawable/arrow_direita_carrossel"
+                android:layout_marginEnd="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/carrosselImagensPascoa"
+                app:layout_constraintBottom_toBottomOf="@+id/carrosselImagensPascoa"/>
+
+            <TextView
+                android:id="@+id/textPascoaSolidaria3"
+                android:layout_width="370dp"
+                android:layout_height="765dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="O tema deste ano foi o apadrinhamento das 28 crianças atendidas pela ONG Nossa Casa Grajaú.  \n\nPara isso, dos dias 20 a 27 de março, ficamos posicionados com uma mesinha ao lado do Asa. Assim, cada padrinho contribuía financeiramente e escrevia uma cartinha à criança, que também fez uma cartinha para o voluntário.  \n\nA meta inicial era de 1 Ovo de Páscoa (10 reais) para cada criança. Entretanto, em 2 dias triplicamos nossa meta e cada criança recebeu 2 Ovos de Páscoa e 1 cenoura de chocolate.  \n\nComo foi um sucesso, emendamos em uma segunda ação. A partir do dia 22 de março, o objetivo foi arrecadar o valor de 10 reais dos voluntários para destinar a ONG Missão Mão Amiga, que a Duda, integrante de projetos, faz parte. Essa ong tinha a meta de arrecadar caixas de bombom e caixas de bis para a montagem de kits de chocolate para crianças em situação de rua. E em 3 dias conseguimos ajudar a ONG a montar 200 Kits."
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaPascoa"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/carrosselImagensPascoa" />
+
+            <TextView
+                android:id="@+id/textResultados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="25dp"
+                android:text="Resultados"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/textPascoaSolidaria3" />
+
+            <TextView
+                android:id="@+id/textResultadosAcao1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:text="Ação 1:"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+            <TextView
+                android:id="@+id/textAcao1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                android:text="840 reais convertidos em 2 ovos de Páscoa e 1 cenoura de chocolate para cada criança."
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_regular_"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/textResultadosAcao1" />
+
+            <TextView
+                android:id="@+id/textResultadosAcao2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="25dp"
+                android:text="Ação 2:"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/textAcao1" />
+
+            <TextView
+                android:id="@+id/textAcao2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                android:text="460 reais enviados a ong, que os ajudou na composição dos 200 kits."
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_regular_"
+                app:layout_constraintStart_toStartOf="@id/imageOndaPascoa"
+                app:layout_constraintTop_toBottomOf="@+id/textResultadosAcao2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#55B1FE"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemTextColor="#142755"
+        app:itemIconTint="#142755"
+        app:itemIconSize="35dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

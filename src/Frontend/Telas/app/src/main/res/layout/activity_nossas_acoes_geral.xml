@@ -147,23 +147,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageTroteSolidario" />
 
-        <Button
-            android:id="@+id/btnSaberMaisTrote"
-            android:layout_width="375dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="#FCBA51"
-            android:text="Saber mais"
-            android:textSize="22sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/poppins_bold"
-            app:layout_constraintBottom_toTopOf="@+id/textPascoaSolidaria"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTrote" />
+            <Button
+                android:id="@+id/btnSaberMaisTrote"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#FCBA51"
+                android:fontFamily="@font/poppins_bold"
+                android:onClick="mudarTelaTroteSolidario"
+                android:text="Saber mais"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/textPascoaSolidaria"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTrote" />
 
         <TextView
             android:id="@+id/textPascoaSolidaria"
@@ -213,24 +214,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePascoaSolidaria" />
 
-        <Button
-            android:id="@+id/btnSaberMaisPascoa"
-            android:layout_width="375dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="105dp"
-            android:backgroundTint="#FCBA51"
-            android:text="Saber mais"
-            android:textSize="22sp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/poppins_bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textPascoa"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            <Button
+                android:id="@+id/btnSaberMaisPascoa"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="105dp"
+                android:backgroundTint="#FCBA51"
+                android:fontFamily="@font/poppins_bold"
+                android:onClick="mudarTelaPascoaSolidaria"
+                android:text="Saber mais"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textPascoa" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

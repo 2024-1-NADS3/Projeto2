@@ -45,9 +45,28 @@ public class NossasAcoesGeral extends AppCompatActivity {
     }
 
 
+    /*
+     * Método para mudar para a tela AcaoHamburgada
+     */
     public void mudarTelaAcaoHamb(View view) {
         Intent mudarTelaAcaoHamb = new Intent(getApplicationContext(), AcaoHamburgada.class);
         startActivity(mudarTelaAcaoHamb);
+    }
+
+    /*
+     * Método para mudar para a tela AcaoTroteSolidario
+     */
+    public void mudarTelaTroteSolidario(View view) {
+        Intent mudarTelaTroteSolidario = new Intent(getApplicationContext(), AcaoTroteSolidario.class);
+        startActivity(mudarTelaTroteSolidario);
+    }
+
+    /*
+     * Método para mudar para a tela AcaoPascoaSolidaria
+     */
+    public void mudarTelaPascoaSolidaria(View view) {
+        Intent mudarTelaPascoaSolidaria = new Intent(getApplicationContext(), AcaoPascoaSolidaria.class);
+        startActivity(mudarTelaPascoaSolidaria);
     }
 
 }
