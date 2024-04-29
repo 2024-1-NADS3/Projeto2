@@ -1,120 +1,136 @@
 package com.example.telas_iniciais;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.Call;
-import okhttp3.OkHttpClient;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Callback;
-import okhttp3.Response;
-
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private final OkHttpClient usuario = new OkHttpClient();
+    private EditText editTextEmail;
+    private EditText editTextSenha;
+
+    String name, str;
+
+    connection connectionClass;
+    Connection con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        editTextEmail = findViewById(R.id.inputEmailLogin);
+        editTextSenha = findViewById(R.id.inputSenhaLogin);
+        connectionClass = new connection();
+
+        Button btnEntrar = findViewById(R.id.btnEntrar);
+        btnEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fazerLogin();
+            }
+        });
     }
-
-
 
     public void mudarTelaCadastro(View view) {
         Intent mudarTelaCadastro = new Intent(getApplicationContext(), CadastroActivity.class);
         startActivity(mudarTelaCadastro);
     }
 
-
     public void mudarTelaEsqueciSenha(View view) {
         Intent mudarTelaEsqueciSenha = new Intent(getApplicationContext(), EsqueciSenhaActivity.class);
         startActivity(mudarTelaEsqueciSenha);
     }
 
-    public void botaoEntrarLogin(View view) {
-        EditText inputEmailLogin, inputSenhaLogin;
-        String email, senha;
+    public class Login {
+        private int id;
+        private String email;
+        private String senha;
 
-        inputEmailLogin = findViewById(R.id.inputEmailLogin);
-        inputSenhaLogin = findViewById(R.id.inputSenhaLogin);
+        public Login(String email, String senha) {
+            this.email = email;
+            this.senha = senha;
+        }
 
-        email = inputEmailLogin.getText().toString();
-        senha = inputSenhaLogin.getText().toString();
+        public String getEmail() {
+            return email;
+        }
 
-        try {
-            postRequestLogin("https://7pkqm4-38883.csb.app/login", email, senha);
-        } catch (IOException e) {
-            e.printStackTrace();
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getSenha() {
+            return senha;
+        }
+
+        public void setSenha(String senha) {
+            this.senha = senha;
         }
     }
 
-    void postRequestLogin(String postUrl, String email, String senha) throws IOException {
+    private void fazerLogin() {
+        String email = editTextEmail.getText().toString().trim();
+        String senha = editTextSenha.getText().toString().trim();
 
-        RequestBody formBody = new FormBody.Builder()
-                .add("login", email)
-                .add("password", senha)
-                .build();
+        if (!email.isEmpty() && !senha.isEmpty()) {
+            Login login = new Login(email, senha);
 
-        Request request = new Request.Builder()
-                .url(postUrl)
-                .post(formBody)
-                .build();
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            executorService.execute(() -> {
+                try {
+                    con = connectionClass.CONN();
+                    if (con != null) {
+                        PreparedStatement statement = con.prepareStatement("SELECT * FROM cadastro WHERE email=? AND senha=?");
+                        statement.setString(1, login.getEmail());
+                        statement.setString(2, login.getSenha());
+                        ResultSet resultSet = statement.executeQuery();
 
-        usuario.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(() -> Toast.makeText(LoginActivity.this, "Erro na conexão com o servidor", Toast.LENGTH_SHORT).show());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    runOnUiThread(() -> Toast.makeText(LoginActivity.this, "Falha no login", Toast.LENGTH_SHORT).show());
-                } else {
-                    String responseBody = response.body().string();
-                    try {
-                        JSONObject json = new JSONObject(responseBody);
-                        String status = json.getString("status");
-
-                        if (status.equals("sucesso")) {
+                        if (resultSet.next()) {
+                            // Login bem-sucedido
                             runOnUiThread(() -> {
-                                Toast.makeText(LoginActivity.this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
                                 finish();
                             });
                         } else {
+                            // Login falhou - email ou senha incorretos
                             runOnUiThread(() -> {
-                                new AlertDialog.Builder(LoginActivity.this)
-                                        .setTitle("Erro de Login")
-                                        .setMessage("Email ou senha incorretos!!!")
-                                        .setPositiveButton(android.R.string.ok, null)
-                                        .setIcon(android.R.drawable.ic_dialog_alert)
-                                        .show();
+                                Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
                             });
-
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        runOnUiThread(() -> Toast.makeText(LoginActivity.this, "Erro ao processar a resposta do servidor", Toast.LENGTH_SHORT).show());
+
+                        resultSet.close();
+                        statement.close();
+                    } else {
+                        // Erro na conexão com o banco de dados
+                        runOnUiThread(() -> {
+                            Toast.makeText(this, "Erro na conexão com o banco de dados", Toast.LENGTH_SHORT).show();
+                        });
                     }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Erro durante o login: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
                 }
-            }
-        });
+            });
+        } else {
+            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+        }
     }
+
 }
