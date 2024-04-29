@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Login bem-sucedido
                             runOnUiThread(() -> {
                                 Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, suporte.class);
+                                Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
                                 finish();
                             });
