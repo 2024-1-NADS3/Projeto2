@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AcaoTroteSolidario">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconVoltar1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="-17dp"
+                android:layout_marginBottom="30dp"
+                android:onClick="voltarTelaAcaoGeral1"
+                android:contentDescription="Botão para voltar para a tela anterior"
+                app:layout_constraintBottom_toBottomOf="@+id/textTroteSolidario"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.040"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textTroteSolidario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="105dp"
+                android:text="Trote Solidário"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageTroteSolidario1"
+                android:layout_width="375dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/imagem_trote_solidario2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario" />
+
+            <TextView
+                android:id="@+id/textTroteSolidario1"
+                android:layout_width="370dp"
+                android:layout_height="305dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:justificationMode="inter_word"
+                android:text="O Trote Solidário é uma ação realizada pela FECAP Social em todo início  de semestre. \n\nSeu objetivo é promover na comunidade Alvarista a participação  em ações sociais, especialmente, os novos ingressantes de cada semestre da  FECAP.   É realizado na faculdade, com a participação dos alunos durante a  primeira ou segunda semana de aula dos calouros."
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageTroteSolidario1" />
+
+                <ImageView
+                    android:id="@+id/imageOndaTrote"
+                    android:layout_width="match_parent"
+                    android:layout_height="1950dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario1"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/fundo_onda_trote_solidario"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                android:id="@+id/textSubtituloTrote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="80dp"
+                android:text="TROTE SOLIDÁRIO 2024.1"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaTrote"
+                app:layout_constraintHorizontal_bias="0.059"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toTopOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/carrosselImagens"/>
+
+            <HorizontalScrollView
+                android:id="@+id/carrosselImagens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginStart="5dp"
+                android:scrollbars="none"
+                android:contentDescription="Carrossel de imagens do Trote Solidário 2024"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaTrote"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/imageOndaTrote"
+                app:layout_constraintTop_toTopOf="@id/imageOndaTrote"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="145dp"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_trote1" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_trote2" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_trote3" />
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_trote4" />
+
+                    <ImageView
+                        android:id="@+id/carrosselTrote5"
+                        android:layout_width="200dp"
+                        android:layout_height="145dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/carrossel_trote5" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/setaEsquerdaCarrossel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/arrow_esquerda_carrossel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/carrosselImagens"
+                app:layout_constraintBottom_toBottomOf="@+id/carrosselImagens" />
+
+            <ImageView
+                android:id="@+id/setaDireitaCarrossel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:srcCompat="@drawable/arrow_direita_carrossel"
+                android:layout_marginEnd="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/carrosselImagens"
+                app:layout_constraintBottom_toBottomOf="@+id/carrosselImagens"/>
+
+            <TextView
+                android:id="@+id/textTroteSolidario2"
+                android:layout_width="370dp"
+                android:layout_height="800dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Em razão das fortes chuvas em São Paulo, a FECAP Social se reuniu  para arrecadar doações em dinheiro, alimentos não perecíveis e itens de higiene,  para destinar às pessoas em situação de vulnerabilidade.  \n\nPara isso, foi realizada uma parceria com o Cambuci Solidário, uma ONG  que surgiu em 2019 da iniciativa da Sra. Adriana e seu esposo Sr. Ismael,  de  cederem sua residência para a produção de refeições aos moradores afetados  pelas enchentes. Hoje, o grupo produz mais de 500 marmitex toda semana para  distribuição.  \n\nAs arrecadações ocorreram durante os dias 04 a 08 de março, na FECAP,  pelos integrantes da FECAP Social e com  a participação de alunos e  professores da faculdade.  \n\nForam arrecadados mais de 30kg de alimentos, itens de higiene e  R$933,33. A entrega foi realizada dia 16 de março à Sra. Adriana e o Sr. Ismael.  \n\nAlém disso, foram realizados dois sorteios de kits exclusivos da FECAP  Social para todos que contribuíram.  "
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                app:layout_constraintEnd_toEndOf="@+id/imageOndaTrote"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/carrosselImagens" />
+
+            <TextView
+                android:id="@+id/textItensArrecadados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="35dp"
+                android:text="Itens arrecadados"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario2" />
+
+            <TextView
+                android:id="@+id/textAlimentos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="25dp"
+                android:text="Alimentos:"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/textItensArrecadados" />
+
+            <TextView
+                android:id="@+id/textListaAlimentos"
+                android:layout_width="375dp"
+                android:layout_height="370dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:text="• Açúcar – 1 unidade (1kg)\n• Arroz – 5 unidades (9kg)\n• Farinha de milho – 1 unidade (500g)\n• Feijão – 9 unidades (9kg)\n• Macarrão – 20 unidades (10kg)\n• Molho de tomate – 4 unidades (1,2Kg)\n• Polenta – 1 unidade (500g)\n• Rosquinha – 1 unidade (300g)\n• Sal – 1 unidade (1kg)\n• Seleta de legume – 2 unidades (560g)"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:lineSpacingMultiplier="1.5"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/textAlimentos" />
+
+            <TextView
+                android:id="@+id/textHigienePessoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="25dp"
+                android:text="Higiene Pessoal:"
+                android:textColor="#142755"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@+id/textListaAlimentos" />
+
+            <TextView
+                android:id="@+id/textListaHigienePessoal"
+                android:layout_width="375dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:text="• Absorvente – 6 unidades\n• Aparelho de barbear – 13 unidades\n• Creme dental – 37 unidades\n• Escova de dente – 6 unidades\n• Sabonetes – 39 unidades"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:lineSpacingMultiplier="1.5"
+                app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
+                app:layout_constraintTop_toBottomOf="@id/textHigienePessoal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#55B1FE"
+    android:layout_alignParentBottom="true"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    app:itemTextColor="#142755"
+    app:itemIconTint="#142755"
+    app:itemIconSize="35dp"
+    app:labelVisibilityMode="labeled"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/menu_nav"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
