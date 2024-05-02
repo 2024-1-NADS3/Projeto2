@@ -51,7 +51,7 @@
         android:layout_width="374dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Enviaremos um email com as instruções de como redefinir sua senha"
+        android:text="Informe seu e-mail para receber o código e redefinir sua senha"
         android:textColor="#142755"
         android:textStyle="bold"
         android:textSize="18sp"
