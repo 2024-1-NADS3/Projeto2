@@ -71,4 +71,9 @@ public class Home extends AppCompatActivity {
         Intent mudarTelaBotaoAcao = new Intent(getApplicationContext(), NossasAcoesGeral.class);
         startActivity(mudarTelaBotaoAcao);
     }
+
+    public void botaoConhecerMembros(View view) {
+        Intent mudarTelaBotaoConhecerMembros = new Intent(getApplicationContext(), sobrenos.class);
+        startActivity(mudarTelaBotaoConhecerMembros);
+    }
 }

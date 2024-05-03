@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SobreNos">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                android:id="@+id/textFecapSocial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginBottom="100dp"
+                android:text="A Fecap Social"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.028" />
+
+                <ImageView
+                android:id="@+id/Image_fecapsocial"
+                android:layout_width="370dp"
+                android:layout_height="203dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textFecapSocial"
+                app:srcCompat="@drawable/fecapsocial" />
+
+                 <TextView
+                android:id="@+id/text_fecapsocial2"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="18sp"
+                android:textColor="#142755"
+                android:text="A FECAP Social é uma organização estudantil da Fundação Escola de  Comércio Álvares Penteado (FECAP), formada por alunos de graduação dos cursos  da instituição, onde são divididos nas áreas de Comunicação, Financeiro e Projetos."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Image_fecapsocial" />
+
+
+
+                <TextView
+                android:id="@+id/text_fecapsocial3"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="18sp"
+                android:textColor="#142755"
+                android:text="Possui um portfólio com ações, que são realizadas durante o ano letivo,  buscando oferecer assistência a causas de vulnerabilidade social, que envolvem  Crianças e Adolescentes, Idosos, Mulheres, Moradores de Rua, Comunidade  LGBTQI+, Comunidade Negra e outros. "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial2" />
+
+                 <TextView
+                android:id="@+id/text_integrantes"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="30dp"
+                android:text="Conheça os Integrantes"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial3" />
+
+                <Button
+                android:id="@+id/botao1"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#FCBA51"
+                android:text="Presidente"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes" />
+
+                <Button
+                android:id="@+id/botao2"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#FCBA51"
+                android:text="Comunicação"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botao1" />
+
+                 <Button
+                android:id="@+id/botao3"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#FCBA51"
+                android:text="Projetos"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botao2" />
+
+                <Button
+                android:id="@+id/botao4"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="100dp"
+                android:backgroundTint="#FCBA51"
+                android:text="Financeiro"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botao3"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#55B1FE"
+                android:layout_alignParentBottom="true"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                app:itemTextColor="#142755"
+                app:itemIconTint="#142755"
+                app:itemIconSize="35dp"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/menu_nav"/>
+
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
