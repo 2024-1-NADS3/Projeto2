@@ -23,6 +23,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Activity responsável pelo cadastro de usuários.
+ */
 public class CadastroActivity extends AppCompatActivity {
 
     private static final long tempoDelayParaMudarTela = 3000;
@@ -36,11 +39,17 @@ public class CadastroActivity extends AppCompatActivity {
         filaRequest = Volley.newRequestQueue(this);
     }
 
+    /**
+     * Método para voltar para a tela de login quando o botão (ícone) "<" é clicado.
+     */
     public void voltarTelaLogin(View view) {
         Intent voltarTelaLogin = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(voltarTelaLogin);
     }
 
+    /**
+     * Método chamado quando o botão "Cadastrar" é clicado para cadastrar um usuário.
+     */
     public void BotaoCadastro(View view) {
         EditText inputNomeCadastro, inputEmailCadastro, inputSenhaCadastro, inputSenhaConfirme;
         String nome, email, senha, confirmeSenha;
@@ -87,6 +96,9 @@ public class CadastroActivity extends AppCompatActivity {
         realizarCadastro("https://twm93x-3000.csb.app/cadastro", usuario);
     }
 
+    /**
+     * Método para realizar o cadastro do usuário no servidor.
+     */
     void realizarCadastro(String postUrl, final Usuario usuario) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
@@ -116,7 +128,6 @@ public class CadastroActivity extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
                                 dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
                                 dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
-                                dadosCadastro.setIcon(R.drawable.alert_icon);
                                 dadosCadastro.create().show();
 
                                 new Handler().postDelayed(new Runnable() {

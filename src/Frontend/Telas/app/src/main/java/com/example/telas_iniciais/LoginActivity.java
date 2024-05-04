@@ -3,9 +3,7 @@ package com.example.telas_iniciais;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -24,25 +22,44 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Activity responsável pela tela de login do aplicativo Fecap Social.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
     }
 
+    /**
+     * Método para quando clicar no botão de voltar a tela "<", ir para a tela Configuração.
+     */
+    public void voltarTelaConfig(View view) {
+        Intent mudarTelaConfig = new Intent(getApplicationContext(), Config.class);
+        startActivity(mudarTelaConfig);
+    }
+
+    /**
+     * Método para quando clicar no botão "Realizar Cadastro", ir para a tela de CadastroActivity (Cadastro do Usuário)
+     */
     public void mudarTelaCadastro(View view) {
         Intent mudarTelaCadastro = new Intent(getApplicationContext(), CadastroActivity.class);
         startActivity(mudarTelaCadastro);
     }
 
+    /**
+     * Método para quando clicar no botão "Esqueceu a senha?", ir para a tela EsqueciSenhaActivity
+     */
     public void mudarTelaEsqueciSenha(View view) {
         Intent mudarTelaEsqueciSenha = new Intent(getApplicationContext(), EsqueciSenhaActivity.class);
         startActivity(mudarTelaEsqueciSenha);
     }
 
+    /**
+     * Método para quando clicar no botão "Entrar", realizar o login do usuário
+     */
     public void botaoEntrarLogin(View view) {
         EditText inputEmailLogin, inputSenhaLogin;
         String email, senha;
@@ -57,6 +74,9 @@ public class LoginActivity extends AppCompatActivity {
         realizarLogin("https://twm93x-3000.csb.app/login", usuario);
     }
 
+    /**
+     * Método para realizar a requisição de login ao servidor
+     */
     void realizarLogin(String postUrl, final Usuario usuario) {
         RequestQueue filaRequest = Volley.newRequestQueue(this);
 
@@ -70,12 +90,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (status.equals("sucesso")) {
                                 Toast.makeText(LoginActivity.this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
-
-                                // Extrair o ID do usuário retornado pelo servidor
-                                String idUsuario = json.getString("id_usuario");
-
-                                // Salvar o ID do usuário nas SharedPreferences
-                                salvarIdUsuarioPreferencias(idUsuario);
 
                                 Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
@@ -112,13 +126,5 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         filaRequest.add(stringRequest);
-    }
-
-    // Método para salvar o ID do usuário nas SharedPreferences
-    private void salvarIdUsuarioPreferencias(String idUsuario) {
-        SharedPreferences preferencias = getSharedPreferences("MinhasPreferencias", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editorPreferencias = preferencias.edit();
-        editorPreferencias.putString("id_usuario", idUsuario);
-        editorPreferencias.apply();
     }
 }

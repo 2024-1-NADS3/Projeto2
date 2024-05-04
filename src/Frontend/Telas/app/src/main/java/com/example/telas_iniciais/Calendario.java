@@ -14,6 +14,10 @@ public class Calendario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
 
+        /**
+         * Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal) e
+         * controla a navegação entre diferentes telas de acordo com os itens selecionados
+         */
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {

@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * Activity responsável pela tela da Ação Hamburgada
+ */
 public class AcaoHamburgada extends AppCompatActivity {
 
     @Override
@@ -15,6 +18,10 @@ public class AcaoHamburgada extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acao_hamburgada);
 
+        /**
+         * Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal) e
+         * controla a navegação entre diferentes telas de acordo com os itens selecionados
+         */
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -44,6 +51,9 @@ public class AcaoHamburgada extends AppCompatActivity {
         });
     }
 
+    /**
+     * Método chamado quando o botão voltar "<" é clicado para voltar para a tela de Nossas Ações Geral.
+     */
     public void voltarTelaAcaoGeral1(View view) {
         Intent voltarTelaAcaoGeral = new Intent(getApplicationContext(), NossasAcoesGeral.class);
         startActivity(voltarTelaAcaoGeral);
