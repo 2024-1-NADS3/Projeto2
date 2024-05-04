@@ -38,6 +38,10 @@ public class Home extends AppCompatActivity {
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
+        /**
+         * Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal) e
+         * controla a navegação entre diferentes telas de acordo com os itens selecionados
+         */
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {

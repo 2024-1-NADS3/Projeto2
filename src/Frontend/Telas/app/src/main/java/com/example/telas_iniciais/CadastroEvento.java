@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -16,7 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -25,6 +24,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Activity responsável pelo Cadastro de eventos da Fecap Social
+ */
 public class CadastroEvento extends AppCompatActivity {
 
     private static final long tempoDelayParaMudarTela = 3000;
@@ -39,12 +41,17 @@ public class CadastroEvento extends AppCompatActivity {
         filaRequest = Volley.newRequestQueue(this);
     }
 
-    /** função que faz voltar para a tela de perfil quando clicar no botão */
+    /**
+     * Método quando clicar no botão (ícone) para voltar para a tela de Perfil
+     */
     public void VoltarPerfil(View view){
         Intent VoltarPerfil = new Intent(getApplicationContext(), PerfilActivity.class);
         startActivity(VoltarPerfil);
     }
 
+    /**
+     * Método chamado quando o botão "Cadastrar" é clicado para cadastrar um evento.
+     */
     public void botaoCadastroEvento(View view) {
         EditText inputEvento, inputData, inputCidade, inputLogradouro, inputNumero;
         String evento, data, cidade, logradouro, numero;
@@ -61,9 +68,6 @@ public class CadastroEvento extends AppCompatActivity {
         logradouro = inputLogradouro.getText().toString();
         numero = inputNumero.getText().toString();
 
-        // Obter o idUsuarioLogado do SharedPreferences ou de onde você o armazenou
-        String idUsuarioLogado = obterIdUsuarioLogado();
-
         /*
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
          */
@@ -79,38 +83,34 @@ public class CadastroEvento extends AppCompatActivity {
 
         Evento eventoFecap = new Evento(evento, data, cidade, logradouro, numero);
 
-        realizarCadastroEvento("https://twm93x-3000.csb.app/cadastroEvento", eventoFecap, idUsuarioLogado);
+        realizarCadastroEvento("https://twm93x-3000.csb.app/cadastroEvento", eventoFecap);
     }
 
-    void realizarCadastroEvento(String postUrl, final Evento evento, String idUsuarioLogado) {
-        Map<String, String> dadosEvento = new HashMap<>();
-        dadosEvento.put("evento", evento.getEvento());
-        dadosEvento.put("data", evento.getData());
-        dadosEvento.put("cidade", evento.getCidade());
-        dadosEvento.put("logradouro", evento.getLogradouro());
-        dadosEvento.put("numero", evento.getNumero());
-        dadosEvento.put("idUsuarioLogado", idUsuarioLogado);
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, new JSONObject(dadosEvento),
-                new Response.Listener<JSONObject>() {
+    /**
+     * Método para realizar o cadastro do evento no servidor.
+     */
+    void realizarCadastroEvento(String postUrl, final Evento evento) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        // Aqui, 'response' é a resposta do servidor como um objeto JSON
-                        // Você pode processá-la conforme necessário
+                    public void onResponse(String response) {
+
                         try {
-                            if (response.getString("status").equals("success")) {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            if (jsonResponse.getString("status").equals("sucesso")) {
+
                                 // Registro bem-sucedido
                                 Toast.makeText(CadastroEvento.this, "Cadastro do evento bem-sucedido!", Toast.LENGTH_SHORT).show();
 
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroEvento.this);
                                 dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
                                 dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
-                                dadosCadastro.setIcon(R.drawable.alert_icon);
                                 dadosCadastro.create().show();
 
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
+                                        Log.d("CadastroEvento", "Mudando para a tela de perfil");
                                         Intent intent = new Intent(CadastroEvento.this, PerfilActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -118,7 +118,7 @@ public class CadastroEvento extends AppCompatActivity {
                                 }, tempoDelayParaMudarTela);
                             } else {
                                 // Exibir mensagem de erro
-                                String mensagemErro = response.getString("message");
+                                String mensagemErro = jsonResponse.getString("message");
                                 Toast.makeText(CadastroEvento.this, mensagemErro, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
@@ -130,21 +130,21 @@ public class CadastroEvento extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Imprime a mensagem de erro
-                        Log.e("VolleyError", error.toString());
-
-                        // Imprime a pilha de chamadas
-                        error.printStackTrace();
-                        // Falha no registro
                         Toast.makeText(CadastroEvento.this, "Erro ao cadastrar o evento", Toast.LENGTH_SHORT).show();
                     }
-                });
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> dadosEvento = new HashMap<>();
+                dadosEvento.put("evento", evento.getEvento());
+                dadosEvento.put("data", evento.getData());
+                dadosEvento.put("cidade", evento.getCidade());
+                dadosEvento.put("logradouro", evento.getLogradouro());
+                dadosEvento.put("numero", evento.getNumero());
+                return dadosEvento;
+            }
+        };
 
-        filaRequest.add(jsonObjectRequest);
-    }
-
-    public String obterIdUsuarioLogado() {
-        SharedPreferences sharedPreferences = getSharedPreferences("PreferenciaUsuario", MODE_PRIVATE);
-        return sharedPreferences.getString("id_user", "");
+        filaRequest.add(stringRequest);
     }
 }
