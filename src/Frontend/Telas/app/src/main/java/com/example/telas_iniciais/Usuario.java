@@ -10,8 +10,6 @@ public class Usuario implements Serializable {
 
     protected String senha;
 
-    protected String emailEsqueceu;
-
     public String getNome() {
         return nome;
     }
@@ -36,22 +34,18 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public String getEmailEsqueceu() {
-        return emailEsqueceu;
-    }
-
-    public void setEmailEsqueceu(String emailEsqueceu) {
-        this.emailEsqueceu = emailEsqueceu;
-    }
-
     public Usuario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
     }
 
-    public Usuario(String emailEsqueceu) {
-        this.emailEsqueceu = emailEsqueceu;
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
     }
 
+    public Usuario(String email) {
+        this.email = email;
+    }
 }

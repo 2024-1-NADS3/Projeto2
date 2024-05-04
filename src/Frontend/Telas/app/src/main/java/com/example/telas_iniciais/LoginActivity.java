@@ -1,47 +1,36 @@
 package com.example.telas_iniciais;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private EditText editTextEmail;
-    private EditText editTextSenha;
-
-    String name, str;
-
-    connection connectionClass;
-    Connection con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextEmail = findViewById(R.id.inputEmailLogin);
-        editTextSenha = findViewById(R.id.inputSenhaLogin);
-        connectionClass = new connection();
-
-        Button btnEntrar = findViewById(R.id.btnEntrar);
-        btnEntrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fazerLogin();
-            }
-        });
     }
 
     public void mudarTelaCadastro(View view) {
@@ -54,83 +43,82 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(mudarTelaEsqueciSenha);
     }
 
-    public class Login {
-        private int id;
-        private String email;
-        private String senha;
+    public void botaoEntrarLogin(View view) {
+        EditText inputEmailLogin, inputSenhaLogin;
+        String email, senha;
 
-        public Login(String email, String senha) {
-            this.email = email;
-            this.senha = senha;
-        }
+        inputEmailLogin = findViewById(R.id.inputEmailLogin);
+        inputSenhaLogin = findViewById(R.id.inputSenhaLogin);
 
-        public String getEmail() {
-            return email;
-        }
+        email = inputEmailLogin.getText().toString();
+        senha = inputSenhaLogin.getText().toString();
 
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getSenha() {
-            return senha;
-        }
-
-        public void setSenha(String senha) {
-            this.senha = senha;
-        }
+        Usuario usuario = new Usuario(email, senha);
+        realizarLogin("https://twm93x-3000.csb.app/login", usuario);
     }
 
-    private void fazerLogin() {
-        String email = editTextEmail.getText().toString().trim();
-        String senha = editTextSenha.getText().toString().trim();
+    void realizarLogin(String postUrl, final Usuario usuario) {
+        RequestQueue filaRequest = Volley.newRequestQueue(this);
 
-        if (!email.isEmpty() && !senha.isEmpty()) {
-            Login login = new Login(email, senha);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            String status = json.getString("status");
 
-            ExecutorService executorService = Executors.newSingleThreadExecutor();
-            executorService.execute(() -> {
-                try {
-                    con = connectionClass.CONN();
-                    if (con != null) {
-                        PreparedStatement statement = con.prepareStatement("SELECT * FROM cadastro WHERE email=? AND senha=?");
-                        statement.setString(1, login.getEmail());
-                        statement.setString(2, login.getSenha());
-                        ResultSet resultSet = statement.executeQuery();
+                            if (status.equals("sucesso")) {
+                                Toast.makeText(LoginActivity.this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
 
-                        if (resultSet.next()) {
-                            // Login bem-sucedido
-                            runOnUiThread(() -> {
-                                Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
+                                // Extrair o ID do usuário retornado pelo servidor
+                                String idUsuario = json.getString("id_usuario");
+
+                                // Salvar o ID do usuário nas SharedPreferences
+                                salvarIdUsuarioPreferencias(idUsuario);
+
                                 Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
                                 finish();
-                            });
-                        } else {
-                            // Login falhou - email ou senha incorretos
-                            runOnUiThread(() -> {
-                                Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
-                            });
+                            } else {
+                                AlertDialog.Builder dadosLogin = new AlertDialog.Builder(LoginActivity.this);
+                                dadosLogin.setTitle("Erro de Login");
+                                dadosLogin.setMessage("Email ou senha incorretos!!!");
+                                dadosLogin.setPositiveButton(android.R.string.ok, null);
+                                dadosLogin.setIcon(R.drawable.alert_icon);
+                                dadosLogin.create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(LoginActivity.this, "Erro ao processar a resposta do servidor", Toast.LENGTH_SHORT).show();
                         }
-
-                        resultSet.close();
-                        statement.close();
-                    } else {
-                        // Erro na conexão com o banco de dados
-                        runOnUiThread(() -> {
-                            Toast.makeText(this, "Erro na conexão com o banco de dados", Toast.LENGTH_SHORT).show();
-                        });
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    runOnUiThread(() -> {
-                        Toast.makeText(this, "Erro durante o login: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(LoginActivity.this, "Erro na conexão com o servidor", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            });
-        } else {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-        }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> dadosDoUsuario = new HashMap<String, String>();
+                dadosDoUsuario.put("login", usuario.getEmail());
+                dadosDoUsuario.put("password", usuario.getSenha());
+
+                return dadosDoUsuario;
+            }
+        };
+
+        filaRequest.add(stringRequest);
     }
 
+    // Método para salvar o ID do usuário nas SharedPreferences
+    private void salvarIdUsuarioPreferencias(String idUsuario) {
+        SharedPreferences preferencias = getSharedPreferences("MinhasPreferencias", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editorPreferencias = preferencias.edit();
+        editorPreferencias.putString("id_usuario", idUsuario);
+        editorPreferencias.apply();
+    }
 }

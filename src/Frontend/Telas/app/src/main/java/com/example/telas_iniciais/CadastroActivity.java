@@ -7,153 +7,150 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.SQLNonTransientConnectionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CadastroActivity extends AppCompatActivity {
 
-    connection connectionClass;
-    Connection con;
-    ResultSet rs;
-    String name, str;
-
-
-    private EditText editTextNome;
-    private EditText editTextEmail;
-    private EditText editTextSenha;
+    private static final long tempoDelayParaMudarTela = 3000;
+    private RequestQueue filaRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-        connectionClass = new connection();
 
-        editTextNome = findViewById(R.id.inputNomeCadastro);
-        editTextEmail = findViewById(R.id.inputEmailCadastro);
-        editTextSenha = findViewById(R.id.inputSenhaCadastro);
-
-        Button buttonCadastrar = findViewById(R.id.btnCadastrar);
-        buttonCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastrarUsuario();
-            }
-        });
+        filaRequest = Volley.newRequestQueue(this);
     }
 
     public void voltarTelaLogin(View view) {
-        Intent voltarTelaLogin = new Intent(getApplicationContext(), MainActivity.class);
+        Intent voltarTelaLogin = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(voltarTelaLogin);
     }
 
-    public static class MySQLConnection {
-        private static final String URL = "dbc:mysql://fecapsocialbd.mysql.database.azure.com:3306/fecapsocialdb";
-        private static final String USER = "fecapsocial@fecapsocialbd";
-        private static final String PASSWORD = "Hamburgada@";
+    public void BotaoCadastro(View view) {
+        EditText inputNomeCadastro, inputEmailCadastro, inputSenhaCadastro, inputSenhaConfirme;
+        String nome, email, senha, confirmeSenha;
 
-        public static Connection getConnection() throws SQLException {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                return DriverManager.getConnection(URL, USER, PASSWORD);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                throw new SQLException("MySQL JDBC driver não encontrado.", e);
+        inputNomeCadastro = findViewById(R.id.inputNomeCadastro);
+        inputEmailCadastro = findViewById(R.id.inputEmailCadastro);
+        inputSenhaCadastro = findViewById(R.id.inputSenhaCadastro);
+        inputSenhaConfirme = findViewById(R.id.inputSenhaConfirme);
+
+        nome = inputNomeCadastro.getText().toString();
+        email = inputEmailCadastro.getText().toString();
+        senha = inputSenhaCadastro.getText().toString();
+        confirmeSenha = inputSenhaConfirme.getText().toString();
+
+        /*
+         * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
+         */
+        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmeSenha.isEmpty()) {
+            AlertDialog.Builder camposVazios = new AlertDialog.Builder(CadastroActivity.this);
+            camposVazios.setTitle("Erro");
+            camposVazios.setMessage("Todos os campos devem ser preenchidos");
+            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setIcon(R.drawable.alert_icon);
+            camposVazios.create().show();
+            return;
+        }
+
+        /*
+         * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
+         */
+        if (!senha.equals(confirmeSenha)) {
+            AlertDialog.Builder senhaConfirme = new AlertDialog.Builder(CadastroActivity.this);
+            senhaConfirme.setTitle("Erro");
+            senhaConfirme.setMessage("As senhas inseridas não coincidem");
+            senhaConfirme.setPositiveButton(android.R.string.ok, null);
+            senhaConfirme.setIcon(R.drawable.alert_icon);
+            senhaConfirme.create().show();
+            return;
+        }
+
+
+        Usuario usuario = new Usuario(nome, email, senha);
+
+        realizarCadastro("https://twm93x-3000.csb.app/cadastro", usuario);
+    }
+
+    void realizarCadastro(String postUrl, final Usuario usuario) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            // Converte a resposta em um objeto JSON
+                            JSONObject jsonResponse = new JSONObject(response);
+
+                            // Obtém a mensagem da resposta
+                            String message = jsonResponse.getString("message");
+
+                            if(message.equals("Email já cadastrado!")){
+                                Toast.makeText(CadastroActivity.this, "E-mail já cadastrado!", Toast.LENGTH_SHORT).show();
+
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
+                                dadosCadastro.setTitle("Erro!!!");
+                                dadosCadastro.setMessage("Email já cadastrado!");
+                                dadosCadastro.setIcon(R.drawable.alert_icon);
+                                dadosCadastro.setNegativeButton("Tentar Novamente", null);
+                                dadosCadastro.create().show();
+                            } else{
+                                // Registro bem-sucedido
+                                Toast.makeText(CadastroActivity.this, "Cadastro bem-sucedido!", Toast.LENGTH_SHORT).show();
+
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
+                                dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
+                                dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
+                                dadosCadastro.setIcon(R.drawable.alert_icon);
+                                dadosCadastro.create().show();
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }, tempoDelayParaMudarTela);
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Falha no registro
+                        Toast.makeText(CadastroActivity.this, "Erro ao se cadastrar", Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> dadosDoUsuario = new HashMap<String, String>();
+                dadosDoUsuario.put("nome", usuario.getNome());
+                dadosDoUsuario.put("email", usuario.getEmail());
+                dadosDoUsuario.put("senha", usuario.getSenha());
+                return dadosDoUsuario;
             }
-        }
+        };
+
+        filaRequest.add(stringRequest);
     }
-
-    public class Cadastro {
-        private int id;
-        private String nome;
-        private String email;
-        private String senha;
-
-        public Cadastro(String nome, String email, String senha) {
-            this.nome = nome;
-            this.email = email;
-            this.senha = senha;
-        }
-
-        public String getNome() {
-            return nome;
-        }
-
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getSenha() {
-            return senha;
-        }
-
-        public void setSenha(String senha) {
-            this.senha = senha;
-        }
-    }
-
-    private void cadastrarUsuario() {
-        String nome = editTextNome.getText().toString().trim();
-        String email = editTextEmail.getText().toString().trim();
-        String senha = editTextSenha.getText().toString().trim();
-
-        if (!nome.isEmpty() && !email.isEmpty() && !senha.isEmpty()) {
-            Cadastro cadastro = new Cadastro(nome, email, senha);
-
-            ExecutorService executorService = Executors.newSingleThreadExecutor();
-            executorService.execute(() -> {
-                try {
-                    con = connectionClass.CONN();
-                    if (con != null) {
-                        PreparedStatement statement = con.prepareStatement("INSERT INTO cadastro (nome, email, senha) VALUES (?, ?, ?)");
-                        statement.setString(1, cadastro.getNome());
-                        statement.setString(2, cadastro.getEmail());
-                        statement.setString(3, cadastro.getSenha());
-                        statement.executeUpdate();
-                        statement.close();
-                        str = "Usuário cadastrado com sucesso!";
-                    } else {
-                        str = "Erro na conexão";
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    str = "Erro ao cadastrar usuário: " + e.getMessage();
-                }
-
-                runOnUiThread(() -> {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Toast.makeText(this, str, Toast.LENGTH_LONG).show();
-                });
-            });
-        } else {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-
-
-
 }
-

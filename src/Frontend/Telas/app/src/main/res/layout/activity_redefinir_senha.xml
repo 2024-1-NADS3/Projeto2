@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RedefinirSenhaActivity">
 
     <ImageView
-        android:id="@+id/iconVoltar01"
+        android:id="@+id/iconVoltarTelaLogin"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="22dp"
-        android:layout_marginBottom="30dp"
         android:contentDescription="Botão para voltar para a tela anterior"
+        android:onClick="voltarTelaEsqueceuSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.040"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,104 +28,108 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iconVoltar01"
+        app:layout_constraintTop_toTopOf="@+id/iconVoltarTelaLogin"
         app:srcCompat="@drawable/logo_fecap_social" />
 
     <TextView
-        android:id="@+id/textLogin"
-        android:layout_width="wrap_content"
+        android:id="@+id/textRedefinirSenha"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Login"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="13dp"
+        android:text="Redefinir senha"
         android:textColor="#142755"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintTop_toBottomOf="@+id/logofecap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/inputEmailLogin"
-        android:layout_width="375dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="10dp"
-        android:paddingStart="12dp"
-        android:textSize="18sp"
-        android:textColorHint="#142755"
-        android:background="@drawable/borderradius"
-        android:hint="Digite seu email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLogin" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputSenhaLogin"
+        android:id="@+id/inputToken"
         android:layout_width="375dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
+        android:paddingStart="12dp"
+        android:textSize="18sp"
+        android:textColorHint="#142755"
+        android:fontFamily="@font/poppins_regular_"
+        android:background="@drawable/borderradius"
+        android:hint="Token enviado por email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRedefinirSenha" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textNovaSenha"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:textColorHint="#142755"
         app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin">
+        app:layout_constraintTop_toBottomOf="@+id/inputToken" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputSenhaLogin"
+            android:id="@+id/inputNovaSenha"
             android:layout_width="375dp"
             android:layout_height="70dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
-            android:textColorHint="#142755"
+            android:fontFamily="@font/poppins_regular_"
             android:background="@drawable/borderradius"
-            android:hint="Digite sua senha"
-            android:inputType="textPassword" />
+            android:hint="Digite sua nova senha"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textNovaSenhaConfirmar"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:textColorHint="#142755"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNovaSenha" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNovaSenhaConfirmar"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:paddingStart="12dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular_"
+            android:background="@drawable/borderradius"
+            android:hint="Confirmar nova senha"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnCadastrar"
         android:layout_width="375dp"
         android:layout_height="54dp"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="#FCBA51"
-        android:text="Entrar"
+        android:onClick="botaoRedefinirSenha"
+        android:text="Redefinir senha"
         android:textAllCaps="false"
         android:textSize="22sp"
-        android:onClick="botaoEntrarLogin"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputSenhaLogin" />
-
-    <TextView
-        android:id="@+id/textRealizarCadastro"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:padding="4dp"
-        android:onClick="mudarTelaCadastro"
-        android:text="Realizar Cadastro"
-        android:textColor="#142755"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="8dp"
-        android:padding="4dp"
-        android:onClick="mudarTelaEsqueciSenha"
-        android:text="Esqueceu senha?"
-        android:textColor="#142755"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textNovaSenhaConfirmar"
+        app:layout_constraintVertical_bias="0.022" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,151 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroActivity">
+    android:layout_width="match_parent">
 
-    <ImageView
-        android:id="@+id/iconVoltarTelaLogin"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="22dp"
-        android:contentDescription="Botão para voltar para a tela anterior"
-        android:onClick="voltarTelaLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.040"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_back"
-        tools:ignore="MissingConstraints" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CadastroActivity">
 
-    <ImageView
-        android:id="@+id/logofecap"
-        android:layout_width="190dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iconVoltarTelaLogin"
-        app:srcCompat="@drawable/logo_fecap_social" />
+        <ImageView
+            android:id="@+id/iconVoltarTelaLogin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="22dp"
+            android:contentDescription="Botão para voltar para a tela anterior"
+            android:onClick="voltarTelaLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.040"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow_back"
+            tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textCadastro"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginStart="13dp"
-        android:text="Cadastre-se"
-        android:textColor="#142755"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/logofecap"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/logofecap"
+            android:layout_width="190dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iconVoltarTelaLogin"
+            app:srcCompat="@drawable/logo_fecap_social" />
 
-    <TextView
-        android:id="@+id/textNomeCadastro"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="16dp"
-        android:text="Nome"
-        android:textColor="#142755"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/textCadastro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/textCadastro"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="13dp"
+            android:text="Cadastre-se"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/logofecap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/inputNomeCadastro"
-        android:layout_width="375dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:paddingStart="12dp"
-        android:textSize="18sp"
-        android:textColorHint="#142755"
-        android:background="@drawable/borderradius"
-        android:hint="Digite seu nome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNomeCadastro" />
+        <TextView
+            android:id="@+id/textNomeCadastro"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="16dp"
+            android:text="Nome"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/textCadastro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textEmailCadastro"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="18dp"
-        android:text="Email"
-        android:textColor="#142755"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/inputNomeCadastro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+            android:id="@+id/inputNomeCadastro"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="12dp"
+            android:textSize="18sp"
+            android:textColorHint="#142755"
+            android:background="@drawable/borderradius"
+            android:hint="Digite seu nome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textNomeCadastro" />
 
-    <EditText
-        android:id="@+id/inputEmailCadastro"
-        android:layout_width="375dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:paddingStart="12dp"
-        android:textSize="18sp"
-        android:textColorHint="#142755"
-        android:background="@drawable/borderradius"
-        android:hint="Digite seu email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmailCadastro" />
+        <TextView
+            android:id="@+id/textEmailCadastro"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="18dp"
+            android:text="Email"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/inputNomeCadastro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textSenhaCadastro"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="18dp"
-        android:text="Senha"
-        android:textColor="#142755"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmailCadastro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+            android:id="@+id/inputEmailCadastro"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:paddingStart="12dp"
+            android:textSize="18sp"
+            android:textColorHint="#142755"
+            android:background="@drawable/borderradius"
+            android:hint="Digite seu email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textEmailCadastro" />
 
-    <EditText
-        android:id="@+id/inputSenhaCadastro"
-        android:layout_width="375dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:paddingStart="12dp"
-        android:textSize="18sp"
-        android:textColorHint="#142755"
-        android:background="@drawable/borderradius"
-        android:hint="Digite sua senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSenhaCadastro" />
+        <TextView
+            android:id="@+id/textSenhaCadastro"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="18dp"
+            android:text="Senha"
+            android:textColor="#142755"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/inputEmailCadastro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="375dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#FCBA51"
-        android:onClick="BotaoCadastro"
-        android:text="Cadastrar"
-        android:textAllCaps="false"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSenhaCadastro"
-        app:layout_constraintVertical_bias="0.022" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputSenha"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:textColorHint="#142755"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSenhaCadastro">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputSenhaCadastro"
+                android:layout_width="375dp"
+                android:layout_height="70dp"
+                android:paddingStart="12dp"
+                android:textSize="18sp"
+                android:background="@drawable/borderradius"
+                android:hint="Digite sua senha"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputSenhaConfirme"
+            android:layout_width="375dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:textColorHint="#142755"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputSenha">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputSenhaConfirme"
+                android:layout_width="375dp"
+                android:layout_height="70dp"
+                android:paddingStart="12dp"
+                android:textSize="18sp"
+                android:background="@drawable/borderradius"
+                android:hint="Confirme sua senha"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="375dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="#FCBA51"
+            android:onClick="BotaoCadastro"
+            android:text="Cadastrar"
+            android:textAllCaps="false"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputSenhaConfirme"
+            app:layout_constraintVertical_bias="0.022" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

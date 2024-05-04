@@ -4,178 +4,147 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.SQLNonTransientConnectionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class CadastroEvento extends AppCompatActivity {
 
-    connection connectionClass;
-    Connection con;
-    ResultSet rs;
-    String name, str;
+    private static final long tempoDelayParaMudarTela = 3000;
 
-    /** declaracao de variáveis */
-
-    private EditText editTextNomeEvento;
-    private EditText editTextDataEvento;
-    private EditText editTextLogradouro;
-    private EditText editTextNumLogradouro;
-    private EditText editTextCidade;
+    private RequestQueue filaRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_evento);
-        
-        /** instancia a classe connection, onde estão todas as credenciais do bd */
-        connectionClass = new connection();
 
-        editTextNomeEvento = findViewById(R.id.editTextTextPersonName);
-        editTextDataEvento = findViewById(R.id.editTextTextPersonName2);
-        editTextLogradouro = findViewById(R.id.editTextTextPersonName4);
-        editTextNumLogradouro = findViewById(R.id.editTextTextPersonName5);
-        editTextCidade = findViewById(R.id.editTextTextPersonName3);
-
-        Button buttonCadastrar = findViewById(R.id.btnCadastrarEv);
-        buttonCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastrarEvento();
-            }
-        });
+        filaRequest = Volley.newRequestQueue(this);
     }
 
     /** função que faz voltar para a tela de perfil quando clicar no botão */
     public void VoltarPerfil(View view){
         Intent VoltarPerfil = new Intent(getApplicationContext(), PerfilActivity.class);
         startActivity(VoltarPerfil);
-
     }
-    /** gets e sets de cada variável */
-    public class CadastroEventoGetsSets {
-        private String nomeEvento;
-        private String dataEvento;
-        private String cidade;
-        private String logradouro;
-        private String logradouroNum;
 
+    public void botaoCadastroEvento(View view) {
+        EditText inputEvento, inputData, inputCidade, inputLogradouro, inputNumero;
+        String evento, data, cidade, logradouro, numero;
 
-        public CadastroEventoGetsSets(String nomeEvento, String dataEvento, String cidade ,String logradouro, String logradouroNum) {
-            this.nomeEvento = nomeEvento;
-            this.dataEvento = dataEvento;
-            this.cidade = cidade;
-            this.logradouro = logradouro;
-            this.logradouroNum = logradouroNum;
+        inputEvento = findViewById(R.id.evento);
+        inputData = findViewById(R.id.data);
+        inputCidade = findViewById(R.id.cidade);
+        inputLogradouro = findViewById(R.id.logradouro);
+        inputNumero = findViewById(R.id.numero);
 
+        evento = inputEvento.getText().toString();
+        data = inputData.getText().toString();
+        cidade = inputCidade.getText().toString();
+        logradouro = inputLogradouro.getText().toString();
+        numero = inputNumero.getText().toString();
+
+        // Obter o idUsuarioLogado do SharedPreferences ou de onde você o armazenou
+        String idUsuarioLogado = obterIdUsuarioLogado();
+
+        /*
+         * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
+         */
+        if (evento.isEmpty() || data.isEmpty() || cidade.isEmpty() || logradouro.isEmpty() || numero.isEmpty()) {
+            AlertDialog.Builder camposVazios = new AlertDialog.Builder(CadastroEvento.this);
+            camposVazios.setTitle("Erro");
+            camposVazios.setMessage("Todos os campos devem ser preenchidos");
+            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setIcon(R.drawable.alert_icon);
+            camposVazios.create().show();
+            return;
         }
 
-        public String getnomeEvento() {
-            return nomeEvento;
-        }
+        Evento eventoFecap = new Evento(evento, data, cidade, logradouro, numero);
 
-        public void setnomeEvento(String nomeEvento) {
-            this.nomeEvento = nomeEvento;
-        }
+        realizarCadastroEvento("https://twm93x-3000.csb.app/cadastroEvento", eventoFecap, idUsuarioLogado);
+    }
 
+    void realizarCadastroEvento(String postUrl, final Evento evento, String idUsuarioLogado) {
+        Map<String, String> dadosEvento = new HashMap<>();
+        dadosEvento.put("evento", evento.getEvento());
+        dadosEvento.put("data", evento.getData());
+        dadosEvento.put("cidade", evento.getCidade());
+        dadosEvento.put("logradouro", evento.getLogradouro());
+        dadosEvento.put("numero", evento.getNumero());
+        dadosEvento.put("idUsuarioLogado", idUsuarioLogado);
 
-        public String getdataEvento() {
-            return dataEvento;
-        }
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, new JSONObject(dadosEvento),
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // Aqui, 'response' é a resposta do servidor como um objeto JSON
+                        // Você pode processá-la conforme necessário
+                        try {
+                            if (response.getString("status").equals("success")) {
+                                // Registro bem-sucedido
+                                Toast.makeText(CadastroEvento.this, "Cadastro do evento bem-sucedido!", Toast.LENGTH_SHORT).show();
 
-        public void setdataEvento(String dataEvento) {
-            this.dataEvento = dataEvento;
-        }
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroEvento.this);
+                                dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
+                                dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
+                                dadosCadastro.setIcon(R.drawable.alert_icon);
+                                dadosCadastro.create().show();
 
-
-        public String getcidade() {
-            return cidade;
-        }
-
-        public void setcidade(String cidade) {
-            this.cidade = cidade;
-        }
-
-
-        public String getlogradouro() {
-            return logradouro;
-        }
-
-        public void setlogradouro(String logradouro) {
-            this.logradouro = logradouro;
-        }
-
-
-        public String getlogradouroNum() {
-            return logradouroNum;
-        }
-
-        public void setlogradouroNum(String logradouroNum) {
-            this.logradouroNum = logradouroNum;
-        }
-
-        }
-
-    /** Função para cadastro do evento */
-    private void cadastrarEvento() {
-        /** Pega o input do usuário, transforma em texto e remove espaços em branco */
-        String nomeEvento = editTextNomeEvento.getText().toString().trim();
-        String dataEvento = editTextDataEvento.getText().toString().trim();
-        String cidade = editTextLogradouro.getText().toString().trim();
-        String logradouro = editTextNumLogradouro.getText().toString().trim();
-        String logradouroNum = editTextCidade.getText().toString().trim();
-
-
-        if (!nomeEvento.isEmpty() && !dataEvento.isEmpty() && !cidade.isEmpty() && !logradouro.isEmpty() && !logradouroNum.isEmpty()) {
-            CadastroEventoGetsSets CadastroEventoGetsSets = new CadastroEventoGetsSets(nomeEvento, dataEvento, cidade, logradouro, logradouroNum);
-
-            ExecutorService executorService = Executors.newSingleThreadExecutor();
-            executorService.execute(() -> {
-                try {
-                    con = connectionClass.CONN();
-                    if (con != null) {
-                        PreparedStatement statement = con.prepareStatement("INSERT INTO eventos (nome_evento, data_evento, logradouro, cidade, numero_logradouro) VALUES (?, ?, ?, ?, ?)");
-                        statement.setString(1, CadastroEventoGetsSets.getnomeEvento());
-                        statement.setString(2, CadastroEventoGetsSets.getdataEvento());
-                        statement.setString(3, CadastroEventoGetsSets.getlogradouro());
-                        statement.setString(4, CadastroEventoGetsSets.getcidade());
-                        statement.setString(5, CadastroEventoGetsSets.getlogradouroNum());
-                        statement.executeUpdate();
-                        statement.close();
-                        str = "Usuário cadastrado com sucesso!";
-                    } else {
-                        str = "Erro na conexão";
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(CadastroEvento.this, PerfilActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }, tempoDelayParaMudarTela);
+                            } else {
+                                // Exibir mensagem de erro
+                                String mensagemErro = response.getString("message");
+                                Toast.makeText(CadastroEvento.this, mensagemErro, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(CadastroEvento.this, "Erro ao processar resposta do servidor", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    str = "Erro ao cadastrar usuário: " + e.getMessage();
-                }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Imprime a mensagem de erro
+                        Log.e("VolleyError", error.toString());
 
-                runOnUiThread(() -> {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        // Imprime a pilha de chamadas
+                        error.printStackTrace();
+                        // Falha no registro
+                        Toast.makeText(CadastroEvento.this, "Erro ao cadastrar o evento", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(this, str, Toast.LENGTH_LONG).show();
                 });
-            });
-        } else {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-        }
+
+        filaRequest.add(jsonObjectRequest);
     }
 
-
-
+    public String obterIdUsuarioLogado() {
+        SharedPreferences sharedPreferences = getSharedPreferences("PreferenciaUsuario", MODE_PRIVATE);
+        return sharedPreferences.getString("id_user", "");
+    }
 }
