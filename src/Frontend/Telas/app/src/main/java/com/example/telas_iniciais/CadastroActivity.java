@@ -3,9 +3,12 @@ package com.example.telas_iniciais;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,6 +40,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         filaRequest = Volley.newRequestQueue(this);
+
     }
 
     /**
@@ -111,6 +115,9 @@ public class CadastroActivity extends AppCompatActivity {
 
                             // Obtém a mensagem da resposta
                             String message = jsonResponse.getString("message");
+                            String nomeUsuario = jsonResponse.getString("nome_usuario");
+
+                            salvarNomeUsuario(nomeUsuario);
 
                             if(message.equals("Email já cadastrado!")){
                                 Toast.makeText(CadastroActivity.this, "E-mail já cadastrado!", Toast.LENGTH_SHORT).show();
@@ -163,5 +170,20 @@ public class CadastroActivity extends AppCompatActivity {
         };
 
         filaRequest.add(stringRequest);
+    }
+
+    /**
+     * Método para salvar o nome do usuário para ser usada na tela de Perfil
+     */
+    private void salvarNomeUsuario(String nome) {
+        SharedPreferences preferencias = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("nome_usuario", nome);
+        editor.apply();
+
+        Log.d("DEBUG", "Nome do usuário recuperado: " + nome);
+
+        Log.d("CadastroActivity", "Nome do usuário salvo com sucesso: " + nome);
+
     }
 }
