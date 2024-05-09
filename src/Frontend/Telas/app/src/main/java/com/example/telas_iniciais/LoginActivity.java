@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -74,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         senha = inputSenhaLogin.getText().toString();
 
         Usuario usuario = new Usuario(email, senha);
-        realizarLogin("https://twm93x-3000.csb.app/login", usuario);
+        realizarLogin("https://4nqjkx-3000.csb.app/login", usuario);
     }
 
     /**
@@ -94,18 +93,12 @@ public class LoginActivity extends AppCompatActivity {
                             if (status.equals("sucesso")) {
                                 Toast.makeText(LoginActivity.this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show();
 
-                                // Extrair o ID do usuário retornado pelo servidor
+                                // Recupera o nome do usuário retornado pelo servidor
                                 String idUsuario = json.getString("id_usuario");
                                 String emailUsuario = json.getString("email_usuario");
-
-                                // Recuperar o nome do usuário retornado pelo servidor
                                 String nomeUsuario = json.getString("nome_usuario");
 
-                                // Exibir o nome do usuário recuperado no Logcat
-                                Log.d("LoginActivity", "Nome do usuário recuperado: " + nomeUsuario);
-
-                                // Salvar o ID do usuário nas SharedPreferences
-                                salvarDadosUsuarioPreferencias(idUsuario, emailUsuario);
+                                salvarDadosUsuarioPreferencias(idUsuario, emailUsuario, nomeUsuario);
 
                                 Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
@@ -148,11 +141,12 @@ public class LoginActivity extends AppCompatActivity {
      * Método para salvar o ID e o email do usuário para ser usado na tela de Perfil
      */
 
-    private void salvarDadosUsuarioPreferencias(String idUsuario, String emailUsuario) {
+    private void salvarDadosUsuarioPreferencias(String idUsuario, String emailUsuario, String nomeUsuario) {
         SharedPreferences preferencias = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
         SharedPreferences.Editor editorPreferencias = preferencias.edit();
         editorPreferencias.putString("id_usuario", idUsuario);
         editorPreferencias.putString("email_usuario", emailUsuario);
+        editorPreferencias.putString("nome_usuario", nomeUsuario);
         editorPreferencias.apply();
     }
 }

@@ -44,7 +44,7 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
         String novaSenha = inputNovaSenha.getText().toString();
         String token = inputToken.getText().toString();
 
-        String url = "https://twm93x-3000.csb.app/redefinir-senha";
+        String url = "https://4nqjkx-3000.csb.app/redefinir-senha";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

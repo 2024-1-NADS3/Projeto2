@@ -3,12 +3,9 @@ package com.example.telas_iniciais;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -68,7 +65,7 @@ public class CadastroActivity extends AppCompatActivity {
         senha = inputSenhaCadastro.getText().toString();
         confirmeSenha = inputSenhaConfirme.getText().toString();
 
-        /**
+        /*
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
          */
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmeSenha.isEmpty()) {
@@ -81,7 +78,7 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        /**
+        /*
          * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
          */
         if (!senha.equals(confirmeSenha)) {
@@ -97,7 +94,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(nome, email, senha);
 
-        realizarCadastro("https://twm93x-3000.csb.app/cadastro", usuario);
+        realizarCadastro("https://4nqjkx-3000.csb.app/cadastro", usuario);
     }
 
     /**
@@ -115,9 +112,6 @@ public class CadastroActivity extends AppCompatActivity {
 
                             // Obtém a mensagem da resposta
                             String message = jsonResponse.getString("message");
-                            String nomeUsuario = jsonResponse.getString("nome_usuario");
-
-                            salvarNomeUsuario(nomeUsuario);
 
                             if(message.equals("Email já cadastrado!")){
                                 Toast.makeText(CadastroActivity.this, "E-mail já cadastrado!", Toast.LENGTH_SHORT).show();
@@ -129,7 +123,7 @@ public class CadastroActivity extends AppCompatActivity {
                                 dadosCadastro.setNegativeButton("Tentar Novamente", null);
                                 dadosCadastro.create().show();
                             } else{
-                                // Registro bem-sucedido
+
                                 Toast.makeText(CadastroActivity.this, "Cadastro bem-sucedido!", Toast.LENGTH_SHORT).show();
 
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
@@ -155,7 +149,7 @@ public class CadastroActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Falha no registro
+
                         Toast.makeText(CadastroActivity.this, "Erro ao se cadastrar", Toast.LENGTH_SHORT).show();
                     }
                 }) {
@@ -170,20 +164,5 @@ public class CadastroActivity extends AppCompatActivity {
         };
 
         filaRequest.add(stringRequest);
-    }
-
-    /**
-     * Método para salvar o nome do usuário para ser usada na tela de Perfil
-     */
-    private void salvarNomeUsuario(String nome) {
-        SharedPreferences preferencias = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferencias.edit();
-        editor.putString("nome_usuario", nome);
-        editor.apply();
-
-        Log.d("DEBUG", "Nome do usuário recuperado: " + nome);
-
-        Log.d("CadastroActivity", "Nome do usuário salvo com sucesso: " + nome);
-
     }
 }
