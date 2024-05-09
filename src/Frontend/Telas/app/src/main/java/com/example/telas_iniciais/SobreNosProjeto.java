@@ -8,13 +8,12 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class NossasAcoesGeral extends AppCompatActivity {
+public class SobreNosProjeto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nossas_acoes_geral);
-
+        setContentView(R.layout.activity_sobre_nos_projeto);
         /**
          * Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal) e
          * controla a navegação entre diferentes telas de acordo com os itens selecionados
@@ -24,20 +23,20 @@ public class NossasAcoesGeral extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menuHome:
-                    Intent menuHome = new Intent(getApplicationContext(), Home.class);
-                    startActivity(menuHome);
-                    finish();
                     return true;
+
                 case R.id.menuCalendar:
                     Intent menuCalendar = new Intent(getApplicationContext(), Calendario.class);
                     startActivity(menuCalendar);
                     finish();
                     return true;
+
                 case R.id.menuDoacao:
                     Intent menuDoacao = new Intent(getApplicationContext(), Doacao.class);
                     startActivity(menuDoacao);
                     finish();
                     return true;
+
                 case R.id.menuConfig:
                     Intent menuConfig = new Intent(getApplicationContext(), Config.class);
                     startActivity(menuConfig);
@@ -48,29 +47,11 @@ public class NossasAcoesGeral extends AppCompatActivity {
         });
     }
 
-
     /**
-     * Método para mudar para a tela AcaoHamburgada
+     * método para voltar para a tela anterior
      */
-    public void mudarTelaAcaoHamb(View view) {
-        Intent mudarTelaAcaoHamb = new Intent(getApplicationContext(), AcaoHamburgada.class);
-        startActivity(mudarTelaAcaoHamb);
+    public void ClicaBtn(View view){
+        Intent voltar = new Intent(getApplicationContext(), SobreNos.class);
+        startActivity(voltar);
     }
-
-    /**
-     * Método para mudar para a tela AcaoTroteSolidario
-     */
-    public void mudarTelaTroteSolidario(View view) {
-        Intent mudarTelaTroteSolidario = new Intent(getApplicationContext(), AcaoTroteSolidario.class);
-        startActivity(mudarTelaTroteSolidario);
-    }
-
-    /**
-     * Método para mudar para a tela AcaoPascoaSolidaria
-     */
-    public void mudarTelaPascoaSolidaria(View view) {
-        Intent mudarTelaPascoaSolidaria = new Intent(getApplicationContext(), AcaoPascoaSolidaria.class);
-        startActivity(mudarTelaPascoaSolidaria);
-    }
-
 }

@@ -68,7 +68,7 @@ public class CadastroEvento extends AppCompatActivity {
         logradouro = inputLogradouro.getText().toString();
         numero = inputNumero.getText().toString();
 
-        /*
+        /**
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
          */
         if (evento.isEmpty() || data.isEmpty() || cidade.isEmpty() || logradouro.isEmpty() || numero.isEmpty()) {

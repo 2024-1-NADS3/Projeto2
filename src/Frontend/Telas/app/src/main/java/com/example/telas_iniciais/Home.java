@@ -71,8 +71,23 @@ public class Home extends AppCompatActivity {
         });
     }
 
+    /**
+     * método que faz ir para a tela de Ações
+     */
+
     public void botaoSaberMaisAcaoGeral(View view) {
         Intent mudarTelaBotaoAcao = new Intent(getApplicationContext(), NossasAcoesGeral.class);
         startActivity(mudarTelaBotaoAcao);
     }
+
+    /**
+     * método que faz ir para a tela sobre a FECAP Social
+     */
+
+    public void BtnIr(View view) {
+        Intent mudarTelaSobre = new Intent(getApplicationContext(), SobreNos.class);
+        startActivity(mudarTelaSobre);
+    }
+
+
 }

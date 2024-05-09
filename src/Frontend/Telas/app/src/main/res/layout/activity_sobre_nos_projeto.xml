@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SobreNosProjeto">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconVoltar1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="Botão para voltar para a tela anterior"
+                android:onClick="ClicaBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="O time de Projetos é responsável pelo desenvolvimento e  estruturação das nossas ações fixas e esporádicas, bem como captação de parceiras  e arrecadações."
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes2" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial4"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Entou na FECAP Social em 2022, responsável por comunicação com ONGs, e se tornou líder do time em janeiro de 2024"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes4" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial5"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Pesquisa e contato com ONGs, empresas, coletivos da FECAP e de outras instituições"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes6" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial6"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Criação, planejamento e organização de ações novas e em andamento"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes8" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial7"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="120dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Atualização e controle do calendário de Projetos, criação e gestão de e-mails, formulários, atas de reuniões e documentos descritivos das ações"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes10" />
+
+        <TextView
+            android:id="@+id/text_integrantes2"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="164dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Projeto"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.027"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/text_integrantes3"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="306dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Líder"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial" />
+
+        <TextView
+            android:id="@+id/text_integrantes5"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="131dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Pesquisa e contato"
+            android:textColor="#142755"
+            android:textSize="29sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial4" />
+
+        <TextView
+            android:id="@+id/text_integrantes7"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="39dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Planejamento"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial5" />
+
+        <TextView
+            android:id="@+id/text_integrantes9"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="238dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Documentos"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial6" />
+
+        <TextView
+            android:id="@+id/text_integrantes4"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="175dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="163dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Raquel"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.645"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/text_integrantes6"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="44dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Duda"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/text_integrantes11"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Ester"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/text_integrantes8"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Larissa          Rapha            Guss"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/text_integrantes10"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Isadora"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+        <TextView
+            android:id="@+id/textFecapSocial2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="FECAP Social"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="370dp"
+            android:layout_height="203dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFecapSocial2"
+            app:srcCompat="@drawable/projetos" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="117dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial"
+            app:srcCompat="@drawable/integrante___l_der_projeto" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="86dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes5"
+            app:srcCompat="@drawable/integrante___lider_comunica__o__4_" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="21dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes5"
+            app:srcCompat="@drawable/integrante___lider_comunica__o" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes7"
+            app:srcCompat="@drawable/group_4046" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="127dp"
+            android:layout_marginEnd="122dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes9"
+            app:srcCompat="@drawable/integrante___lider_comunica__o__1_" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#55B1FE"
+    android:layout_alignParentBottom="true"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    app:itemTextColor="#142755"
+    app:itemIconTint="#142755"
+    app:itemIconSize="35dp"
+    app:labelVisibilityMode="labeled"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/menu_nav"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

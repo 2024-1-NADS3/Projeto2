@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="ClicaBtn">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SobreNosComunicacao">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconVoltar1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="Botão para voltar para a tela anterior"
+                android:onClick="ClicaBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/text_fecapsocial"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:text="O time de Comunicação é responsável por desenvolver e  produzir os conteúdos divulgados pela FECAP Social, além de realizar a gestão das  mídias sociais e preservar a nossa identidade visual."
+                android:textColor="#142755"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.518"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes2" />
+
+            <TextView
+                android:id="@+id/text_fecapsocial4"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:text="Entrou na FECAP Social em 2022, como criadora de conteúdo, e se tornou líder em Janeiro de 2024"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes4" />
+
+            <TextView
+                android:id="@+id/text_fecapsocial5"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:text="Atua na criação de artes e vídeos para postagem nas mídias sociais da FECAP Social, sejam elas no Feed ou nos Stories"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes6" />
+
+            <TextView
+                android:id="@+id/text_fecapsocial6"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:text="Atua na criação do conteúdo digital e na gestão das mídias sociais da FECAP Social"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes8" />
+
+            <TextView
+                android:id="@+id/text_fecapsocial7"
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="120dp"
+                android:fontFamily="@font/poppins_regular_"
+                android:justificationMode="inter_word"
+                android:text="Criação de legendas e textos para as postagens e divulgações"
+                android:textColor="#142755"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.518"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes10" />
+
+            <TextView
+                android:id="@+id/text_integrantes2"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="164dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Comunicação"
+                android:textColor="#142755"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/text_integrantes3"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="66dp"
+                android:layout_marginEnd="306dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Líder"
+                android:textColor="#142755"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial" />
+
+            <TextView
+                android:id="@+id/text_integrantes5"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="131dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Suporte ao Líder"
+                android:textColor="#142755"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial4" />
+
+            <TextView
+                android:id="@+id/text_integrantes7"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="47dp"
+                android:layout_marginEnd="39dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Criadora de Conteúdo"
+                android:textColor="#142755"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial5" />
+
+            <TextView
+                android:id="@+id/text_integrantes9"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="238dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Redatora"
+                android:textColor="#142755"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial6" />
+
+            <TextView
+                android:id="@+id/text_integrantes4"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="175dp"
+                android:layout_marginEnd="163dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Taty"
+                android:textColor="#142755"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/text_integrantes6"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_marginStart="156dp"
+                android:layout_marginEnd="145dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Jacque"
+                android:textColor="#142755"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <TextView
+                android:id="@+id/text_integrantes8"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Gabi"
+                android:textColor="#142755"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/text_integrantes10"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Winnie"
+                android:textColor="#142755"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/textFecapSocial2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="56dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="FECAP Social"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="370dp"
+                android:layout_height="203dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textFecapSocial2"
+                app:srcCompat="@drawable/imagem__a_fecap_social___1_" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="147dp"
+                android:layout_height="140dp"
+                android:layout_marginStart="129dp"
+                android:layout_marginTop="123dp"
+                android:layout_marginEnd="117dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial"
+                app:srcCompat="@drawable/integrante3" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginEnd="119dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes5"
+                app:srcCompat="@drawable/integrante2" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginEnd="119dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes7"
+                app:srcCompat="@drawable/integrante1" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginEnd="119dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_integrantes9"
+                app:srcCompat="@drawable/integrante4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="#55B1FE"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemIconSize="35dp"
+        app:itemIconTint="#142755"
+        app:itemTextColor="#142755"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

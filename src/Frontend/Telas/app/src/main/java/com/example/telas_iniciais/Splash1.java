@@ -14,6 +14,10 @@ public class Splash1 extends AppCompatActivity {
         setContentView(R.layout.activity_splash1);
     }
 
+
+    /**
+     * método para avançar para a próxima tela
+     */
     public void Avancar(View view){
         Intent Avancar = new Intent(getApplicationContext(), Splash2.class);
         startActivity(Avancar);

@@ -68,7 +68,7 @@ public class CadastroActivity extends AppCompatActivity {
         senha = inputSenhaCadastro.getText().toString();
         confirmeSenha = inputSenhaConfirme.getText().toString();
 
-        /*
+        /**
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
          */
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmeSenha.isEmpty()) {
@@ -81,7 +81,7 @@ public class CadastroActivity extends AppCompatActivity {
             return;
         }
 
-        /*
+        /**
          * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
          */
         if (!senha.equals(confirmeSenha)) {

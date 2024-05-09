@@ -14,6 +14,21 @@
         android:theme="@style/Theme.Telas_Iniciais"
         tools:targetApi="31">
         <activity
+            android:name=".SobreNosFinanceiro"
+            android:exported="false" />
+        <activity
+            android:name=".SobreNosProjeto"
+            android:exported="false" />
+        <activity
+            android:name=".SobreNosComunicacao"
+            android:exported="false" />
+        <activity
+            android:name=".SobreNosPresidente"
+            android:exported="false" />
+        <activity
+            android:name=".SobreNos"
+            android:exported="false" />
+        <activity
             android:name=".RedefinirSenhaActivity"
             android:exported="false" />
         <activity

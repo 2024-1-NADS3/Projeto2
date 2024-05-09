@@ -59,7 +59,7 @@ public class AcaoTroteSolidario extends AppCompatActivity {
         setaEsquerda.setVisibility(View.INVISIBLE);
 
         scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            /*
+            /**
              * Método chamado quando a posição de rolagem do scroll muda.
              */
             @Override
@@ -87,7 +87,7 @@ public class AcaoTroteSolidario extends AppCompatActivity {
         });
     }
 
-    /*
+    /**
      * Método para voltar para a tela Nossas Ações (geral)
      */
     public void voltarTelaAcaoGeral1(View view) {
