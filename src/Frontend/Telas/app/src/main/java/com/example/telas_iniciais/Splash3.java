@@ -14,11 +14,19 @@ public class Splash3 extends AppCompatActivity {
         setContentView(R.layout.activity_splash3);
     }
 
+
+    /**
+     * método para voltar para a tela anterior
+     */
+
     public void Voltar(View view){
         Intent Voltar= new Intent(getApplicationContext(), Splash2.class);
         startActivity(Voltar);
     }
 
+    /**
+     * método para avançar para a próxima tela
+     */
     public void Avancar(View view){
         Intent Avancar= new Intent(getApplicationContext(), Home.class);
         startActivity(Avancar);

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SobreNosFinanceiro">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iconVoltar1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="Botão para voltar para a tela anterior"
+                android:onClick="ClicaBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+            android:id="@+id/text_fecapsocial"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="O time do Financeiro é responsável pelo nosso fluxo de caixa,  cuidar e controlar o nosso orçamento, realizar cotações e tomar decisões financeiras  sobre os nossos gastos."
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes2" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial4"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Entrou na FECAP Social em 2022, como auxiliar financeiro, se tornou líder em Janeiro de 2024"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes4" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial5"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Controle e atualização do caixa financeiro da entidade; cotação e contratação dos serviços necessários na realização das ações"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes6" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial6"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Controle e atualização da condição de reembolsos solicitados; cotação e contratação dos serviços necessários na realização das ações"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes8" />
+
+        <TextView
+            android:id="@+id/text_fecapsocial7"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="120dp"
+            android:fontFamily="@font/poppins_regular_"
+            android:justificationMode="inter_word"
+            android:text="Registro e envio das horas complementares fornecidas nas ações; cotação e contratação dos serviços necessários na realização das ações; controle do estoque da entidade"
+            android:textColor="#142755"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes10" />
+
+        <TextView
+            android:id="@+id/text_integrantes2"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="164dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Financeiro"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/text_integrantes3"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginEnd="306dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Líder"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial" />
+
+        <TextView
+            android:id="@+id/text_integrantes5"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="131dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Planilha e orçamento"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.029"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial4" />
+
+        <TextView
+            android:id="@+id/text_integrantes7"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="39dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Reembolso e orçamento"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial5" />
+
+        <TextView
+            android:id="@+id/text_integrantes9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="238dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Horas complementares, Orçamento e Estoque"
+            android:textAlignment="center"
+            android:textColor="#142755"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial6" />
+
+        <TextView
+            android:id="@+id/text_integrantes4"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="175dp"
+            android:layout_marginEnd="163dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Mariana"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/text_integrantes6"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginEnd="145dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Isabelle"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+        <TextView
+            android:id="@+id/text_integrantes8"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Felipe"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/text_integrantes10"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Mariana"
+            android:textColor="#142755"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/textFecapSocial2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="FECAP Social"
+            android:textColor="#142755"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="370dp"
+            android:layout_height="203dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFecapSocial2"
+            app:srcCompat="@drawable/imagem__a_fecap_social_" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="147dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="129dp"
+            android:layout_marginTop="123dp"
+            android:layout_marginEnd="117dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fecapsocial"
+            app:srcCompat="@drawable/integrante___lider_financeiro" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="119dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes5"
+            app:srcCompat="@drawable/integrante___lider_comunica__o__2_" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="119dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes7"
+            app:srcCompat="@drawable/integrante___lider_comunica__o__3_" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="119dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_integrantes9"
+            app:srcCompat="@drawable/integrante___lider_financeiro" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#55B1FE"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemTextColor="#142755"
+        app:itemIconTint="#142755"
+        app:itemIconSize="35dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

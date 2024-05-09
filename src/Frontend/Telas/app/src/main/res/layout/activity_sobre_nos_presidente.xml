@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SobreNosPresidente">
+
+
+    <ImageView
+        android:id="@+id/iconVoltar1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Botão para voltar para a tela anterior"
+        android:onClick="ClicaBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textFecapSocial2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="FECAP Social"
+        android:textColor="#142755"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_integrantes2"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="164dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Presidente"
+        android:textColor="#142755"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFecapSocial2" />
+
+
+    <TextView
+        android:id="@+id/text_integrantes3"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="164dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Victor"
+        android:textColor="#142755"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="164dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="125dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_integrantes2"
+        app:srcCompat="@drawable/integrante___presidente" />
+
+    <TextView
+        android:id="@+id/text_fecapsocial"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="160dp"
+        android:fontFamily="@font/poppins_regular_"
+        android:justificationMode="inter_word"
+        android:text="Entrou na FECAP Social em 2021, como auxiliar financeiro, responsável por orçamentos. Se tornou líder do time em abril de 2023 e presidente em Janeiro de 2024"
+        android:textColor="#142755"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_integrantes3"
+        app:layout_constraintVertical_bias="0.387" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#55B1FE"
+    android:layout_alignParentBottom="true"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
+    app:itemTextColor="#142755"
+    app:itemIconTint="#142755"
+    app:itemIconSize="35dp"
+    app:labelVisibilityMode="labeled"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/menu_nav"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

@@ -48,6 +48,11 @@ public class sobreApp extends AppCompatActivity {
         });
     }
 
+
+
+    /**
+     * método para voltar para a tela anterior
+     */
     public void ClicaTexto(View view){
         Intent voltar = new Intent(getApplicationContext(), Config.class);
         startActivity(voltar);
