@@ -83,7 +83,7 @@ public class CadastroEvento extends AppCompatActivity {
 
         Evento eventoFecap = new Evento(evento, data, cidade, logradouro, numero);
 
-        realizarCadastroEvento("https://twm93x-3000.csb.app/cadastroEvento", eventoFecap);
+        realizarCadastroEvento("https://4nqjkx-3000.csb.app/cadastroEvento", eventoFecap);
     }
 
     /**

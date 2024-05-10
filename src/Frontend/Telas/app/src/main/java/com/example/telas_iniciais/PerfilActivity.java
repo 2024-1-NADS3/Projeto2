@@ -9,9 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +34,6 @@ public class PerfilActivity extends AppCompatActivity {
         // Recuperar os dados do usuário das SharedPreferences
         SharedPreferences recuperarDados = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
         String nomeUsuario = recuperarDados.getString("nome_usuario", "");
-
-        Log.d("PerfilActivity", "Nome do usuário recuperado: " + nomeUsuario);
         String emailUsuario = recuperarDados.getString("email_usuario", "");
 
         // Exibir os dados do usuário nos campos correspondentes
@@ -63,7 +59,7 @@ public class PerfilActivity extends AppCompatActivity {
                         // Verificar se o ID do usuário e o email não são nulos
                         if (idUsuarioConectado != null && emailUsuarioConectado != null) {
 
-                            String url = "https://twm93x-3000.csb.app/deletarUsuario";
+                            String url = "https://4nqjkx-3000.csb.app/deletarUsuario";
 
                             StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
                                     new Response.Listener<String>() {
@@ -103,7 +99,7 @@ public class PerfilActivity extends AppCompatActivity {
 
                             Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
                         } else {
-                            // Exibir uma mensagem de erro se o ID do usuário ou o email não estiverem disponíveis
+
                             Toast.makeText(getApplicationContext(), "Não foi possível excluir a conta. Tente novamente mais tarde.", Toast.LENGTH_LONG).show();
                         }
                     }

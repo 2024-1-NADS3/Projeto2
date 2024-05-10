@@ -45,7 +45,7 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
 
         Usuario usuario = new Usuario(email);
 
-        String url = "https://twm93x-3000.csb.app/esqueceu-senha";
+        String url = "https://4nqjkx-3000.csb.app/esqueceu-senha";
 
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
