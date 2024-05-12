@@ -86,4 +86,5 @@ public class ClasseUsuario implements Serializable {
         this.email = email;
     }
 
+
 }

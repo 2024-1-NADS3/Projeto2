@@ -140,4 +140,12 @@ public class PerfilActivity extends AppCompatActivity {
         Intent SairConta = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(SairConta);
     }
+
+    /**
+     *  Método para o ir para a tela de atualização de cadastro do usuario
+     */
+    public void IrParaTelaAtualizacaoUsuario(View view){
+        Intent mudarTelaAtualizacao = new Intent(getApplicationContext(), AtualizarCadastroUsuario.class);
+        startActivity(mudarTelaAtualizacao);
+    }
 }
