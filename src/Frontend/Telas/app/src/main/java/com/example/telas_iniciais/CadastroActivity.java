@@ -92,7 +92,7 @@ public class CadastroActivity extends AppCompatActivity {
         }
 
 
-        Usuario usuario = new Usuario(nome, email, senha);
+        ClasseUsuario usuario = new ClasseUsuario(nome, email, senha);
 
         realizarCadastro("https://4nqjkx-3000.csb.app/cadastro", usuario);
     }
@@ -100,7 +100,7 @@ public class CadastroActivity extends AppCompatActivity {
     /**
      * Método para realizar o cadastro do usuário no servidor.
      */
-    void realizarCadastro(String postUrl, final Usuario usuario) {
+    void realizarCadastro(String postUrl, final ClasseUsuario usuario) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
                 new Response.Listener<String>() {

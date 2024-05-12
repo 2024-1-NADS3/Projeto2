@@ -22,8 +22,6 @@ import java.util.Map;
 
 public class RedefinirSenhaActivity extends AppCompatActivity {
 
-    private EditText inputNovaSenha;
-    private EditText inputToken;
     private static final long tempoDelayMudarTela = 3000;
 
     @Override
@@ -31,8 +29,6 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redefinir_senha);
 
-        inputNovaSenha = findViewById(R.id.inputNovaSenha);
-        inputToken = findViewById(R.id.inputToken);
     }
 
     public void voltarTelaEsqueceuSenha(View view) {
@@ -41,8 +37,48 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
     }
 
     public void botaoRedefinirSenha(View view) {
-        String novaSenha = inputNovaSenha.getText().toString();
-        String token = inputToken.getText().toString();
+        EditText inputToken, inputNovaSenha, inputNovaSenhaConfirmar;
+        String token, novaSenha, novaSenhaConfirmar;
+
+        inputToken = findViewById(R.id.inputToken);
+        inputNovaSenha = findViewById(R.id.inputNovaSenha);
+        inputNovaSenhaConfirmar = findViewById(R.id.inputNovaSenhaConfirmar);
+
+        token = inputToken.getText().toString();
+        novaSenha = inputNovaSenha.getText().toString();
+        novaSenhaConfirmar = inputNovaSenhaConfirmar.getText().toString();
+
+        ClasseRedefinirSenha dadosUsuario = new ClasseRedefinirSenha(token, novaSenha, novaSenhaConfirmar);
+
+        dadosUsuario.setToken(token);
+        dadosUsuario.setNovaSenha(novaSenha);
+        dadosUsuario.setNovaSenhaConfirmar(novaSenhaConfirmar);
+
+        /*
+         * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
+         */
+        if (token.isEmpty() || novaSenha.isEmpty() || novaSenhaConfirmar.isEmpty()) {
+            androidx.appcompat.app.AlertDialog.Builder camposVazios = new androidx.appcompat.app.AlertDialog.Builder(RedefinirSenhaActivity.this);
+            camposVazios.setTitle("Erro");
+            camposVazios.setMessage("Todos os campos devem ser preenchidos");
+            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setIcon(R.drawable.alert_icon);
+            camposVazios.create().show();
+            return;
+        }
+
+        /*
+         * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
+         */
+        if (!novaSenha.equals(novaSenhaConfirmar)) {
+            androidx.appcompat.app.AlertDialog.Builder senhaConfirme = new androidx.appcompat.app.AlertDialog.Builder(RedefinirSenhaActivity.this);
+            senhaConfirme.setTitle("Erro");
+            senhaConfirme.setMessage("As senhas inseridas não coincidem");
+            senhaConfirme.setPositiveButton(android.R.string.ok, null);
+            senhaConfirme.setIcon(R.drawable.alert_icon);
+            senhaConfirme.create().show();
+            return;
+        }
 
         String url = "https://4nqjkx-3000.csb.app/redefinir-senha";
 
@@ -77,8 +113,9 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> dadosDoUsuario = new HashMap<String, String>();
-                dadosDoUsuario.put("token", token);
-                dadosDoUsuario.put("novaSenha", novaSenha);
+                dadosDoUsuario.put("token", dadosUsuario.getToken());
+                dadosDoUsuario.put("novaSenha", dadosUsuario.getNovaSenha());
+                dadosDoUsuario.put("novaSenhaConfirmar", dadosUsuario.getNovaSenhaConfirmar());
                 return dadosDoUsuario;
             }
         };

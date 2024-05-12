@@ -72,14 +72,14 @@ public class LoginActivity extends AppCompatActivity {
         email = inputEmailLogin.getText().toString();
         senha = inputSenhaLogin.getText().toString();
 
-        Usuario usuario = new Usuario(email, senha);
+        ClasseUsuario usuario = new ClasseUsuario(email, senha);
         realizarLogin("https://4nqjkx-3000.csb.app/login", usuario);
     }
 
     /**
      * Método para realizar a requisição de login ao servidor
      */
-    void realizarLogin(String postUrl, final Usuario usuario) {
+    void realizarLogin(String postUrl, final ClasseUsuario usuario) {
         RequestQueue filaRequest = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
