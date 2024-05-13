@@ -4,9 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -72,9 +74,17 @@ public class CadastroActivity extends AppCompatActivity {
             AlertDialog.Builder camposVazios = new AlertDialog.Builder(CadastroActivity.this);
             camposVazios.setTitle("Erro");
             camposVazios.setMessage("Todos os campos devem ser preenchidos");
-            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setPositiveButton("OK", null);
             camposVazios.setIcon(R.drawable.alert_icon);
-            camposVazios.create().show();
+            AlertDialog dialog = camposVazios.create();
+            dialog.show();
+
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+            // Alterar a cor do texto do botão
+            Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.WHITE);
+            positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
@@ -85,14 +95,22 @@ public class CadastroActivity extends AppCompatActivity {
             AlertDialog.Builder senhaConfirme = new AlertDialog.Builder(CadastroActivity.this);
             senhaConfirme.setTitle("Erro");
             senhaConfirme.setMessage("As senhas inseridas não coincidem");
-            senhaConfirme.setPositiveButton(android.R.string.ok, null);
+            senhaConfirme.setPositiveButton("OK", null);
             senhaConfirme.setIcon(R.drawable.alert_icon);
-            senhaConfirme.create().show();
+            AlertDialog dialog = senhaConfirme.create();
+            dialog.show();
+
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+            // Alterar a cor do texto do botão
+            Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.WHITE);
+            positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
 
-        Usuario usuario = new Usuario(nome, email, senha);
+        ClasseUsuario usuario = new ClasseUsuario(nome, email, senha);
 
         realizarCadastro("https://4nqjkx-3000.csb.app/cadastro", usuario);
     }
@@ -100,7 +118,7 @@ public class CadastroActivity extends AppCompatActivity {
     /**
      * Método para realizar o cadastro do usuário no servidor.
      */
-    void realizarCadastro(String postUrl, final Usuario usuario) {
+    void realizarCadastro(String postUrl, final ClasseUsuario usuario) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, postUrl,
                 new Response.Listener<String>() {
@@ -121,7 +139,15 @@ public class CadastroActivity extends AppCompatActivity {
                                 dadosCadastro.setMessage("Email já cadastrado!");
                                 dadosCadastro.setIcon(R.drawable.alert_icon);
                                 dadosCadastro.setNegativeButton("Tentar Novamente", null);
-                                dadosCadastro.create().show();
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                // Alterar a cor do texto do botão
+                                Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                                negativeButton.setTextColor(Color.WHITE);
+                                negativeButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             } else{
 
                                 Toast.makeText(CadastroActivity.this, "Cadastro bem-sucedido!", Toast.LENGTH_SHORT).show();
@@ -129,7 +155,10 @@ public class CadastroActivity extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
                                 dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
                                 dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
-                                dadosCadastro.create().show();
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
                                 new Handler().postDelayed(new Runnable() {
                                     @Override

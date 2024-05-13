@@ -7,9 +7,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,9 +21,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.HashMap;
-import java.util.Map;
-
+/**
+ * Activity responsável pela tela de Perfil do usuário
+ */
 public class PerfilActivity extends AppCompatActivity {
 
     private static final long tempoDelayParaMudarTela = 3000;
@@ -42,71 +44,104 @@ public class PerfilActivity extends AppCompatActivity {
 
         campoNome.setText(nomeUsuario);
         campoEmail.setText(emailUsuario);
+    }
+
+    /**
+     * Exclui a conta do usuário após confirmar com um AlertDialog.
+     * Chamado quando o botão de exclusão de conta é clicado.
+     */
+    public void excluirConta(View view) {
+        confirmarExclusaoConta();
+    }
+
+    /**
+     * Exibe um AlertDialog para ver se o usuário tem certeza que quer excluir a conta.
+     */
+    private void confirmarExclusaoConta() {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Excluir Conta")
+                .setMessage("Tem certeza de que deseja excluir sua conta?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences recuperarDados = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
+                        String idUsuario = recuperarDados.getString("id_usuario", "");
+                        executarExclusaoConta(idUsuario);
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .setIcon(R.drawable.alert_icon)
+                .create();
+
+        dialog.show();
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+        // Altera a cor do texto e do fundo do botão "Sim"
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positiveButton.setTextColor(Color.WHITE);
+        positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
+
+        // Altera a cor do texto do botão "Cancelar"
+        Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+        negativeButton.setTextColor(Color.parseColor("#FCBA51"));
 
     }
 
-    public void excluirConta(View view) {
-        new AlertDialog.Builder(this)
-                .setTitle("Excluir Conta")
-                .setMessage("Tem certeza de que deseja excluir sua conta?")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Recuperar o ID do usuário
-                        SharedPreferences recuperarDados = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
-                        String idUsuarioConectado = recuperarDados.getString("idUsuarioConectado", null);
-                        String emailUsuarioConectado = recuperarDados.getString("emailUsuarioConectado", null);
+    /**
+     * Executa a exclusão da conta do usuário.
+     * Recupera o ID do usuário, realiza a requisição DELETE para o servidor
+     * e exibe mensagens de sucesso ou erro.
+     */
+    private void executarExclusaoConta(String idUsuario) {
+        String url = "https://4nqjkx-3000.csb.app/deletarUsuario?id_user=" + idUsuario;
 
-                        // Verificar se o ID do usuário e o email não são nulos
-                        if (idUsuarioConectado != null && emailUsuarioConectado != null) {
+        StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-                            String url = "https://4nqjkx-3000.csb.app/deletarUsuario";
-
-                            StringRequest stringRequest = new StringRequest(Request.Method.DELETE, url,
-                                    new Response.Listener<String>() {
-                                        @Override
-                                        public void onResponse(String response) {
-                                            if (response.contains("Usuário excluído!")) {
-                                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(PerfilActivity.this);
-                                                dadosCadastro.setTitle("Conta Excluída com Sucesso!!!");
-                                                dadosCadastro.setMessage("Sua conta foi excluída!");
-                                                dadosCadastro.create().show();
-
-                                                new Handler().postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        Intent intent = new Intent(PerfilActivity.this, LoginActivity.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }
-                                                }, tempoDelayParaMudarTela);
-                                            }
-                                        }
-                                    },
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            Toast.makeText(getApplicationContext(), "Erro na solicitação: " + error.toString(), Toast.LENGTH_LONG).show();
-                                        }
-                                    }) {
-                                @Override
-                                protected Map<String, String> getParams() {
-                                    Map<String, String> dadosUsuario = new HashMap<String, String>();
-                                    dadosUsuario.put("id", idUsuarioConectado);
-                                    dadosUsuario.put("email", emailUsuarioConectado);
-                                    return dadosUsuario;
-                                }
-                            };
-
-                            Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
-                        } else {
-
-                            Toast.makeText(getApplicationContext(), "Não foi possível excluir a conta. Tente novamente mais tarde.", Toast.LENGTH_LONG).show();
+                        if (response.contains("Usuário excluído com sucesso!")) {
+                            exibirSucessoExclusaoConta();
                         }
                     }
-                })
-                .setNegativeButton(android.R.string.no, null)
-                .setIcon(R.drawable.alert_icon)
-                .show();
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        exibirErroExclusaoConta(error.toString());
+                    }
+                });
+
+        Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
+    }
+
+    /**
+     * Exibe um AlertDialog informando que a conta foi excluída com sucesso
+     */
+    private void exibirSucessoExclusaoConta() {
+        AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(PerfilActivity.this);
+        dadosCadastro.setTitle("Conta Excluída com Sucesso!!!");
+        dadosCadastro.setMessage("Sua conta foi excluída!");
+        AlertDialog dialog = dadosCadastro.create();
+        dialog.show();
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(PerfilActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, tempoDelayParaMudarTela);
+    }
+
+    /**
+     * Exibe uma mensagem de erro caso ocorra um problema durante a exclusão da conta.
+     */
+    private void exibirErroExclusaoConta(String mensagemErro) {
+        Toast.makeText(getApplicationContext(), "Erro na solicitação: " + mensagemErro, Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -123,5 +158,13 @@ public class PerfilActivity extends AppCompatActivity {
     public void SairDaConta(View view){
         Intent SairConta = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(SairConta);
+    }
+
+    /**
+     *  Método para o ir para a tela de atualização de cadastro do usuario
+     */
+    public void IrParaTelaAtualizacaoUsuario(View view){
+        Intent mudarTelaAtualizacao = new Intent(getApplicationContext(), AtualizarCadastroUsuario.class);
+        startActivity(mudarTelaAtualizacao);
     }
 }

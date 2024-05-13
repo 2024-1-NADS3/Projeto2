@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AtualizarCadastroUsuario">
+
+    <ImageView
+        android:id="@+id/iconVoltarTelaLogin"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="22dp"
+        android:contentDescription="Botão para voltar para a tela anterior"
+        android:onClick="voltarTelaPerfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.040"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/logofecap"
+        android:layout_width="190dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iconVoltarTelaLogin"
+        app:srcCompat="@drawable/logo_fecap_social" />
+
+    <TextView
+        android:id="@+id/textAtualizar"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="50dp"
+        android:text="Atualizar Cadastro"
+        android:textColor="#142755"
+        android:textSize="30sp"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logofecap" />
+
+    <TextView
+        android:id="@+id/textNomeAtualizar"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:text="Nome"
+        android:textColor="#142755"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/textAtualizar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/campoNome"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:paddingStart="12dp"
+        android:textSize="18sp"
+        android:hint="nome"
+        android:textColor="#142755"
+        android:fontFamily="@font/poppins_regular_"
+        android:background="@drawable/borderradius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNomeAtualizar" />
+
+    <TextView
+        android:id="@+id/textEmailAtualizar"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="18dp"
+        android:text="Email"
+        android:textColor="#142755"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/campoNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/campoEmail"
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:paddingStart="12dp"
+        android:textSize="18sp"
+        android:hint="email"
+        android:textColor="#142755"
+        android:fontFamily="@font/poppins_regular_"
+        android:background="@drawable/borderradius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailAtualizar" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="375dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#FCBA51"
+        android:onClick="atualizarUsuario"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoEmail"
+        app:layout_constraintVertical_bias="0.022" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

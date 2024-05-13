@@ -4,12 +4,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -17,6 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +46,7 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
         inputEmailEsqueceu = findViewById(R.id.inputEmailEsqueceu);
         email = inputEmailEsqueceu.getText().toString();
 
-        Usuario usuario = new Usuario(email);
+        ClasseUsuario usuario = new ClasseUsuario(email);
 
         String url = "https://4nqjkx-3000.csb.app/esqueceu-senha";
 
@@ -51,28 +54,56 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            String status = jsonResponse.getString("status");
+                            String message = jsonResponse.getString("message");
 
-                        AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(EsqueciSenhaActivity.this);
-                        dadosCadastro.setTitle("Dados enviados com sucesso!!!");
-                        dadosCadastro.setMessage("Em breve enviaremos um email!");
-                        dadosCadastro.create().show();
+                            if (status.equals("sucesso")) {
 
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Intent intent = new Intent(EsqueciSenhaActivity.this, RedefinirSenhaActivity.class);
-                                startActivity(intent);
-                                finish();
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(EsqueciSenhaActivity.this);
+                                dadosCadastro.setTitle("Email enviado com sucesso!!!");
+                                dadosCadastro.setMessage("Em breve enviaremos um email com o Token!");
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(EsqueciSenhaActivity.this, RedefinirSenhaActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }, tempoDelayMudarTela);
+                            } else {
+
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(EsqueciSenhaActivity.this);
+                                dadosCadastro.setTitle("Erro");
+                                dadosCadastro.setMessage(message);
+                                dadosCadastro.setIcon(R.drawable.alert_icon);
+                                dadosCadastro.setPositiveButton("OK", null);
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                // Alterar a cor do texto do botão
+                                Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                                positiveButton.setTextColor(Color.WHITE);
+                                positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             }
-                        }, tempoDelayMudarTela);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(EsqueciSenhaActivity.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         Toast.makeText(EsqueciSenhaActivity.this, "Ocorreu um erro. Por favor, tente novamente.", Toast.LENGTH_SHORT).show();
-                        Log.e("VolleyError", "Erro: " + error.getMessage());
                     }
                 }
         ) {

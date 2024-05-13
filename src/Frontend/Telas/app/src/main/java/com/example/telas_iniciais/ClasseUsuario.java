@@ -5,11 +5,15 @@ import java.io.Serializable;
 /**
  * Classe que representa um usuário.
  */
-public class Usuario implements Serializable {
+public class ClasseUsuario implements Serializable {
 
+    /**
+     * Atributos
+     */
     protected String nome;
     protected String email;
     protected String senha;
+
 
     /**
      * Obtém o nome do usuário.
@@ -56,10 +60,12 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+
+
     /**
      * Construtor para criar um objeto Usuario com nome, email e senha. (tela de cadastro)
      */
-    public Usuario(String nome, String email, String senha) {
+    public ClasseUsuario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -68,7 +74,7 @@ public class Usuario implements Serializable {
     /**
      * Construtor para criar um objeto Usuario com email e senha. (tela de login)
      */
-    public Usuario(String email, String senha) {
+    public ClasseUsuario(String email, String senha) {
         this.email = email;
         this.senha = senha;
     }
@@ -76,7 +82,9 @@ public class Usuario implements Serializable {
     /**
      * Construtor para criar um objeto Usuario apenas com o email (tela de esqueceu a senha)
      */
-    public Usuario(String email) {
+    public ClasseUsuario(String email) {
         this.email = email;
     }
+
+
 }
