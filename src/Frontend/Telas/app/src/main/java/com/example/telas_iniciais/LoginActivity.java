@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -105,11 +107,20 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 AlertDialog.Builder dadosLogin = new AlertDialog.Builder(LoginActivity.this);
+
                                 dadosLogin.setTitle("Erro de Login");
                                 dadosLogin.setMessage("Email ou senha incorretos!!!");
-                                dadosLogin.setPositiveButton(android.R.string.ok, null);
+                                dadosLogin.setPositiveButton("Tentar novamente", null);
                                 dadosLogin.setIcon(R.drawable.alert_icon);
-                                dadosLogin.create().show();
+                                AlertDialog dialog = dadosLogin.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                // Alterar a cor do texto do botão
+                                Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                                positiveButton.setTextColor(Color.WHITE);
+                                positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

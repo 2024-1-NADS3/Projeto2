@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -61,9 +63,17 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
             androidx.appcompat.app.AlertDialog.Builder camposVazios = new androidx.appcompat.app.AlertDialog.Builder(RedefinirSenhaActivity.this);
             camposVazios.setTitle("Erro");
             camposVazios.setMessage("Todos os campos devem ser preenchidos");
-            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setPositiveButton("OK", null);
             camposVazios.setIcon(R.drawable.alert_icon);
-            camposVazios.create().show();
+            androidx.appcompat.app.AlertDialog dialog = camposVazios.create();
+            dialog.show();
+
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+            // Alterar a cor do texto do botão
+            Button positiveButton = dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.WHITE);
+            positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
@@ -74,9 +84,17 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
             androidx.appcompat.app.AlertDialog.Builder senhaConfirme = new androidx.appcompat.app.AlertDialog.Builder(RedefinirSenhaActivity.this);
             senhaConfirme.setTitle("Erro");
             senhaConfirme.setMessage("As senhas inseridas não coincidem");
-            senhaConfirme.setPositiveButton(android.R.string.ok, null);
+            senhaConfirme.setPositiveButton("OK", null);
             senhaConfirme.setIcon(R.drawable.alert_icon);
-            senhaConfirme.create().show();
+            androidx.appcompat.app.AlertDialog dialog = senhaConfirme.create();
+            dialog.show();
+
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+            // Alterar a cor do texto do botão
+            Button positiveButton = dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.WHITE);
+            positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
@@ -90,7 +108,10 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
                         AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(RedefinirSenhaActivity.this);
                         dadosCadastro.setTitle("Senha redefinida com sucesso!!!");
                         dadosCadastro.setMessage("Sua senha foi redefinida. Você pode agora fazer login com sua nova senha.");
-                        dadosCadastro.create().show();
+                        AlertDialog dialog = dadosCadastro.create();
+                        dialog.show();
+
+                        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {

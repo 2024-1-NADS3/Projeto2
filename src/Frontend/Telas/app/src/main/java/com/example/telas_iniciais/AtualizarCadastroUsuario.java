@@ -145,7 +145,10 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
         AlertDialog.Builder dadosAtualizados = new AlertDialog.Builder(AtualizarCadastroUsuario.this);
         dadosAtualizados.setTitle("Atualização Concluída com Sucesso!!!");
         dadosAtualizados.setMessage("Obrigado pela atualização!");
-        dadosAtualizados.create().show();
+        AlertDialog dialog = dadosAtualizados.create();
+        dialog.show();
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
     }
 
     /**

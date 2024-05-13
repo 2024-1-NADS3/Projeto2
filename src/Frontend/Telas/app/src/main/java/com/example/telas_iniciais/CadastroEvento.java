@@ -4,10 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -75,9 +76,17 @@ public class CadastroEvento extends AppCompatActivity {
             AlertDialog.Builder camposVazios = new AlertDialog.Builder(CadastroEvento.this);
             camposVazios.setTitle("Erro");
             camposVazios.setMessage("Todos os campos devem ser preenchidos");
-            camposVazios.setPositiveButton(android.R.string.ok, null);
+            camposVazios.setPositiveButton("OK", null);
             camposVazios.setIcon(R.drawable.alert_icon);
-            camposVazios.create().show();
+            AlertDialog dialog = camposVazios.create();
+            dialog.show();
+
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+            // Alterar a cor do texto do botão
+            Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.WHITE);
+            positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
@@ -105,12 +114,15 @@ public class CadastroEvento extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroEvento.this);
                                 dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
                                 dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
-                                dadosCadastro.create().show();
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Log.d("CadastroEvento", "Mudando para a tela de perfil");
+
                                         Intent intent = new Intent(CadastroEvento.this, PerfilActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -120,6 +132,21 @@ public class CadastroEvento extends AppCompatActivity {
                                 // Exibir mensagem de erro
                                 String mensagemErro = jsonResponse.getString("message");
                                 Toast.makeText(CadastroEvento.this, mensagemErro, Toast.LENGTH_SHORT).show();
+
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroEvento.this);
+                                dadosCadastro.setTitle("Erro!!!");
+                                dadosCadastro.setMessage("Evento já cadastrado!");
+                                dadosCadastro.setIcon(R.drawable.alert_icon);
+                                dadosCadastro.setNegativeButton("Tentar Novamente", null);
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                // Alterar a cor do texto do botão
+                                Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+                                negativeButton.setTextColor(Color.WHITE);
+                                negativeButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

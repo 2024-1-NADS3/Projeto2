@@ -7,9 +7,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +58,7 @@ public class PerfilActivity extends AppCompatActivity {
      * Exibe um AlertDialog para ver se o usuário tem certeza que quer excluir a conta.
      */
     private void confirmarExclusaoConta() {
-        new AlertDialog.Builder(this)
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("Excluir Conta")
                 .setMessage("Tem certeza de que deseja excluir sua conta?")
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
@@ -68,7 +70,21 @@ public class PerfilActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Cancelar", null)
                 .setIcon(R.drawable.alert_icon)
-                .show();
+                .create();
+
+        dialog.show();
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+        // Altera a cor do texto e do fundo do botão "Sim"
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positiveButton.setTextColor(Color.WHITE);
+        positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
+
+        // Altera a cor do texto do botão "Cancelar"
+        Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+        negativeButton.setTextColor(Color.parseColor("#FCBA51"));
+
     }
 
     /**
@@ -106,7 +122,10 @@ public class PerfilActivity extends AppCompatActivity {
         AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(PerfilActivity.this);
         dadosCadastro.setTitle("Conta Excluída com Sucesso!!!");
         dadosCadastro.setMessage("Sua conta foi excluída!");
-        dadosCadastro.create().show();
+        AlertDialog dialog = dadosCadastro.create();
+        dialog.show();
+
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
         new Handler().postDelayed(new Runnable() {
             @Override

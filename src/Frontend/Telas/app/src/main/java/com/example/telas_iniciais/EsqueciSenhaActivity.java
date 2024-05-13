@@ -4,9 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -62,7 +64,10 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(EsqueciSenhaActivity.this);
                                 dadosCadastro.setTitle("Email enviado com sucesso!!!");
                                 dadosCadastro.setMessage("Em breve enviaremos um email com o Token!");
-                                dadosCadastro.create().show();
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
@@ -79,7 +84,15 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
                                 dadosCadastro.setMessage(message);
                                 dadosCadastro.setIcon(R.drawable.alert_icon);
                                 dadosCadastro.setPositiveButton("OK", null);
-                                dadosCadastro.show();
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+
+                                // Alterar a cor do texto do botão
+                                Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                                positiveButton.setTextColor(Color.WHITE);
+                                positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
