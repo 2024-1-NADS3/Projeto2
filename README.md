@@ -116,15 +116,17 @@ Para configurar e executar o projeto localmente, siga estas etapas:
 
 -Raiz<br>
 <br>
-|--> css<br>
-  &emsp;|-->13 arquivos .css <br>
 |--> documentos<br>
-  &emsp;|-->Template ADS - Projeto de Extensão<br>
-  |--> img<br>
-  &emsp;|-->imagens do site<br>
-|--> js<br>
-  &emsp;|-->JavaScript do site<br>
-|--> arquivos HTML (10 arquivos) <br>
+  &emsp;|-->backend<br>
+  &emsp;|-->frontend<br>
+|--> img<br>
+  &emsp;|-->...<br>
+  |-->...<br>
+  &emsp;|-->...<br>
+|--> src<br>
+  &emsp;|-->Backend<br>
+  &emsp;|-->Frontend<br>
+|--> .gitignore <br>
 |--> README.md<br>
 
  <!--            A pasta raiz contem dois arquivos que devem ser alterados:
@@ -197,3 +199,5 @@ Aqui estão as referências usadas no projeto.
 
 1.  <https://https://figma.com/>
 2.  <https://fonts.google.com/>
+3.  <https://www.youtube.com/watch?v=M8kYZFcS9nI/>
+4.  <https://developer.android.com/reference/android/content/SharedPreferences/>
