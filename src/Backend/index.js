@@ -21,31 +21,68 @@ const app = express();
 
 /*
  * Importa o módulo "dotenv" e chama a função config()
- * Isso carrega as variáveis de ambiente do arquivo ".env" (com os dados de email e senha)
+ * Carrega a variável de ambiente (com os dados de email e senha)
  */
 require("dotenv").config();
 
-/*
- * Cria um objeto enviarEmailRemetente usando a função createTransport do módulo nodemailer
- * Esse objeto é usado para enviar emails ao usuário
+/**
+ * Função que gera um token para depois redefinir a senha
  */
-const enviarEmailRemetente = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,
-  auth: {
-    user: process.env.email_usuario,
-    pass: process.env.senha_email_usuario,
-  },
-});
+function gerarToken() {
+  return crypto.randomBytes(5).toString("hex");
+}
 
-const mailOptions = {
-  from: '"SKL projeto" <skl.projetopi@gmail.com',
-  to: "skl.projetopi@gmail.com, skl.projetopi@gmail.com",
-  subject: "Olá",
-  text: "Olá",
-  html: "<b>Olá, tudo bem?</br>",
-};
+/**
+ * Função que atualiza o banco de dados com um novo token de redefinição de senha
+ */
+function atualizarBancoDeDados(db, email, token) {
+  let sql = `UPDATE usuarios SET tokenRedefinicaoSenha = ?, expiracaoTokenRedefinicaoSenha = ? WHERE email = ?`;
+  db.run(sql, [token, Date.now() + 3600000, email], function (err) {
+    if (err) {
+      throw err;
+    }
+  });
+}
+
+/*
+ * Função para enviar o email para o usuário
+ */
+function enviarEmail(email, nome, token) {
+  let remetenteEnviandoEmail = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    auth: {
+      user: process.env.email,
+      pass: process.env.senha_email,
+    },
+  });
+
+  let OpcoesEmail = {
+    from: '"SKL - Fecap Social" <skl.projetopi@gmail.com',
+    to: email,
+    subject: "Token para redefinição de senha - App Fecap Social",
+    text:
+      "Olá, " +
+      nome +
+      "!\n\n" +
+      "Recebemos uma solicitação de redefinição de senha do seu app Fecap Social.\n\n" +
+      "Se você fez essa solicitação, digite o seguinte código no campo token da tela do app para alterar sua senha. E informe sua nova senha pelo app.\n\n " +
+      "TOKEN: " +
+      token +
+      "\n\n" +
+      "Se você não solicitou isso, ignore este email e sua senha permanecerá a mesma.\n",
+  };
+
+  remetenteEnviandoEmail.sendMail(OpcoesEmail, function (err) {
+    if (err) {
+      console.error("Erro ao enviar email: " + err.message);
+      return;
+    }
+
+    console.log("Email enviado com sucesso!");
+  });
+}
 
 /** Middleware para analisar o corpo das solicitações POST */
 app.use(bodyParser.json());
@@ -59,6 +96,9 @@ let db = new sqlite3.Database("./bancoskl.db", (err) => {
   console.log("Conectado ao banco de dados SQLite.");
 });
 
+/**
+ * Rota GET que retorna todos os dados da tabela usuarios do Banco de dados
+ */
 app.get("/tudo", function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
@@ -70,7 +110,7 @@ app.get("/tudo", function (req, res) {
 });
 
 /**
- * Rota cadastro
+ * Rota cadastro do usuário
  */
 app.post("/cadastro", (req, res) => {
   const { nome, email, senha } = req.body;
@@ -106,7 +146,7 @@ app.post("/cadastro", (req, res) => {
 });
 
 /**
- * Rota Login
+ * Rota Login do usuário
  */
 app.post("/login", (req, res) => {
   const { login: email, password: senha } = req.body;
@@ -136,7 +176,7 @@ app.post("/login", (req, res) => {
  */
 app.post("/esqueceu-senha", (req, res) => {
   const { email } = req.body;
-  const token = crypto.randomBytes(20).toString("hex");
+  const token = gerarToken();
 
   let sql = `SELECT nome FROM usuarios WHERE email = ?`;
   db.get(sql, [email], (err, row) => {
@@ -147,45 +187,12 @@ app.post("/esqueceu-senha", (req, res) => {
     if (row) {
       let nome = row.nome;
 
-      sql = `UPDATE usuarios SET tokenRedefinicaoSenha = ?, expiracaoTokenRedefinicaoSenha = ? WHERE email = ?`;
-      db.run(sql, [token, Date.now() + 3600000, email], function (err) {
-        if (err) {
-          throw err;
-        }
+      atualizarBancoDeDados(db, email, token);
+      enviarEmail(email, nome, token);
 
-        if (this.changes > 0) {
-          let mailOptions = {
-            to: email,
-            subject: "Redefinição de Senha",
-            text:
-              "Olá, " +
-              nome +
-              ",\n\n" +
-              "Recebemos uma solicitação de redefinição de senha do seu app Fecap Social.\n\n" +
-              "Se você fez essa solicitação, digite o seguinte código no campo token da tela do app para alterar sua senha. E informe sua nova senha pelo app: " +
-              token +
-              "\n\n" +
-              "Se você não solicitou isso, ignore este email e sua senha permanecerá a mesma.\n",
-          };
-
-          console.log("Enviando email para: " + email); // Log antes de enviar o email
-
-          enviarEmailRemetente.sendMail(mailOptions, function (err) {
-            if (err) {
-              console.error("Erro ao enviar email: " + err.message); // Log em caso de erro
-              return;
-            }
-
-            console.log("Email enviado com sucesso!"); // Log após o envio do email
-
-            res.json({
-              status: "sucesso",
-              message: "Email de redefinição de senha enviado!",
-            });
-          });
-        } else {
-          res.json({ status: "erro", message: "Email não encontrado." });
-        }
+      res.json({
+        status: "sucesso",
+        message: "Email de redefinição de senha enviado!",
       });
     } else {
       res.json({ status: "erro", message: "Email não encontrado." });
@@ -224,16 +231,16 @@ app.post("/redefinir-senha", (req, res) => {
 });
 
 /**
- * Atualizar o cadastro do usuário
+ * Rota para atualizar o cadastro do usuário
  */
 app.put("/atualizarUsuario", function (req, res) {
-  var id = req.body.id;
+  var id = req.body.id_user;
   var nome = req.body.nome;
   var email = req.body.email;
-  var senha = req.body.senha;
-  sql = `UPDATE usuarios SET nome="${nome}", email="${email}", senha="${senha}" WHERE id=${id}`;
 
-  db.all(sql, [], (err, rows) => {
+  sql = `UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?`;
+
+  db.run(sql, [nome, email, id], function (err) {
     if (err) {
       res.send("Erro na atualização: " + err);
     } else {
@@ -246,13 +253,15 @@ app.put("/atualizarUsuario", function (req, res) {
  * Rota deletar usuário
  */
 app.delete("/deletarUsuario", function (req, res) {
-  var id = req.body.id;
-  sql = `DELETE FROM usuarios WHERE id_user=${id}`;
-  db.all(sql, [], (err, rows) => {
+  var id = req.query.id_user;
+
+  sql = `DELETE FROM usuarios WHERE id_user = ?`;
+
+  db.run(sql, id, function (err) {
     if (err) {
       res.send("Erro na exclusão: " + err);
     } else {
-      res.send("Usuário excluído!");
+      res.send("Usuário excluído com sucesso!");
     }
   });
 });
