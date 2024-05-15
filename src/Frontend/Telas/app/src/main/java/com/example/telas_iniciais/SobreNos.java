@@ -23,6 +23,9 @@ public class SobreNos extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menuHome:
+                    Intent menuHome = new Intent(getApplicationContext(), Home.class);
+                    startActivity(menuHome);
+                    finish();
                     return true;
 
                 case R.id.menuCalendar:
@@ -80,5 +83,10 @@ public class SobreNos extends AppCompatActivity {
     public void ClicaBtn3(View view){
         Intent ir = new Intent(getApplicationContext(), SobreNosFinanceiro.class);
         startActivity(ir);
+    }
+
+    public void ClicaBtn4(View view){
+        Intent voltar = new Intent(getApplicationContext(), Home.class);
+        startActivity(voltar);
     }
 }

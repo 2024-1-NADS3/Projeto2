@@ -24,6 +24,9 @@ public class SobreNosFinanceiro extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menuHome:
+                    Intent menuHome = new Intent(getApplicationContext(), Home.class);
+                    startActivity(menuHome);
+                    finish();
                     return true;
 
                 case R.id.menuCalendar:

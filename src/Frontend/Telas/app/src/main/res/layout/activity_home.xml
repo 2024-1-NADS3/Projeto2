@@ -103,25 +103,23 @@
             app:layout_constraintTop_toBottomOf="@+id/imageRetangulo"
             app:srcCompat="@drawable/star_border" />
 
-        <TextView
-            android:id="@+id/acoes"
-            android:layout_width="103dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="195dp"
-            android:layout_marginTop="32dp"
-            android:text="Ações"
-            android:textSize="32sp"
-            android:textColor="#142755"
-            android:fontFamily="@font/poppins_bold"
-            app:layout_constraintStart_toStartOf="@+id/estrela"
-            app:layout_constraintTop_toBottomOf="@+id/imageRetangulo"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteX="44dp"
-            tools:layout_editor_absoluteY="510dp" />
+            <TextView
+                android:id="@+id/acoes"
+                android:layout_width="103dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="195dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Ações"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/estrela"
+                app:layout_constraintTop_toBottomOf="@+id/imageRetangulo" />
 
         <TextView
             android:id="@+id/acoes2"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="20dp"
@@ -137,7 +135,7 @@
 
         <ImageView
             android:id="@+id/image_acoes2"
-            android:layout_width="370dp"
+            android:layout_width="365dp"
             android:layout_height="203dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="15dp"
@@ -149,7 +147,7 @@
 
             <Button
                 android:id="@+id/botao1"
-                android:layout_width="370dp"
+                android:layout_width="365dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="8dp"
@@ -206,7 +204,7 @@
 
         <TextView
             android:id="@+id/text_info"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="20dp"
@@ -222,7 +220,7 @@
 
         <ImageView
             android:id="@+id/imagem_info"
-            android:layout_width="370dp"
+            android:layout_width="365dp"
             android:layout_height="203dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="10dp"
@@ -234,7 +232,7 @@
 
             <Button
                 android:id="@+id/botao2"
-                android:layout_width="370dp"
+                android:layout_width="365dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="6dp"
@@ -262,25 +260,25 @@
             app:layout_constraintTop_toTopOf="@+id/botao2"
             app:srcCompat="@drawable/social_rede" />
 
-        <TextView
-            android:id="@+id/redes"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="125dp"
-            android:text="Siga-nos"
-            android:textColor="#142755"
-            android:textSize="32sp"
-            android:fontFamily="@font/poppins_bold"
-            app:layout_constraintEnd_toEndOf="@+id/ondas"
-            app:layout_constraintHorizontal_bias="0.478"
-            app:layout_constraintStart_toStartOf="@+id/rede_social"
+            <TextView
+                android:id="@+id/redes"
+                android:layout_width="163dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="125dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Siga-nos"
+                android:textColor="#142755"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toEndOf="@+id/ondas"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="@+id/rede_social"
 
-            app:layout_constraintTop_toBottomOf="@+id/botao2" />
+                app:layout_constraintTop_toBottomOf="@+id/botao2" />
 
         <TextView
             android:id="@+id/text_rede"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="20dp"
@@ -296,7 +294,7 @@
 
         <ImageView
             android:id="@+id/imagem_redes"
-            android:layout_width="396dp"
+            android:layout_width="365dp"
             android:layout_height="match_parent"
             android:layout_marginStart="6dp"
             android:layout_marginTop="10dp"
