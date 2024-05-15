@@ -19,7 +19,7 @@
                 android:id="@+id/iconVoltar1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="17dp"
                 android:contentDescription="Botão para voltar para a tela anterior"
                 android:onClick="ClicaBtn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
 
             <TextView
                 android:id="@+id/text_fecapsocial"
-                android:layout_width="375dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -47,7 +47,7 @@
 
             <TextView
                 android:id="@+id/text_fecapsocial4"
-                android:layout_width="375dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -62,7 +62,7 @@
 
             <TextView
                 android:id="@+id/text_fecapsocial5"
-                android:layout_width="375dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -77,7 +77,7 @@
 
             <TextView
                 android:id="@+id/text_fecapsocial6"
-                android:layout_width="375dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="2dp"
@@ -93,7 +93,7 @@
 
             <TextView
                 android:id="@+id/text_fecapsocial7"
-                android:layout_width="375dp"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
@@ -113,7 +113,7 @@
                 android:id="@+id/text_integrantes2"
                 android:layout_width="wrap_content"
                 android:layout_height="57dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="26dp"
                 android:layout_marginEnd="164dp"
                 android:fontFamily="@font/poppins_bold"
@@ -129,7 +129,7 @@
                 android:id="@+id/text_integrantes3"
                 android:layout_width="wrap_content"
                 android:layout_height="57dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="66dp"
                 android:layout_marginEnd="306dp"
                 android:fontFamily="@font/poppins_bold"
@@ -145,7 +145,7 @@
                 android:id="@+id/text_integrantes5"
                 android:layout_width="wrap_content"
                 android:layout_height="57dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="44dp"
                 android:layout_marginEnd="131dp"
                 android:fontFamily="@font/poppins_bold"
@@ -161,7 +161,7 @@
                 android:id="@+id/text_integrantes7"
                 android:layout_width="wrap_content"
                 android:layout_height="57dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="47dp"
                 android:layout_marginEnd="39dp"
                 android:fontFamily="@font/poppins_bold"
@@ -177,7 +177,7 @@
                 android:id="@+id/text_integrantes9"
                 android:layout_width="wrap_content"
                 android:layout_height="57dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="39dp"
                 android:layout_marginEnd="238dp"
                 android:fontFamily="@font/poppins_bold"
@@ -249,8 +249,8 @@
                 android:id="@+id/textFecapSocial2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="FECAP Social"
                 android:textColor="#142755"
@@ -263,7 +263,7 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="370dp"
+                android:layout_width="365dp"
                 android:layout_height="203dp"
                 android:layout_marginStart="11dp"
                 android:layout_marginTop="2dp"

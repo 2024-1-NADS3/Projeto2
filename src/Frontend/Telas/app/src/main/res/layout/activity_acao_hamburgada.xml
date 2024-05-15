@@ -49,7 +49,7 @@
 
         <ImageView
             android:id="@+id/imageHamb2"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="175dp"
             android:layout_marginTop="6dp"
             app:srcCompat="@drawable/imagem_hamburgada2"
@@ -59,8 +59,8 @@
 
         <TextView
             android:id="@+id/textHambFeliz2"
-            android:layout_width="375dp"
-            android:layout_height="450dp"
+            android:layout_width="360dp"
+            android:layout_height="455dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="8dp"
@@ -77,7 +77,7 @@
 
         <ImageView
             android:id="@+id/imageHamb3"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="260dp"
             android:layout_marginTop="35dp"
             app:srcCompat="@drawable/imagem_hamburgada3"
@@ -89,7 +89,7 @@
             android:id="@+id/textHambFeliz3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="17dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="-50dp"
             android:text="9° edição da Hamburgada Feliz – 2023"
@@ -102,7 +102,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageHamb3"/>
 
         <TextView
-            android:layout_width="375dp"
+            android:layout_width="360dp"
             android:layout_height="460dp"
             tools:ignore="MissingConstraints"
             android:layout_marginTop="15dp"
