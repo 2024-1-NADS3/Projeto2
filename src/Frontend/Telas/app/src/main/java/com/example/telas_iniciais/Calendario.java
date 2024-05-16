@@ -1,17 +1,24 @@
 package com.example.telas_iniciais;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -129,17 +136,8 @@ public class Calendario extends AppCompatActivity {
                     if (status.equals("sucesso")) {
                         JSONArray eventos = json.getJSONArray("eventos");
                         // Aqui você pode processar os eventos retornados
-                        // Por exemplo, exibir as informações em um Toast
-                        for (int i = 0; i < eventos.length(); i++) {
-                            JSONObject evento = eventos.getJSONObject(i);
-                            String nomeEvento = evento.getString("evento");
-                            String cidade = evento.getString("cidade");
-                            String logradouro = evento.getString("logradouro");
-                            String numero = evento.getString("numero");
-
-                            String message = "Evento: " + nomeEvento + "\nCidade: " + cidade + "\nLogradouro: " + logradouro + "\nNúmero: " + numero;
-                            Toast.makeText(Calendario.this, message, Toast.LENGTH_LONG).show();
-                        }
+                        // Exibir os detalhes do evento em um modal
+                        showEventoModal(eventos);
                     } else {
                         Toast.makeText(Calendario.this, "Nenhum evento encontrado para esta data", Toast.LENGTH_SHORT).show();
                     }
@@ -150,5 +148,46 @@ public class Calendario extends AppCompatActivity {
                 Toast.makeText(Calendario.this, "Erro ao buscar eventos", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void showEventoModal(JSONArray eventos) {
+        // Inflar o layout do modal
+        LayoutInflater inflater = getLayoutInflater();
+        View modalView = inflater.inflate(R.layout.modal_evento, null);
+
+        // Preencher o modal com os detalhes do evento
+        try {
+            JSONObject evento = eventos.getJSONObject(0); // Vamos exibir apenas o primeiro evento encontrado
+            String nomeEvento = evento.getString("evento");
+            String cidade = evento.getString("cidade");
+            String logradouro = evento.getString("logradouro");
+            String numero = evento.getString("numero");
+
+            TextView textNomeEvento = modalView.findViewById(R.id.textNomeEvento);
+            TextView textCidade = modalView.findViewById(R.id.textCidade);
+            TextView textLogradouro = modalView.findViewById(R.id.textLogradouro);
+            TextView textNumero = modalView.findViewById(R.id.textNumero);
+
+            textNomeEvento.setText(nomeEvento);
+            textCidade.setText("Cidade: " + cidade);
+            textLogradouro.setText("Logradouro: " + logradouro);
+            textNumero.setText("Número: " + numero);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // Criar o AlertDialog com o conteúdo do modal
+        AlertDialog.Builder builder = new AlertDialog.Builder(Calendario.this);
+        builder.setView(modalView);
+        builder.setPositiveButton("Fechar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); // Fechar o modal
+            }
+        });
+        AlertDialog dialog = builder.create();
+
+        // Exibir o AlertDialog
+        dialog.show();
     }
 }
