@@ -128,35 +128,31 @@ Para configurar e executar o projeto localmente, siga estas etapas:
 
 ### Instalação
 
-##### Dependencias NodeJS:
-- **express:**
+##### Dependências NodeJS: instale todas as dependências utilizando o comando npm install
+**express:**
 ```sh
 npm install express
 ```
-- **body-parser:**
+**body-parser:**
 ```sh
 npm install body-parser
 ```
-      
-- **nodemailer:**
-  ```sh
-  npm install nodemailer
-  ```
-      
-  - **sqlite3:**
-  ```sh
-  npm install sqlite3
-  ```
-      
-  - **crypto:**
-  ```sh
-  npm install crypto
-  ```
-      
-  - **dotenv:**
-  ```sh
-  npm install dotenv
-  ```       
+**nodemailer:**
+```sh
+npm install nodemailer
+```  
+**sqlite3:**
+```sh
+npm install sqlite3
+```  
+**crypto:**
+```sh
+npm install crypto
+```  
+**dotenv:**
+```sh
+npm install dotenv
+```       
 
   
 ## 🛠 Estrutura de pastas
