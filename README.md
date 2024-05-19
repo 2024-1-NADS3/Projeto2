@@ -88,11 +88,11 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
 
 #### Front-end
 
-- **Android Studio**: 
+- **Android Studio Java**: 
 
 #### Back-end
 
-- **Android Studio**: 
+- **Android Studio Java**: 
 
 
 ## Recursos
@@ -207,11 +207,62 @@ Coloque código do prompt de comnando se for necessário
     * Wireframe de papel e digital;
     * Realizado o uso do wireframe digital;
     * Criação e teste do protótipo de baixa fidelidade;
-    * Criação e teste do protótipo de alta fidelidade;
-     
-      
-
-
+    * Criação e 1º teste do protótipo de alta fidelidade;
+* 9 - 19/03/2024
+    * Realizado em sala (UX Design): Visão do Produto, história do usuário;
+* 10 - 26/03/2024
+    * Realizado em sala (UX Design): Storyboard;
+* 11 - 02/04/2024
+    * Conclusão do protótipo;
+* 12 - 09/04/2024
+    * Teste de usabilidade: Foi realizado em sala o Teste SUS com os usuários;
+* 13 - 16/04/2024
+    * Realizado em sala (UX Design): Manifesto pessoal;
+* 14 - 17/04/2024
+    * Entrega da documentação do Projeto (UX Design);
+* 15 - 08/04/2024 ~ 24/04/2024
+    * Ínicio da programação Mobile no Android Studio Java (frontend);
+    * Telas splash;
+    * Telas Ações;
+    * Tela Home;
+    * Tela doação;
+    * Tela configuração;
+    * Testes de carroussel;
+    * Telas login, cadastro do usuário, esqueceu a senha, redefinição de senha;
+    * Menu principal;
+    * Tela sobre o app;
+    * Tela termos de privacidade;
+    * Tela de suporte ao usuário;
+    * Ínicio: Conexão com o servidor e banco de dados;
+    * API node js;
+    * Telas cadastro de evento e perfil;
+* 16 - 24/04/2024
+    * 1º Entrega:
+    * Aplicativo funcional com 4 rotas criadas no servidor (enviando e recebendo dados);
+    * Funcionalidade principal;
+    * Banco de dados final;
+    * Documentação backend e frontend até o momento;
+* 17 - 25/04/2024
+    * Ínicio: Documento - Requisitos da disciplina Modelagem de Software e Arquitetura de Sistemas;
+    * Processo de gerenciamento de qualidade;
+    * Modelo de qualidade de software;
+* 17 - 08/05/2024
+    * 2º Entrega:
+    * Todas as rotas implementadas;
+    * Todas as telas acessíveis;
+    * Documentação backend e frontend até o momento;
+* 18 - 08/05/2024 ~ 13/05/2024
+    * Telas Sobre nós;
+    * Sistema para deletar e atualizar o cadastro do usuário finalizada;
+* 19 - 17/05/2024 ~ 22/05/2024
+    * Finalização da tela calendário das ações;
+    * testes unitários, componentes e de sistema finalizados;
+    * App finalizado;
+    * Documento backend e frontend finalizado;
+    * Documento de requisitos da disciplina modelagem de software e arquitetura de sistemas finalizado;
+    * App no Play Store;
+* 20 - 25/05/2024
+    * Apresentação do projeto
 
 
 ## 📋 Licença/License
