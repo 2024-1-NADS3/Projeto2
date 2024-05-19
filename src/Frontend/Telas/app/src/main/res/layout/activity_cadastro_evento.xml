@@ -35,7 +35,7 @@
 
     <EditText
         android:id="@+id/evento"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="44dp"
@@ -51,7 +51,7 @@
 
     <EditText
         android:id="@+id/cidade"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="23dp"
@@ -67,7 +67,7 @@
 
     <EditText
         android:id="@+id/logradouro"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="19dp"
@@ -83,7 +83,7 @@
 
     <EditText
         android:id="@+id/numero"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="20dp"
@@ -99,7 +99,7 @@
 
     <EditText
         android:id="@+id/data"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="26dp"
@@ -115,7 +115,7 @@
 
     <Button
         android:id="@+id/btnCadastrarEv"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="36dp"

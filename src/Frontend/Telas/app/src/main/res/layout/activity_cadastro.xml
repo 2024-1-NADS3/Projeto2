@@ -66,9 +66,9 @@
 
         <EditText
             android:id="@+id/inputNomeCadastro"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
             android:textColorHint="#142755"
@@ -83,7 +83,7 @@
             android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="22dp"
             android:text="Email"
             android:textColor="#142755"
             android:textStyle="bold"
@@ -94,9 +94,9 @@
 
         <EditText
             android:id="@+id/inputEmailCadastro"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
             android:textColorHint="#142755"
@@ -111,7 +111,7 @@
             android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="22dp"
             android:text="Senha"
             android:textColor="#142755"
             android:textStyle="bold"
@@ -122,9 +122,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputSenha"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:textColorHint="#142755"
             app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputSenhaCadastro"
-                android:layout_width="375dp"
+                android:layout_width="365dp"
                 android:layout_height="70dp"
                 android:paddingStart="12dp"
                 android:textSize="18sp"
@@ -145,7 +145,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputSenhaConfirme"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
             android:layout_marginTop="12dp"
             android:textColorHint="#142755"
@@ -156,7 +156,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputSenhaConfirme"
-                android:layout_width="375dp"
+                android:layout_width="365dp"
                 android:layout_height="70dp"
                 android:paddingStart="12dp"
                 android:textSize="18sp"
@@ -168,7 +168,7 @@
 
         <Button
             android:id="@+id/btnCadastrar"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="54dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"

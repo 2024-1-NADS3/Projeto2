@@ -48,7 +48,7 @@
 
     <EditText
         android:id="@+id/inputEmailLogin"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
         android:paddingStart="12dp"
@@ -62,9 +62,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputSenhaLogin"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
+        android:textColorHint="#142755"
         app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,11 +73,11 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputSenhaLogin"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
-            android:textColorHint="#142755"
+
             android:background="@drawable/borderradius"
             android:hint="Digite sua senha"
             android:inputType="textPassword" />
@@ -85,7 +86,7 @@
 
     <Button
         android:id="@+id/btnEntrar"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginTop="15dp"
         android:layout_marginStart="5dp"
@@ -106,8 +107,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="15dp"
-        android:padding="4dp"
         android:onClick="mudarTelaCadastro"
+        android:padding="4dp"
         android:text="Realizar Cadastro"
         android:textColor="#142755"
         android:textSize="18dp"
@@ -116,16 +117,18 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
-        android:padding="4dp"
         android:onClick="mudarTelaEsqueciSenha"
+        android:padding="4dp"
         android:text="Esqueceu senha?"
         android:textColor="#142755"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRealizarCadastro"
         app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
         tools:ignore="MissingConstraints" />
 

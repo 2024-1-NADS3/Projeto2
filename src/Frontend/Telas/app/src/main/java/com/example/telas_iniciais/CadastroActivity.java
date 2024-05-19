@@ -155,6 +155,7 @@ public class CadastroActivity extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
                                 dadosCadastro.setTitle("Cadastro Concluído com Sucesso!!!");
                                 dadosCadastro.setMessage("Obrigado pelo seu cadastro!");
+                                dadosCadastro.setIcon(R.drawable.icon_check);
                                 AlertDialog dialog = dadosCadastro.create();
                                 dialog.show();
 

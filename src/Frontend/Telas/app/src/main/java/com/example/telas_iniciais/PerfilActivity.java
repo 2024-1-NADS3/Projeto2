@@ -122,6 +122,7 @@ public class PerfilActivity extends AppCompatActivity {
         AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(PerfilActivity.this);
         dadosCadastro.setTitle("Conta Excluída com Sucesso!!!");
         dadosCadastro.setMessage("Sua conta foi excluída!");
+        dadosCadastro.setIcon(R.drawable.icon_check);
         AlertDialog dialog = dadosCadastro.create();
         dialog.show();
 

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,9 +18,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Activity responsável pela tela Redefinir Senha
+ */
 public class RedefinirSenhaActivity extends AppCompatActivity {
 
     private static final long tempoDelayMudarTela = 3000;
@@ -33,11 +38,17 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Método quando clicar no botão (ícone) para voltar para a tela de Esqueci a senha
+     */
     public void voltarTelaEsqueceuSenha(View view) {
         Intent voltarTelaEsqueceuSenha = new Intent(getApplicationContext(), EsqueciSenhaActivity.class);
         startActivity(voltarTelaEsqueceuSenha);
     }
 
+    /**
+     * Método chamado quando o botão "Enviar" é clicado para enviar o email.
+     */
     public void botaoRedefinirSenha(View view) {
         EditText inputToken, inputNovaSenha, inputNovaSenhaConfirmar;
         String token, novaSenha, novaSenhaConfirmar;
@@ -56,7 +67,7 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
         dadosUsuario.setNovaSenha(novaSenha);
         dadosUsuario.setNovaSenhaConfirmar(novaSenhaConfirmar);
 
-        /*
+        /**
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
          */
         if (token.isEmpty() || novaSenha.isEmpty() || novaSenhaConfirmar.isEmpty()) {
@@ -77,7 +88,7 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
             return;
         }
 
-        /*
+        /**
          * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
          */
         if (!novaSenha.equals(novaSenhaConfirmar)) {
@@ -104,30 +115,52 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            String status = jsonResponse.getString("status");
+                            String message = jsonResponse.getString("message");
 
-                        AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(RedefinirSenhaActivity.this);
-                        dadosCadastro.setTitle("Senha redefinida com sucesso!!!");
-                        dadosCadastro.setMessage("Sua senha foi redefinida. Você pode agora fazer login com sua nova senha.");
-                        AlertDialog dialog = dadosCadastro.create();
-                        dialog.show();
+                            if ("sucesso".equals(status)) {
+                                AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(RedefinirSenhaActivity.this);
+                                dadosCadastro.setTitle("Senha redefinida com sucesso!!!");
+                                dadosCadastro.setMessage(message);
+                                dadosCadastro.setIcon(R.drawable.icon_check);
+                                AlertDialog dialog = dadosCadastro.create();
+                                dialog.show();
 
-                        dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Intent intent = new Intent(RedefinirSenhaActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(RedefinirSenhaActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }, tempoDelayMudarTela);
+                            } else {
+                                AlertDialog.Builder erroCadastro = new AlertDialog.Builder(RedefinirSenhaActivity.this);
+                                erroCadastro.setTitle("Erro");
+                                erroCadastro.setMessage(message);
+                                erroCadastro.setIcon(R.drawable.alert_icon);
+                                AlertDialog dialog = erroCadastro.create();
+                                dialog.show();
+
+                                dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
+                                Button positiveButton = dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_POSITIVE);
+                                positiveButton.setTextColor(Color.WHITE);
+                                positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
                             }
-                        }, tempoDelayMudarTela);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(RedefinirSenhaActivity.this, "Erro ao processar a resposta do servidor.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         Toast.makeText(RedefinirSenhaActivity.this, "Ocorreu um erro. Por favor, tente novamente.", Toast.LENGTH_SHORT).show();
-                        Log.e("VolleyError", "Erro: " + error.getMessage());
+
                     }
                 }
         ) {
