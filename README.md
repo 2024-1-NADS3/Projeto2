@@ -105,13 +105,13 @@ Para o desenvolvimento do app foi utilizado as seguintes tecnologias:<br><br>
   
   #### ➡️ Back-end
   
-    - **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
-    - **Codesandbox:** Usado como servidor para o app.
-    - **NodeJS:** Ambiente de execução javascript, usado para criar a API com as rotas para se comunicar com o Android Studio e banco de dados.
-    - **SQLite:** Banco de dados Sqlite para armazenar os dados, foi criado as tabelas usuários e calendário.
+  - **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
+  - **Codesandbox:** Usado como servidor para o app.
+  - **NodeJS:** Ambiente de execução javascript, usado para criar a API com as rotas para se comunicar com o Android Studio e banco de dados.
+  - **SQLite:** Banco de dados Sqlite para armazenar os dados, foi criado as tabelas usuários e calendário.
   
-      ##### Biblioteca utilizadas (android studio):
-      - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.    
+     ##### Biblioteca utilizadas (android studio):
+     - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.    
 
 
 ## Recursos
@@ -128,36 +128,35 @@ Para configurar e executar o projeto localmente, siga estas etapas:
 
 ### Instalação
 
-  ##### Dependencias NodeJS:
-        - **express:**
-        ```sh
-        npm install express
-        ```
+##### Dependencias NodeJS:
+- **express:**
+```sh
+npm install express
+```
+- **body-parser:**
+```sh
+npm install body-parser
+```
       
-        - **body-parser:**
-        ```sh
-        npm install body-parser
-        ```
+- **nodemailer:**
+  ```sh
+  npm install nodemailer
+  ```
       
-        - **nodemailer:**
-        ```sh
-        npm install nodemailer
-        ```
+  - **sqlite3:**
+  ```sh
+  npm install sqlite3
+  ```
       
-        - **sqlite3:**
-        ```sh
-        npm install sqlite3
-        ```
+  - **crypto:**
+  ```sh
+  npm install crypto
+  ```
       
-        - **crypto:**
-        ```sh
-        npm install crypto
-        ```
-      
-        - **dotenv:**
-        ```sh
-        npm install dotenv
-        ```
+  - **dotenv:**
+  ```sh
+  npm install dotenv
+  ```       
 
   
 ## 🛠 Estrutura de pastas
