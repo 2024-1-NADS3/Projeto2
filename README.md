@@ -117,15 +117,14 @@ Para configurar e executar o projeto localmente, siga estas etapas:
 -Raiz<br>
 <br>
 |--> documentos<br>
-  &emsp;|-->backend<br>
-  &emsp;|-->frontend<br>
+   &emsp;|-->backend<br>
+   &emsp;|-->frontend<br>
 |--> img<br>
-  &emsp;|-->...<br>
-  |-->...<br>
-  &emsp;|-->...<br>
+   &emsp;|-->...<br>
+   &emsp;|-->...<br>
 |--> src<br>
-  &emsp;|-->Backend<br>
-  &emsp;|-->Frontend<br>
+   &emsp;|-->Backend<br>
+   &emsp;|-->Frontend<br>
 |--> .gitignore <br>
 |--> README.md<br>
 
@@ -193,12 +192,23 @@ Coloque código do prompt de comnando se for necessário
 * 3 - 19/02/2024
     * Reunião com os membros da Fecap Social: Onde foi levantado os requisitos e a viabilidade do app;
 * 4 - 20/02/2024
-    * Primeira etapa de UX Design: Foi realizado o Crazy Eight;
+    * Primeira etapa de UX Design: Foi realizado o Crazy Eight em sala;
 * 5 - 21/02/2024 ~ 26/02/2024
     * Período de pesquisa de empatia em UX Design;
     * Foi realizado os personas e o mapa de jornada do usuário;
 * 6 - 26/02/2024 ~ 27/02/2024
-    * Período da criação da declaração de problema em UX Design;
+    * Período de Criação da declaração de problema em UX Design;
+* 7 - 27/02/2024 ~ 02/03/2024
+    * Período da etapa de idealização em UX;
+    * Conclusão da auditoria competitiva e feito novamente o Crazy Eight;
+* 8 - 02/03/2024 ~ 08/03/2024
+    * Período de prototipação em UX;
+    * Foi realizado a arquitetura da informação;
+    * Wireframe de papel e digital;
+    * Realizado o uso do wireframe digital;
+    * Criação e teste do protótipo de baixa fidelidade;
+    * Criação e teste do protótipo de alta fidelidade;
+     
       
 
 
