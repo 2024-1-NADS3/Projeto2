@@ -185,8 +185,22 @@ Coloque código do prompt de comnando se for necessário
 ## 🗃 Histórico de lançamentos
 
 
-* 1 - 14/08/2024
-    * X
+* 1 - 07/02/2024
+    * Ínicio do projeto: Definição do tema, ODS e possíveis ONG parceiras;
+* 2 - 08/02/2024 ~ 13/02/2024
+    * Período que entramos em contato com as ONG;
+    * A entidade Fecap Social aceitou a parceria;
+* 3 - 19/02/2024
+    * Reunião com os membros da Fecap Social: Onde foi levantado os requisitos e a viabilidade do app;
+* 4 - 20/02/2024
+    * Primeira etapa de UX Design: Foi realizado o Crazy Eight;
+* 5 - 21/02/2024 ~ 26/02/2024
+    * Período de pesquisa de empatia em UX Design;
+    * Foi realizado os personas e o mapa de jornada do usuário;
+* 6 - 26/02/2024 ~ 27/02/2024
+    * Período da criação da declaração de problema em UX Design;
+      
+
 
 
 
