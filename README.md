@@ -85,8 +85,7 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
 - **Fase de Testes**
 
 ### 📱 Desenvolvimento Mobile
-
-Para o desenvolvimento do app foi utilizado as seguintes tecnologias:
+Para o desenvolvimento do app foi utilizado as seguintes tecnologias:<br>
 <img src="https://user-images.githubusercontent.com/25181517/117269608-b7dcfb80-ae58-11eb-8e66-6cc8753553f0.png" alt="Android Studio" border="0" width="50">
 <img src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png" alt="Java" border="0" width="50">
 <img src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/82df4543-236b-4e45-9604-5434e3faab17" alt="SQLite" border="0" width="50">
@@ -98,52 +97,52 @@ Para o desenvolvimento do app foi utilizado as seguintes tecnologias:
 - **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
 - **Figma:** Foi utilizado em todo o desenvolvimento em Design UX, desde as pesquisas até o protótipo final.
 
- ##### - Bibliotecas utilizadas (Android studio):
- - **androidx.appcompat:appcompat:1.6.1:** Garante que o aplicativo tenha uma aparência consistente em várias versões do Android.
- - **com.google.android.material:material:1.11.0:** Utilizado para criar componentes do Material Design no aplicativo.
- - **androidx.constraintlayout:constraintlayout:2.1.4:** Utilizado para organizar e posicionar os componentes, como botões e imagens, na tela do aplicativo.
- - **com.github.denzcoskun:ImageSlideshow:0.1.2:** Utilizado para a criação dos slides de imagens no aplicativo (carroussel).
+   ##### Bibliotecas utilizadas (Android studio):
+   - **androidx.appcompat:appcompat:1.6.1:** Garante que o aplicativo tenha uma aparência consistente em várias versões do Android.
+   - **com.google.android.material:material:1.11.0:** Utilizado para criar componentes do Material Design no aplicativo.
+   - **androidx.constraintlayout:constraintlayout:2.1.4:** Utilizado para organizar e posicionar os componentes, como botões e imagens, na tela do aplicativo.
+   - **com.github.denzcoskun:ImageSlideshow:0.1.2:** Utilizado para a criação dos slides de imagens no aplicativo (carroussel).
 
 #### ➡️ Back-end
 
-- **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
-- **Codesandbox:** Usado como servidor para o app.
-- **NodeJS:** Ambiente de execução javascript, usado para criar a API com as rotas para se comunicar com o Android Studio e banco de dados.
-- **SQLite:** Banco de dados Sqlite para armazenar os dados, foi criado as tabelas usuários e calendário.
+  - **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
+  - **Codesandbox:** Usado como servidor para o app.
+  - **NodeJS:** Ambiente de execução javascript, usado para criar a API com as rotas para se comunicar com o Android Studio e banco de dados.
+  - **SQLite:** Banco de dados Sqlite para armazenar os dados, foi criado as tabelas usuários e calendário.
 
-  ##### - Biblioteca utilizadas (android studio):
-  - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.
- 
-  ##### - Dependencias NodeJS:
-  - **express:**
-  ```sh
-  npm install express
-  ```
-
-  - **body-parser:**
-  ```sh
-  npm install body-parser
-  ```
-
-  - **nodemailer:**
-  ```sh
-  npm install nodemailer
-  ```
-
-  - **sqlite3:**
-  ```sh
-  npm install sqlite3
-  ```
-
-  - **crypto:**
-  ```sh
-  npm install crypto
-  ```
-
-  - **dotenv:**
-  ```sh
-  npm install dotenv
-  ```
+    ##### Biblioteca utilizadas (android studio):
+    - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.
+   
+    ##### Dependencias NodeJS:
+    - **express:**
+    ```sh
+    npm install express
+    ```
+  
+    - **body-parser:**
+    ```sh
+    npm install body-parser
+    ```
+  
+    - **nodemailer:**
+    ```sh
+    npm install nodemailer
+    ```
+  
+    - **sqlite3:**
+    ```sh
+    npm install sqlite3
+    ```
+  
+    - **crypto:**
+    ```sh
+    npm install crypto
+    ```
+  
+    - **dotenv:**
+    ```sh
+    npm install dotenv
+    ```
   
 
 
