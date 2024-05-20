@@ -2,48 +2,63 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="ClicaTexto"
-    tools:context=".termos">
+    android:layout_width="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".termos">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="348dp"
-        android:layout_height="393dp"
-        android:layout_marginTop="24dp"
-        android:text="Esta política de Termos de Uso é válida a partir de Apr 2024.  TERMOS DE USO — FECAP Social  FECAP Social, pessoa jurídica de direito privado descreve, através deste documento, as regras de uso do site https://www.instagram.com/fecapsocial/ e qualquer outro site, loja ou aplicativo operado pelo proprietário.  Ao navegar neste website, consideramos que você está de acordo com os Termos de Uso abaixo.  Caso você não esteja de acordo com as condições deste contrato, pedimos que não faça mais uso deste website, muito menos cadastre-se ou envie os seus dados pessoais. Se modificarmos nossos Termos de Uso, publicaremos o novo texto neste website, com a data de revisão atualizada. Podemos alterar este documento a qualquer momento. Caso haja alteração significativa nos termos deste contrato, podemos informá-lo por meio das informações de contato que tivermos em nosso banco de dados ou por meio de notificações.  A utilização deste website após as alterações significa que você aceitou os Termos de Uso revisados. Caso, após a leitura da versão revisada, você não esteja de acordo com seus termos, favor encerrar o seu acesso."
-        android:textAlignment="textStart"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="115dp"
+        android:text="Esta política de Termos de Uso é válida a partir de Apr 2024.  \n\nTERMOS DE USO — FECAP Social  FECAP Social, pessoa jurídica de direito privado descreve, através deste documento, as regras de uso do site https://www.instagram.com/fecapsocial/ e qualquer outro site, loja ou aplicativo operado pelo proprietário.  Ao navegar neste website, consideramos que você está de acordo com os Termos de Uso abaixo.  Caso você não esteja de acordo com as condições deste contrato, pedimos que não faça mais uso deste website, muito menos cadastre-se ou envie os seus dados pessoais. Se modificarmos nossos Termos de Uso, publicaremos o novo texto neste website, com a data de revisão atualizada. Podemos alterar este documento a qualquer momento. Caso haja alteração significativa nos termos deste contrato, podemos informá-lo por meio das informações de contato que tivermos em nosso banco de dados ou por meio de notificações.  A utilização deste website após as alterações significa que você aceitou os Termos de Uso revisados. Caso, após a leitura da versão revisada, você não esteja de acordo com seus termos, favor encerrar o seu acesso."
+        android:textSize="18sp"
+        android:textColor="#142755"
+        android:justificationMode="inter_word"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="350dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="330dp"
         android:onClick="ClicaTexto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/flecha" />
+        app:srcCompat="@drawable/arrow_back" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="340dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="30dp"
         android:text="Termos e Condições"
         android:textColor="#142755"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

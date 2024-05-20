@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B9DFE"
-    android:onClick="Voltar"
     tools:context=".Splash2">
 
     <ImageView
@@ -24,7 +23,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="46dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +33,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="35dp"
         android:onClick="Avancar"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -74,8 +73,8 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="368dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="112dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Descubra as diversas maneiras pelas quais a Fecap Social está impactando positivamente a comunidade. Você encontrará oportunidades para se envolver e contribuir para um mundo melhor."
         android:textAlignment="center"
@@ -88,8 +87,9 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:onClick="Voltar"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
