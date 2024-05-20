@@ -53,8 +53,7 @@
             android:name=".CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
+            android:name=".LoginActivity" />
         <activity
             android:name=".suporte"
             android:exported="false" />
