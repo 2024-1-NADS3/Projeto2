@@ -73,4 +73,12 @@ public class NossasAcoesGeral extends AppCompatActivity {
         startActivity(mudarTelaPascoaSolidaria);
     }
 
+    /**
+     * Método para voltar para a tela Home
+     */
+    public void voltarTelaHome(View view) {
+        Intent voltarTelaHome = new Intent(getApplicationContext(), Home.class);
+        startActivity(voltarTelaHome);
+    }
 }
+

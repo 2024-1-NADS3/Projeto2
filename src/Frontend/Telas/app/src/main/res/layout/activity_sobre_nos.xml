@@ -101,7 +101,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="Conheça os Integrantes"
                 android:textColor="#142755"
-                android:textSize="30sp"
+                android:textSize="27sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.191"
