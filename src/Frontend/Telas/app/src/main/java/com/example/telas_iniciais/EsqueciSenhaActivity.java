@@ -64,6 +64,7 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(EsqueciSenhaActivity.this);
                                 dadosCadastro.setTitle("Email enviado com sucesso!!!");
                                 dadosCadastro.setMessage("Em breve enviaremos um email com o Token!");
+                                dadosCadastro.setIcon(R.drawable.icon_check);
                                 AlertDialog dialog = dadosCadastro.create();
                                 dialog.show();
 

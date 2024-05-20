@@ -49,7 +49,7 @@
 
     <EditText
         android:id="@+id/inputToken"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         android:paddingStart="12dp"
@@ -64,7 +64,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textNovaSenha"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         android:textColorHint="#142755"
@@ -75,7 +75,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputNovaSenha"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
@@ -89,7 +89,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textNovaSenhaConfirmar"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         android:textColorHint="#142755"
@@ -100,7 +100,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputNovaSenhaConfirmar"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="70dp"
             android:paddingStart="12dp"
             android:textSize="18sp"
@@ -114,7 +114,7 @@
 
     <Button
         android:id="@+id/btnCadastrar"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"

@@ -40,7 +40,7 @@
 
     <TextView
         android:id="@+id/campo_nome"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="0dp"
@@ -55,7 +55,7 @@
 
     <TextView
         android:id="@+id/campo_email"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="44dp"
@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/btn_IrEv"
-        android:layout_width="375dp"
+        android:layout_width="365dp"
         android:layout_height="54dp"
         android:backgroundTint="#FCBA51"
         android:fontFamily="@font/poppins_bold"
@@ -98,36 +98,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEvento"
-        app:layout_constraintVertical_bias="0.00" />
-
-    <Button
-        android:id="@+id/btnAtualizaEvento"
-        android:layout_width="375dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#FCBA51"
-        android:fontFamily="@font/poppins_bold"
-        android:onClick="IrTelaCadEv"
-        android:text="Atualizar Cadastro"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_IrEv"
-        app:layout_constraintVertical_bias="0.00" />
-
-    <Button
-        android:id="@+id/btnExcluirEvento"
-        android:layout_width="375dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#FCBA51"
-        android:fontFamily="@font/poppins_bold"
-        android:onClick="IrTelaCadEv"
-        android:text="Excluir evento"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAtualizaEvento"
         app:layout_constraintVertical_bias="0.00" />
 
     <TextView
@@ -145,11 +115,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExcluirEvento"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_IrEv"/>
 
         <Button
             android:id="@+id/btnAtualizaUsuario"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="54dp"
             android:backgroundTint="#FCBA51"
             android:fontFamily="@font/poppins_bold"
@@ -163,7 +133,7 @@
 
         <Button
             android:id="@+id/btnExcluirConta"
-            android:layout_width="375dp"
+            android:layout_width="365dp"
             android:layout_height="54dp"
             android:backgroundTint="#FCBA51"
             android:fontFamily="@font/poppins_bold"
@@ -196,8 +166,8 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="336dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="330dp"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Nome"
@@ -212,8 +182,8 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="339dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="330dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Email"
         android:textColor="#142755"

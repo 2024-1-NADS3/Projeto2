@@ -58,7 +58,7 @@
             <TextView
                 android:id="@+id/textTroteSolidario1"
                 android:layout_width="360dp"
-                android:layout_height="305dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="10dp"
@@ -71,21 +71,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageTroteSolidario1" />
 
-                <ImageView
-                    android:id="@+id/imageOndaTrote"
-                    android:layout_width="match_parent"
-                    android:layout_height="1950dp"
-                    android:layout_marginTop="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario1"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/fundo_onda_trote_solidario"
-                    tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/imageOndaTrote"
+                android:layout_width="match_parent"
+                android:layout_height="2135dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTroteSolidario1"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/fundo_onda_trote_solidario"
+                tools:ignore="MissingConstraints" />
 
-                <TextView
+            <TextView
                 android:id="@+id/textSubtituloTrote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
             <TextView
                 android:id="@+id/textTroteSolidario2"
                 android:layout_width="360dp"
-                android:layout_height="800dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="8dp"
@@ -222,24 +222,24 @@
 
             <TextView
                 android:id="@+id/textListaAlimentos"
-                android:layout_width="375dp"
-                android:layout_height="370dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="350dp"
+                android:layout_height="380dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:text="• Açúcar – 1 unidade (1kg)\n• Arroz – 5 unidades (9kg)\n• Farinha de milho – 1 unidade (500g)\n• Feijão – 9 unidades (9kg)\n• Macarrão – 20 unidades (10kg)\n• Molho de tomate – 4 unidades (1,2Kg)\n• Polenta – 1 unidade (500g)\n• Rosquinha – 1 unidade (300g)\n• Sal – 1 unidade (1kg)\n• Seleta de legume – 2 unidades (560g)"
-                android:textColor="#142755"
-                android:textSize="18sp"
+                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/poppins_regular_"
                 android:justificationMode="inter_word"
                 android:lineSpacingMultiplier="1.5"
+                android:text="• Açúcar – 1 unidade (1kg)\n• Arroz – 5 unidades (9kg)\n• Farinha de milho – 1 unidade (500g)\n• Feijão – 9 unidades (9kg)\n• Macarrão – 20 unidades (10kg)\n• Molho de tomate – 4 unidades (1,2Kg)\n• Polenta – 1 unidade (500g)\n• Rosquinha – 1 unidade (300g)\n• Sal – 1 unidade (1kg)\n• Seleta de legume – 2 unidades (560g)"
+                android:textColor="#142755"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
                 app:layout_constraintTop_toBottomOf="@+id/textAlimentos" />
 
             <TextView
                 android:id="@+id/textHigienePessoal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="25dp"
                 android:text="Higiene Pessoal:"
@@ -251,18 +251,19 @@
 
             <TextView
                 android:id="@+id/textListaHigienePessoal"
-                android:layout_width="375dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="-90dp"
+                android:paddingBottom="90dp"
                 android:text="• Absorvente – 6 unidades\n• Aparelho de barbear – 13 unidades\n• Creme dental – 37 unidades\n• Escova de dente – 6 unidades\n• Sabonetes – 39 unidades"
                 android:textColor="#142755"
                 android:textSize="18sp"
                 android:fontFamily="@font/poppins_regular_"
                 android:justificationMode="inter_word"
                 android:lineSpacingMultiplier="1.5"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/imageOndaTrote"
                 app:layout_constraintTop_toBottomOf="@id/textHigienePessoal"/>
 
@@ -271,20 +272,20 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottomNavigation"
-    android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:background="#55B1FE"
-    android:layout_alignParentBottom="true"
-    android:paddingTop="3dp"
-    android:paddingBottom="3dp"
-    app:itemTextColor="#142755"
-    app:itemIconTint="#142755"
-    app:itemIconSize="35dp"
-    app:labelVisibilityMode="labeled"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:menu="@menu/menu_nav"/>
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#55B1FE"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:itemTextColor="#142755"
+        app:itemIconTint="#142755"
+        app:itemIconSize="35dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_nav"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
