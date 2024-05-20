@@ -19,28 +19,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/flecha" />
 
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="340dp"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="50dp"
         android:text="Suporte ao Usuário"
         android:textColor="#142755"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="358dp"
         android:layout_height="339dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="13dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:text="Fale Conosco!"
-        android:textColor="#000000"
+        android:textColor="#142755"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,31 +63,68 @@
     <TextView
         android:id="@+id/instaFfecap"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="23dp"
-        android:autoLink="web"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:text="fecapsocial"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        android:textColor="#142755"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageInsta"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        android:onClick="Instagram" />
+
+    <View
+        android:layout_width="96dp"
+        android:layout_height="1dp"
+        android:background="#142755"
+        app:layout_constraintStart_toStartOf="@+id/instaFfecap"
+        app:layout_constraintEnd_toEndOf="@+id/instaFfecap"
+        app:layout_constraintTop_toBottomOf="@+id/instaFfecap" />
+
+    <ImageView
+        android:id="@+id/imageInsta"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/instaFfecap"
+        app:layout_constraintTop_toTopOf="@+id/instaFfecap"
+        app:layout_constraintBottom_toBottomOf="@+id/instaFfecap"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:srcCompat="@drawable/icon_instagram" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="84dp"
-        android:linksClickable="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="FECAP Social | LinkedIn"
-        android:textColor="#090909"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-        app:layout_constraintStart_toStartOf="@+id/imageView8" />
+        android:textColor="#142755"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageLinkedin"
+        app:layout_constraintTop_toBottomOf="@+id/instaFfecap"
+        android:onClick="Linkedin" />
+
+    <View
+        android:layout_width="210dp"
+        android:layout_height="1dp"
+        android:background="#142755"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/imageLinkedin"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="60dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:srcCompat="@drawable/icon_linkedin" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
