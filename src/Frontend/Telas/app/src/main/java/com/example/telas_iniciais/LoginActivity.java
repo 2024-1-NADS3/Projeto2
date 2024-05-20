@@ -37,6 +37,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+
+    Map<String, String> getParamsMap(ClasseUsuario usuario) {
+        Map<String, String> dadosDoUsuario = new HashMap<>();
+        dadosDoUsuario.put("login", usuario.getEmail());
+        dadosDoUsuario.put("password", usuario.getSenha());
+        return dadosDoUsuario;
+    }
+
+
+
     /**
      * Método para quando clicar no botão de voltar a tela "<", ir para a tela Configuração.
      */
@@ -160,4 +170,5 @@ public class LoginActivity extends AppCompatActivity {
         editorPreferencias.putString("nome_usuario", nomeUsuario);
         editorPreferencias.apply();
     }
+
 }
