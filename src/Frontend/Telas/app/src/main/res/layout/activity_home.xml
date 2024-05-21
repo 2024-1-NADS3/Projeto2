@@ -288,19 +288,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/redes" />
 
-        <ImageView
-            android:id="@+id/imagem_redes"
-            android:layout_width="365dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_rede"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/image_redes" />
+            <ImageView
+                android:id="@+id/imagem_redes"
+                android:layout_width="365dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="Instagram"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_rede"
+                app:srcCompat="@drawable/image_redes" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

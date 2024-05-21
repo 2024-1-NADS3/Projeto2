@@ -34,13 +34,13 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="350dp"
-        android:layout_height="194dp"
+        android:layout_width="357dp"
+        android:layout_height="422dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur, massa et rhoncus rhoncus, dolor odio pellentesque eros, vitae vestibulum metus eros eu libero.  Maecenas nibh lacus, tempus a porta ac, imperdiet eu mauris. Curabitur odio sapien, pulvinar vitae odio volutpat, malesuada euismod augue. Vestibulum id interdum ex. Sed hendrerit nulla eget ipsum ornare, ut fringilla ligula bibendum. In hac habitasse platea dictumst. Curabitur tempor justo quis justo facilisis gravida. "
-        android:textAlignment="center"
+        android:justificationMode="inter_word"
+        android:text="O app FECAP Social foi criado para facilitar o engajamento em ações comunitárias, permitindo que alunos, professores e colaboradores encontrem e participem de iniciativas que fazem a diferença. Através do app, você pode:  descobrir projetos de voluntariado e campanhas de arrecadação; participar de eventos comunitários e sociais; contribuir para causas importantes e impactar positivamente a sociedade.  \n\nNosso objetivo é promover a solidariedade e a responsabilidade social, incentivando toda a comunidade a se envolver em atividades que beneficiem a todos."
         android:textColor="#142755"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -2,6 +2,7 @@ package com.example.telas_iniciais;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import com.denzcoskun.imageslider.ImageSlider;
@@ -76,5 +77,13 @@ public class Home extends AppCompatActivity {
     public void BtnIr(View view) {
         Intent mudarTelaSobre = new Intent(getApplicationContext(), SobreNos.class);
         startActivity(mudarTelaSobre);
+    }
+
+    public void Instagram(View view){
+        String url = "https://www.instagram.com/fecapsocial?igsh=aXVnNDF5OG9oY255";
+        Intent mudarTelaInstagram = new Intent(Intent.ACTION_VIEW);
+        mudarTelaInstagram.setData(Uri.parse(url));
+        mudarTelaInstagram.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(mudarTelaInstagram);
     }
 }
