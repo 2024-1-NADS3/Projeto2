@@ -23,14 +23,14 @@ public class Splash3 extends AppCompatActivity {
         finish();
     }
 
-
     /**
      * Método para avançar para a próxima tela (Home, por exemplo)
      */
     public void Avancar(View view) {
-        SharedPreferences preferences = getSharedPreferences("splash_prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("hasSeenSplash", true);
+        // Atualiza SharedPreferences para indicar que não é mais a primeira execução
+        SharedPreferences sharedPreferences = getSharedPreferences("appPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isFirstRun", false);
         editor.apply();
 
         // Avança para a próxima tela (por exemplo, a tela inicial)

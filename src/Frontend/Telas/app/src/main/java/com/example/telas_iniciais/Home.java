@@ -1,13 +1,9 @@
 package com.example.telas_iniciais;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -18,19 +14,16 @@ import java.util.ArrayList;
 public class Home extends AppCompatActivity {
 
     private ImageSlider imageSlider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
         imageSlider = findViewById(R.id.image_slider);
 
-        //lista de imagem
-
+        // Lista de imagem
         ArrayList<SlideModel> slideModels = new ArrayList<>();
-
         slideModels.add(new SlideModel(R.drawable.image1, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image2, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.image13, ScaleTypes.FIT));
@@ -39,10 +32,7 @@ public class Home extends AppCompatActivity {
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
-        /**
-         * Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal) e
-         * controla a navegação entre diferentes telas de acordo com os itens selecionados
-         */
+        // Bloco de código de componente de interface do usuário que lida com o menu de navegação (Menu principal)
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -73,22 +63,18 @@ public class Home extends AppCompatActivity {
     }
 
     /**
-     * método que faz ir para a tela de Ações
+     * Método que faz ir para a tela de Ações
      */
-
     public void botaoSaberMaisAcaoGeral(View view) {
         Intent mudarTelaBotaoAcao = new Intent(getApplicationContext(), NossasAcoesGeral.class);
         startActivity(mudarTelaBotaoAcao);
     }
 
     /**
-     * método que faz ir para a tela sobre a FECAP Social
+     * Método que faz ir para a tela sobre a FECAP Social
      */
-
     public void BtnIr(View view) {
         Intent mudarTelaSobre = new Intent(getApplicationContext(), SobreNos.class);
         startActivity(mudarTelaSobre);
     }
-
-
 }
