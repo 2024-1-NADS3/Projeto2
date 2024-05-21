@@ -67,7 +67,7 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
 - **Fase de Idealização**
   -   Aqui é a etapa onde geraremos diversas ideias para solucionar o problema apresentado na fase de definição, para isso fizemos uma auditoria competitiva, onde pesquisamos aplicativos que possuíam a mesma proposta que queríamos solucionar e em seguida o Crazy Eights, uma técnica de esboço rápido em um espaço de tempo limitado, onde oito ideias distintas são elaboradas em oito minutos. <br>
  <a href="https://edufecap-my.sharepoint.com/:x:/g/personal/fernanda_kato_edu_fecap_br/EZ0S-kbxo3FBiUyrVaIHWg4BMpmvb_dG818y3W_KXnDUjA?e=x6dt4H"> Clique aqui para acessar à Auditoria Competitiva. </a> <br>
-<p align="center"><img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Crazy%20Eight%20-%20JPG.jpg" border="0" width="500"> <br> Crazy Eights </p>
+<p align="center"><img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/Crazy%20Eight%20-%20JPG.jpg" border="0" width="500"> <br> Crazy Eight </p>
  <br>
 
 - **Fase de Prototipar**
