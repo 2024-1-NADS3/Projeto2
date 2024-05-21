@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.assertion.ViewAssertions;
+import androidx.test.espresso.matcher.RootMatchers;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -23,28 +24,33 @@ public class LoginActivityComponentTest {
     @Test
     public void testLoginSucesso() {
         // Simula um input
-        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("example@example.com"));
-        Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("password"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("valid6"), ViewActions.closeSoftKeyboard());
 
         // Clica no botão de login
         Espresso.onView(ViewMatchers.withId(R.id.btnEntrar)).perform(ViewActions.click());
 
-        // Checa se o login foi bem sucedido se a perfil abre
-        //Espresso.onView(ViewMatchers.withId(R.id.activity_p_layout)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
 
 
     @Test
     public void testLoginInvalido() {
         // Simula um input
-        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("invalid@example.com"));
-        Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("invalid"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("invalid"), ViewActions.closeSoftKeyboard());
 
         // Clica no botão de login
         Espresso.onView(ViewMatchers.withId(R.id.btnEntrar)).perform(ViewActions.click());
 
-        // Checa se a mensagem de erro aparece
-        Espresso.onView(ViewMatchers.withText("Erro de Login")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        // Verifica se o alerta é exibido com o título correto
+        Espresso.onView(ViewMatchers.withText("Erro de Login")).inRoot(RootMatchers.isDialog()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+
+        // Verifica se o alerta contém a mensagem correta
+        Espresso.onView(ViewMatchers.withText("Email ou senha incorretos!!!")).inRoot(RootMatchers.isDialog()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+
+        // Verifica se o botão no alerta contém o texto correto
+        Espresso.onView(ViewMatchers.withText("Tentar novamente")).inRoot(RootMatchers.isDialog()).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
     }
+
 
 }
