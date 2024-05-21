@@ -82,7 +82,13 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
   <br>
 
       
-- **Fase de Testes**
+- **Fase de Testes com Usuário**
+- Foi realizado um teste de Usabilidade com os usuários, no qual utlizamos a técnica SUS (System Usability Scale), para medir o nível de usabilidade de nosso sistema. Os critérios que o SUS utiliza para avaliação incluem:
+
+- **Efetividade:** Os usuários conseguem atingir seus objetivos?
+- **Eficiência:** Qual é a quantidade de esforço e recursos necessários para isso?
+- **Satisfação:** A experiência foi satisfatória para os usuários?
+<a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/teste_sus.png"> Clique aqui para acessar o resultado do teste SUS. </a> 
 
 ### 📱 Desenvolvimento Mobile
 Para o desenvolvimento do app foi utilizado as seguintes tecnologias:<br><br>
