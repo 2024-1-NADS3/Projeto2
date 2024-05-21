@@ -110,10 +110,29 @@ Para o desenvolvimento do app foi utilizado as seguintes tecnologias:<br><br>
   - **NodeJS:** Ambiente de execução javascript, usado para criar a API com as rotas para se comunicar com o Android Studio e banco de dados.
   - **SQLite:** Banco de dados Sqlite para armazenar os dados, foi criado as tabelas usuários e calendário.
   
-     ##### Biblioteca utilizadas (android studio):
-     - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.    
+     ##### Bibliotecas utilizadas (android studio):
+     - **com.android.volley:volley:1.2.1:** biblioteca de comunicação com a internet, no caso com o servidor.
 
+  #### ➡️ Testes
+  
+  - **Android Studio Java:** IDE para o desenvolvimento android, foi utilizado a linguagem java.
+  - **JUnit 4:** Usado como framework para testes unitários.
+  - **Espresso:** Usado como ferramenta para a automação dos testes de componente.
+    
+    ##### Bibliotecas e classes utilizadas (android studio):
+    - **org.junit.Rule:** Utlizado para definir regras que são aplicadas antes e depois dos testes.
+    - **org.junit.Test:** Anotação que marca um método como um método de teste JUnit.
+    - **org.junit.runner.RunWith:** Anotação que especifica o Runner a ser usado para executar os testes.
+    - **androidx.test.espresso.Espresso:** Classe principal do Espresso, fornece métodos estáticos para interagir com a interface do usuário.
+    - **androidx.test.espresso.action.ViewActions:** Contém ações que podem ser executadas em views, como click(), typeText(), scrollTo(), entre outras.
+    - **androidx.test.espresso.assertion.ViewAssertions:** Contém métodos para verificar o estado das views, como matches() para verificar se uma view corresponde a um matcher específico.
+    - **androidx.test.espresso.matcher.RootMatchers:** Fornece matchers para identificar janelas ou diálogos específicos.
+    - **androidx.test.espresso.matcher.ViewMatchers:** Fornece matchers para identificar views com base em propriedades como withId(), withText(), isDisplayed(), entre outros.
+    - **androidx.test.ext.junit.rules.ActivityScenarioRule:** Regra do JUnit que fornece gerenciamento automático de atividades para testes. Inicia a atividade especificada antes de cada teste e a encerra após o teste.
+    - **androidx.test.ext.junit.runners.AndroidJUnit4:** Runner específico para testes de interface do usuário no Android.
 
+      
+    
 ## Recursos
 
 
