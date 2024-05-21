@@ -25,7 +25,7 @@
 ## Descrição
 
 <p align="center">
-<img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/group4042.png" border="0" width="300"> <br>
+<img src="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/logo_app.png" border="0" width="300"> <br>
   Projeto Interdisciplinar Programação Mobile  <a href="/">
 </p>
 
