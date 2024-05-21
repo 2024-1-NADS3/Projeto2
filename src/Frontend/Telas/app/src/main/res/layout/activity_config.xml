@@ -27,7 +27,7 @@
         android:layout_width="24dp"
         android:layout_height="22dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/vector_info" />
@@ -60,7 +60,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="27dp"
         android:layout_marginEnd="28dp"
         android:onClick="avancaTermos"
         android:text="Termos e Condições"
@@ -75,7 +75,7 @@
         android:layout_width="23dp"
         android:layout_height="23dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="34dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
         app:srcCompat="@drawable/vector_suporte" />
@@ -85,13 +85,14 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="28dp"
         android:onClick="avancaSuporte"
         android:text="Suporte ao Usuário"
         android:textColor="#142755"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -105,12 +106,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
         app:srcCompat="@drawable/vector_access" />
 
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="28dp"
         android:onClick="avancaAcessoInterno"
         android:text="Acesso Interno"
@@ -119,7 +121,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView13"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
