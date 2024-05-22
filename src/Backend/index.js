@@ -13,13 +13,19 @@ const nodemailer = require("nodemailer");
 /** Importa o módulo "crypto" para lidar com criptografia */
 const crypto = require("crypto");
 
+/** Importa o arquivo criptoCesar.js */
+const criptoCesar = require("./criptoCesar");
+
+/** Importa o arquivo descriptoCesar.js */
+const descriptoCesar = require("./descriptoCesar");
+
 /**  Define a constante PORT para usar a porta 3000 como padrão */
 const PORT = process.env.PORT || 3000;
 
 /** Cria uma instância express */
 const app = express();
 
-/*
+/**
  * Importa o módulo "dotenv" e chama a função config()
  * Carrega a variável de ambiente (com os dados de email e senha)
  */
@@ -44,7 +50,7 @@ function atualizarBancoDeDados(db, email, token) {
   });
 }
 
-/*
+/**
  * Função para enviar o email para o usuário
  */
 function enviarEmail(email, nome, token) {
@@ -88,6 +94,64 @@ function enviarEmail(email, nome, token) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/**
+ * Rota para criptografar texto usando criptografia de César
+ */
+app.post("/criptoCesar", (req, res) => {
+  const { texto, chave } = req.body;
+
+  // Verifica se os parâmetros foram fornecidos
+  if (!texto || !chave) {
+    return res
+      .status(400)
+      .json({ status: "erro", message: "Parâmetros ausentes." });
+  }
+
+  // Converte a chave para número inteiro
+  const chaveInt = parseInt(chave);
+
+  // Verifica se a chave é um número válido
+  if (isNaN(chaveInt)) {
+    return res
+      .status(400)
+      .json({ status: "erro", message: "Deslocamento inválido." });
+  }
+
+  // Chama a função criptoCesar para criptografar o texto
+  const textoCriptografado = criptoCesar(texto, chaveInt);
+
+  // Retorna o texto criptografado
+  res.json({ status: "sucesso", textoCriptografado });
+});
+
+/**
+ * Rota para descriptografar texto usando criptografia de César
+ */
+app.post("/descriptoCesar", (req, res) => {
+  const { textoCriptografado, chave } = req.body;
+
+  // Verifica se os parâmetros foram fornecidos
+  if (!textoCriptografado || !chave) {
+    return res
+      .status(400)
+      .json({ status: "erro", message: "Parâmetros ausentes." });
+  }
+
+  // Converte a chave para número inteiro
+  const chaveInt = parseInt(chave);
+
+  // Verifica se a chave é um número válido
+  if (isNaN(chaveInt)) {
+    return res.status(400).json({ status: "erro", message: "Chave inválida." });
+  }
+
+  // Chama a função descriptografar para descriptografar o texto
+  const textoDescriptografado = descriptoCesar(textoCriptografado, chaveInt);
+
+  // Retorna o texto descriptografado
+  res.json({ status: "sucesso", textoDescriptografado });
+});
+
 /** Cria uma conexão com o banco de dados SQLite */
 let db = new sqlite3.Database("./bancoskl.db", (err) => {
   if (err) {
@@ -114,10 +178,16 @@ app.get("/tudo", function (req, res) {
  */
 app.post("/cadastro", (req, res) => {
   const { nome, email, senha } = req.body;
+  const chave = 3;
+
+  // Criptografa os dados sensíveis antes de inserir no banco de dados
+  const nomeCriptografado = criptoCesar(nome, chave);
+  const emailCriptografado = criptoCesar(email, chave);
+  const senhaCriptografada = criptoCesar(senha, chave);
 
   // Verifica se o e-mail já existe
   let sql = `SELECT * FROM usuarios WHERE email = ?`;
-  db.get(sql, [email], (err, row) => {
+  db.get(sql, [emailCriptografado], (err, row) => {
     if (err) {
       return console.error(err.message);
     }
@@ -129,18 +199,22 @@ app.post("/cadastro", (req, res) => {
         message: "Email já cadastrado!",
       });
     } else {
-      // Se o e-mail não existir, adiciona o novo usuário
+      // Se o e-mail não existir, adiciona o novo usuário com dados criptografados
       sql = `INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)`;
-      db.run(sql, [nome, email, senha], (err) => {
-        if (err) {
-          return console.error(err.message);
-        }
+      db.run(
+        sql,
+        [nomeCriptografado, emailCriptografado, senhaCriptografada],
+        (err) => {
+          if (err) {
+            return console.error(err.message);
+          }
 
-        res.json({
-          status: "sucesso",
-          message: "Usuário cadastrado com sucesso!",
-        });
-      });
+          res.json({
+            status: "sucesso",
+            message: "Usuário cadastrado com sucesso!",
+          });
+        },
+      );
     }
   });
 });
@@ -150,24 +224,41 @@ app.post("/cadastro", (req, res) => {
  */
 app.post("/login", (req, res) => {
   const { login: email, password: senha } = req.body;
+  const chave = 3;
 
-  let sql = `SELECT * FROM usuarios WHERE email = ? AND senha = ?`;
-  db.get(sql, [email, senha], (err, row) => {
+  let sql = `SELECT * FROM usuarios WHERE email = ?`;
+  db.get(sql, [criptoCesar(email, chave)], (err, row) => {
     if (err) {
-      throw err;
+      return res.status(500).json({
+        status: "erro",
+        message: "Erro ao verificar e-mail no banco de dados.",
+        error: err.message,
+      });
     }
 
     if (row) {
-      res.json({
-        status: "sucesso",
-        id_usuario: row.id_user,
-        email_usuario: email,
-        nome_usuario: row.nome,
-        message: "Login bem-sucedido!",
-      });
-    } else {
-      res.json({ status: "erro", message: "Email ou senha incorretos." });
+      // Descriptografa os dados recuperados do banco de dados
+      const nomeDescriptografado = descriptoCesar(row.nome, chave);
+      const emailDescriptografado = descriptoCesar(row.email, chave);
+      const senhaDescriptografada = descriptoCesar(row.senha, chave);
+
+      // Verifica se o email e senha fornecidos correspondem aos dados descriptografados
+      if (email === emailDescriptografado && senha === senhaDescriptografada) {
+        return res.json({
+          status: "sucesso",
+          id_usuario: row.id_user,
+          email_usuario: email,
+          nome_usuario: nomeDescriptografado,
+          message: "Login bem-sucedido!",
+        });
+      }
     }
+
+    // Se o e-mail não existir ou a senha estiver incorreta, retorna uma mensagem de erro
+    res.status(200).json({
+      status: "erro",
+      message: "Email ou senha incorretos!!!",
+    });
   });
 });
 
@@ -177,18 +268,29 @@ app.post("/login", (req, res) => {
 app.post("/esqueceu-senha", (req, res) => {
   const { email } = req.body;
   const token = gerarToken();
+  const chave = 3;
+
+  const emailCriptografado = criptoCesar(email, chave);
 
   let sql = `SELECT nome FROM usuarios WHERE email = ?`;
-  db.get(sql, [email], (err, row) => {
+  db.get(sql, [emailCriptografado], (err, row) => {
     if (err) {
-      throw err;
+      return res.status(500).json({
+        status: "erro",
+        message: "Erro ao buscar email no banco de dados.",
+        error: err.message,
+      });
     }
 
     if (row) {
-      let nome = row.nome;
+      // Descriptografa o nome do usuário
+      let nomeDescriptografado = descriptoCesar(row.nome, chave);
 
-      atualizarBancoDeDados(db, email, token);
-      enviarEmail(email, nome, token);
+      // Atualiza o banco de dados com o token
+      atualizarBancoDeDados(db, emailCriptografado, token);
+
+      // Envia email com o token
+      enviarEmail(email, nomeDescriptografado, token);
 
       res.json({
         status: "sucesso",
@@ -205,25 +307,43 @@ app.post("/esqueceu-senha", (req, res) => {
  */
 app.post("/redefinir-senha", (req, res) => {
   const { token, novaSenha } = req.body;
+  const chave = 3;
+
+  const novaSenhaCriptografada = criptoCesar(novaSenha, chave);
 
   let sql = `SELECT * FROM usuarios WHERE tokenRedefinicaoSenha = ? AND expiracaoTokenRedefinicaoSenha > ?`;
   db.get(sql, [token, Date.now()], (err, row) => {
     if (err) {
-      throw err;
+      return res.status(500).json({
+        status: "erro",
+        message: "Erro ao buscar token no banco de dados.",
+        error: err.message,
+      });
     }
 
     if (row) {
-      let sqlUpdate = `UPDATE usuarios SET senha = ?, tokenRedefinicaoSenha = NULL, expiracaoTokenRedefinicaoSenha = NULL WHERE email = ?`;
-      db.run(sqlUpdate, [novaSenha, row.email], (err) => {
-        if (err) {
-          throw err;
-        }
+      // Descriptografa o email
+      const emailDescriptografado = descriptoCesar(row.email, chave);
 
-        res.json({
-          status: "sucesso",
-          message: "Senha redefinida com sucesso!",
-        });
-      });
+      let sqlUpdate = `UPDATE usuarios SET senha = ?, tokenRedefinicaoSenha = NULL, expiracaoTokenRedefinicaoSenha = NULL WHERE email = ?`;
+      db.run(
+        sqlUpdate,
+        [novaSenhaCriptografada, emailDescriptografado],
+        (err) => {
+          if (err) {
+            return res.status(500).json({
+              status: "erro",
+              message: "Erro ao atualizar a senha no banco de dados.",
+              error: err.message,
+            });
+          }
+
+          res.json({
+            status: "sucesso",
+            message: "Senha redefinida com sucesso!",
+          });
+        },
+      );
     } else {
       res.json({ status: "erro", message: "Token inválido ou expirado." });
     }
@@ -235,12 +355,12 @@ app.post("/redefinir-senha", (req, res) => {
  */
 app.put("/atualizarUsuario", function (req, res) {
   var id = req.body.id_user;
-  var nome = req.body.nome;
-  var email = req.body.email;
+  var nomeCriptografado = criptoCesar(req.body.nome, 3);
+  var emailCriptografado = criptoCesar(req.body.email, 3);
 
   sql = `UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?`;
 
-  db.run(sql, [nome, email, id], function (err) {
+  db.run(sql, [nomeCriptografado, emailCriptografado, id], function (err) {
     if (err) {
       res.send("Erro na atualização: " + err);
     } else {
@@ -304,6 +424,45 @@ app.post("/cadastroEvento", (req, res) => {
           status: "sucesso",
           message: "Evento cadastrado com sucesso!",
         });
+      });
+    }
+  });
+});
+
+/**
+ * Rota para buscar todos os eventos cadastrados
+ */
+app.get("/buscarEventos", (req, res) => {
+  // Verifica se foi fornecida uma data como parâmetro na query da requisição
+  const dataSelecionada = req.query.data;
+  if (!dataSelecionada) {
+    return res.json({
+      status: "erro",
+      message: "Data não fornecida",
+    });
+  }
+
+  // Consulta os eventos na tabela 'calendario' para a data fornecida
+  let sql = `SELECT evento, data, cidade, logradouro, numero FROM calendario WHERE data = ?`;
+  db.all(sql, [dataSelecionada], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        status: "erro",
+        message: "Erro ao buscar eventos",
+      });
+    }
+
+    // Se houver eventos, retorna os dados
+    if (rows && rows.length > 0) {
+      res.json({
+        status: "sucesso",
+        eventos: rows,
+      });
+    } else {
+      // Se não houver eventos, retorna uma mensagem indicando que não há eventos cadastrados para essa data
+      res.json({
+        status: "erro",
+        message: "Nenhum evento cadastrado para a data selecionada",
       });
     }
   });
