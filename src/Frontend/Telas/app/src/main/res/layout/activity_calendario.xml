@@ -6,22 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Calendario">
 
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="515dp"
+        android:layout_height="581dp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewEventos"
+        app:srcCompat="@drawable/ondas" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#55B1FE"
         android:layout_alignParentBottom="true"
+        android:background="#55B1FE"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
-        app:itemTextColor="#142755"
-        app:itemIconTint="#142755"
         app:itemIconSize="35dp"
+        app:itemIconTint="#142755"
+        app:itemTextColor="#142755"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_nav"/>
+        app:menu="@menu/menu_nav" />
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -36,6 +47,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEventos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
+
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
@@ -43,7 +65,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="195dp"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/poppins_regular_"
         android:text="Calendário"
         android:textColor="#142755"
         android:textSize="32sp"

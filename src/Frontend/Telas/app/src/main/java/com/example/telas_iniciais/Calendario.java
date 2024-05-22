@@ -1,17 +1,16 @@
 package com.example.telas_iniciais;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CalendarView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,32 +23,43 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class Calendario extends AppCompatActivity {
+
+    private RecyclerView recyclerViewEventos;
+    private EventoAdapter eventoAdapter;
+    private List<Evento> eventosList;
+    private AlertDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario);
 
-        // Lógica do calendário
-        CalendarView calendarView = findViewById(R.id.calendarView);
+        eventosList = new ArrayList<>();
+        recyclerViewEventos = findViewById(R.id.recyclerViewEventos);
+        recyclerViewEventos.setLayoutManager(new LinearLayoutManager(this));
+        eventoAdapter = new EventoAdapter(eventosList);
+        recyclerViewEventos.setAdapter(eventoAdapter);
 
-        // Define um ouvinte de clique para o CalendarView
+        // Mostra o modal de carregamento enquanto busca os eventos
+        showLoadingModal();
+
+        CalendarView calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                // Formatar a data selecionada
-                String selectedDate = String.format("%02d/%02d/%d", dayOfMonth, month + 1, year);
-
-                // Fazer uma solicitação HTTP para buscar eventos
+                String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%d", dayOfMonth, month + 1, year);
                 new FetchEventosTask().execute(selectedDate);
             }
         });
 
-        // Lógica do componente de interface do usuário
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menuHome:
@@ -75,6 +85,36 @@ public class Calendario extends AppCompatActivity {
             }
             return false;
         });
+
+        // Obtém o número de dias no mês atual
+        Calendar calendar = Calendar.getInstance();
+        int maxDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        // Itera sobre cada dia do mês atual e busca os eventos
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        for (int i = 1; i <= maxDayOfMonth; i++) {
+            calendar.set(Calendar.DAY_OF_MONTH, i);
+            String selectedDate = sdf.format(calendar.getTime());
+            new FetchEventosTask().execute(selectedDate);
+        }
+
+        // Esconde o modal de carregamento após finalizar a busca de eventos
+        hideLoadingModal();
+    }
+
+    private void showLoadingModal() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.modal_loading, null);
+        builder.setView(dialogView);
+        loadingDialog = builder.create();
+        loadingDialog.setCancelable(false); // Impede que o usuário cancele
+        loadingDialog.show();
+    }
+
+    private void hideLoadingModal() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
     }
 
     private class FetchEventosTask extends AsyncTask<String, Void, String> {
@@ -86,15 +126,11 @@ public class Calendario extends AppCompatActivity {
             String result = null;
 
             try {
-                // Construir a URL com a data selecionada como parâmetro da consulta
                 URL url = new URL("https://4nqjkx-3000.csb.app/buscarEventos?data=" + selectedDate);
-
-                // Abrir a conexão
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
 
-                // Ler a resposta
                 StringBuilder buffer = new StringBuilder();
                 reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                 String line;
@@ -103,14 +139,12 @@ public class Calendario extends AppCompatActivity {
                 }
 
                 if (buffer.length() == 0) {
-                    // Se não houver dados, retornar null
                     return null;
                 }
                 result = buffer.toString();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                // Fechar os recursos
                 if (urlConnection != null) {
                     urlConnection.disconnect();
                 }
@@ -135,12 +169,20 @@ public class Calendario extends AppCompatActivity {
 
                     if (status.equals("sucesso")) {
                         JSONArray eventos = json.getJSONArray("eventos");
-                        // Aqui você pode processar os eventos retornados
-                        // Exibir os detalhes do evento em um modal
-                        showEventoModal(eventos);
-                    } else {
-                        Toast.makeText(Calendario.this, "Nenhum evento encontrado para esta data", Toast.LENGTH_SHORT).show();
+                        for (int i = 0; i < eventos.length(); i++) {
+                            JSONObject eventoJson = eventos.getJSONObject(i);
+                            Evento evento = new Evento(
+                                    eventoJson.getString("evento"),
+                                    eventoJson.getString("data"),
+                                    eventoJson.getString("cidade"),
+                                    eventoJson.getString("logradouro"),
+                                    eventoJson.getString("numero")
+                            );
+                            eventosList.add(evento);
+                        }
+                        eventoAdapter.notifyDataSetChanged();
                     }
+                    // Não precisa exibir aviso se não houver eventos para esta data
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -148,46 +190,5 @@ public class Calendario extends AppCompatActivity {
                 Toast.makeText(Calendario.this, "Erro ao buscar eventos", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private void showEventoModal(JSONArray eventos) {
-        // Inflar o layout do modal
-        LayoutInflater inflater = getLayoutInflater();
-        View modalView = inflater.inflate(R.layout.modal_evento, null);
-
-        // Preencher o modal com os detalhes do evento
-        try {
-            JSONObject evento = eventos.getJSONObject(0); // Vamos exibir apenas o primeiro evento encontrado
-            String nomeEvento = evento.getString("evento");
-            String cidade = evento.getString("cidade");
-            String logradouro = evento.getString("logradouro");
-            String numero = evento.getString("numero");
-
-            TextView textNomeEvento = modalView.findViewById(R.id.textNomeEvento);
-            TextView textCidade = modalView.findViewById(R.id.textCidade);
-            TextView textLogradouro = modalView.findViewById(R.id.textLogradouro);
-            TextView textNumero = modalView.findViewById(R.id.textNumero);
-
-            textNomeEvento.setText(nomeEvento);
-            textCidade.setText("Cidade: " + cidade);
-            textLogradouro.setText("Logradouro: " + logradouro);
-            textNumero.setText("Número: " + numero);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        // Criar o AlertDialog com o conteúdo do modal
-        AlertDialog.Builder builder = new AlertDialog.Builder(Calendario.this);
-        builder.setView(modalView);
-        builder.setPositiveButton("Fechar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); // Fechar o modal
-            }
-        });
-        AlertDialog dialog = builder.create();
-
-        // Exibir o AlertDialog
-        dialog.show();
     }
 }
