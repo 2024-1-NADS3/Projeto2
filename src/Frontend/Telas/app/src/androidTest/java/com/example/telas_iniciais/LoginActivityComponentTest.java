@@ -1,8 +1,5 @@
 package com.example.telas_iniciais;
 
-import com.example.telas_iniciais.LoginActivity;
-import com.example.telas_iniciais.R;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +21,7 @@ public class LoginActivityComponentTest {
     @Test
     public void testLoginSucesso() {
         // Simula um input
-        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputTokenLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
         Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("valid6"), ViewActions.closeSoftKeyboard());
 
         // Clica no botão de login
@@ -36,7 +33,7 @@ public class LoginActivityComponentTest {
     @Test
     public void testLoginInvalido() {
         // Simula um input
-        Espresso.onView(ViewMatchers.withId(R.id.inputEmailLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
+        Espresso.onView(ViewMatchers.withId(R.id.inputTokenLogin)).perform(ViewActions.typeText("skl.projetopi2@gmail.com"));
         Espresso.onView(ViewMatchers.withId(R.id.inputSenhaLogin)).perform(ViewActions.typeText("invalid"), ViewActions.closeSoftKeyboard());
 
         // Clica no botão de login
