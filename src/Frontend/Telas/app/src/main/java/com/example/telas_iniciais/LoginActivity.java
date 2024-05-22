@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText inputEmailLogin, inputSenhaLogin;
         String email, senha;
 
-        inputEmailLogin = findViewById(R.id.inputEmailLogin);
+        inputEmailLogin = findViewById(R.id.inputTokenLogin);
         inputSenhaLogin = findViewById(R.id.inputSenhaLogin);
 
         email = inputEmailLogin.getText().toString();
