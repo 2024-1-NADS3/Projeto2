@@ -149,7 +149,6 @@ Para configurar e executar o projeto localmente, siga estas etapas:
 ### Pré-requisitos
 
 - Celular Android
-- Armazenamento mínimo de X
 
 ### Instalação
 
