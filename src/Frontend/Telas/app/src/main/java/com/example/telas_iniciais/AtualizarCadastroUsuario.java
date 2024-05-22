@@ -29,6 +29,7 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
      * SharedPreferences para armazenar e recuperar os dados do usuário
      */
     private SharedPreferences recuperarDados;
+    private Cripto cripto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,9 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_atualizar_cadastro_usuario);
 
         recuperarDados = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
+
+
+        cripto = new Cripto(3);
 
         atualizarDadosUsuario();
     }
@@ -54,7 +58,6 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
      * Atualiza a interface do usuário com os dados do usuário
      */
     private void atualizarDadosUsuario() {
-        // Recuperar os dados do usuário das SharedPreferences
         String nomeUsuario = recuperarDados.getString("nome_usuario", "");
         String emailUsuario = recuperarDados.getString("email_usuario", "");
 
@@ -80,10 +83,14 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
         String novoNome = campoNome.getText().toString();
         String novoEmail = campoEmail.getText().toString();
 
-        ClasseAtualizacao usuario = new ClasseAtualizacao(novoNome, novoEmail);
+        // Criptografar o nome e o email
+        String novoNomeCriptografado = cripto.encrypt(novoNome);
+        String novoEmailCriptografado = cripto.encrypt(novoEmail);
 
-        usuario.setNome(novoNome);
-        usuario.setEmail(novoEmail);
+        ClasseAtualizacao usuario = new ClasseAtualizacao(novoNomeCriptografado, novoEmailCriptografado);
+
+        usuario.setNome(novoNomeCriptografado);
+        usuario.setEmail(novoEmailCriptografado);
 
         // Envia uma requisição PUT para o servidor
         enviarRequisicaoAtualizacaoUsuario(idUsuario, usuario.getNome(), usuario.getEmail());
@@ -130,9 +137,13 @@ public class AtualizarCadastroUsuario extends AppCompatActivity {
      * Método para atualizar as SharedPreferences
      */
     private void atualizarSharedPreferences(String novoNome, String novoEmail) {
+        // Descriptografar os dados antes de salvar nas SharedPreferences
+        String nomeDescriptografado = cripto.decrypt(novoNome);
+        String emailDescriptografado = cripto.decrypt(novoEmail);
+
         SharedPreferences.Editor dadosUsuario = recuperarDados.edit();
-        dadosUsuario.putString("nome_usuario", novoNome);
-        dadosUsuario.putString("email_usuario", novoEmail);
+        dadosUsuario.putString("nome_usuario", nomeDescriptografado);
+        dadosUsuario.putString("email_usuario", emailDescriptografado);
         dadosUsuario.apply();
     }
 

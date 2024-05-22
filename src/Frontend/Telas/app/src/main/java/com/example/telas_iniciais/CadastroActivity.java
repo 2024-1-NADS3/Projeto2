@@ -25,13 +25,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Activity responsável pelo cadastro de usuários.
- */
 public class CadastroActivity extends AppCompatActivity {
 
     private static final long tempoDelayParaMudarTela = 3000;
     private RequestQueue filaRequest;
+    private Cripto cripto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +37,11 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         filaRequest = Volley.newRequestQueue(this);
-
+        cripto = new Cripto(3);
     }
 
     /**
-     * Método para voltar para a tela de login quando o botão (ícone) "<" é clicado.
+     * método criado para voltar a tela de login ao clicar no botão
      */
     public void voltarTelaLogin(View view) {
         Intent voltarTelaLogin = new Intent(getApplicationContext(), LoginActivity.class);
@@ -67,9 +65,7 @@ public class CadastroActivity extends AppCompatActivity {
         senha = inputSenhaCadastro.getText().toString();
         confirmeSenha = inputSenhaConfirme.getText().toString();
 
-        /*
-         * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
-         */
+
         if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || confirmeSenha.isEmpty()) {
             AlertDialog.Builder camposVazios = new AlertDialog.Builder(CadastroActivity.this);
             camposVazios.setTitle("Erro");
@@ -81,16 +77,12 @@ public class CadastroActivity extends AppCompatActivity {
 
             dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
-            // Alterar a cor do texto do botão
             Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             positiveButton.setTextColor(Color.WHITE);
             positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
-        /*
-         * Se o usuário inserir senhas diferentes nos campos de senha, exibe um AlertDialog de Erro
-         */
         if (!senha.equals(confirmeSenha)) {
             AlertDialog.Builder senhaConfirme = new AlertDialog.Builder(CadastroActivity.this);
             senhaConfirme.setTitle("Erro");
@@ -102,18 +94,22 @@ public class CadastroActivity extends AppCompatActivity {
 
             dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
-            // Alterar a cor do texto do botão
             Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
             positiveButton.setTextColor(Color.WHITE);
             positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
 
+        // Criptografa os campos antes de criar o objeto usuário
+        String nomeCriptografado = cripto.encrypt(nome);
+        String emailCriptografado = cripto.encrypt(email);
+        String senhaCriptografada = cripto.encrypt(senha);
 
-        ClasseUsuario usuario = new ClasseUsuario(nome, email, senha);
+        ClasseUsuario usuario = new ClasseUsuario(nomeCriptografado, emailCriptografado, senhaCriptografada);
 
         realizarCadastro("https://4nqjkx-3000.csb.app/cadastro", usuario);
     }
+
 
     /**
      * Método para realizar o cadastro do usuário no servidor.
@@ -125,13 +121,10 @@ public class CadastroActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            // Converte a resposta em um objeto JSON
                             JSONObject jsonResponse = new JSONObject(response);
-
-                            // Obtém a mensagem da resposta
                             String message = jsonResponse.getString("message");
 
-                            if(message.equals("Email já cadastrado!")){
+                            if (message.equals("Email já cadastrado!")) {
                                 Toast.makeText(CadastroActivity.this, "E-mail já cadastrado!", Toast.LENGTH_SHORT).show();
 
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
@@ -144,12 +137,10 @@ public class CadastroActivity extends AppCompatActivity {
 
                                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.border_alert_dialog);
 
-                                // Alterar a cor do texto do botão
                                 Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
                                 negativeButton.setTextColor(Color.WHITE);
                                 negativeButton.setBackgroundColor(Color.parseColor("#FCBA51"));
-                            } else{
-
+                            } else {
                                 Toast.makeText(CadastroActivity.this, "Cadastro bem-sucedido!", Toast.LENGTH_SHORT).show();
 
                                 AlertDialog.Builder dadosCadastro = new AlertDialog.Builder(CadastroActivity.this);
@@ -169,7 +160,6 @@ public class CadastroActivity extends AppCompatActivity {
                                         finish();
                                     }
                                 }, tempoDelayParaMudarTela);
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -179,13 +169,12 @@ public class CadastroActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                         Toast.makeText(CadastroActivity.this, "Erro ao se cadastrar", Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> dadosDoUsuario = new HashMap<String, String>();
+                Map<String, String> dadosDoUsuario = new HashMap<>();
                 dadosDoUsuario.put("nome", usuario.getNome());
                 dadosDoUsuario.put("email", usuario.getEmail());
                 dadosDoUsuario.put("senha", usuario.getSenha());

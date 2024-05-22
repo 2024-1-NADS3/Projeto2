@@ -102,6 +102,9 @@ public class Calendario extends AppCompatActivity {
         hideLoadingModal();
     }
 
+    /**
+     * modal do loading
+     */
     private void showLoadingModal() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.modal_loading, null);
@@ -111,6 +114,10 @@ public class Calendario extends AppCompatActivity {
         loadingDialog.show();
     }
 
+
+    /**
+     * esconde modal do loading
+     */
     private void hideLoadingModal() {
         if (loadingDialog != null && loadingDialog.isShowing()) {
             loadingDialog.dismiss();

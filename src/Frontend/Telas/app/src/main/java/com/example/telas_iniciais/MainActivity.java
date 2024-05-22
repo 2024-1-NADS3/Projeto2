@@ -21,7 +21,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("appPreferences", MODE_PRIVATE);
         boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
 
-        // Configura um temporizador para avançar automaticamente para a próxima tela
+
+        /**
+         * Configura um temporizador para avançar automaticamente para a próxima tela
+         */
         new CountDownTimer(DELAY_TIME, 1000) {
             public void onTick(long millisUntilFinished) {}
 

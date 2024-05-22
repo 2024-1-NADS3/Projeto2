@@ -34,11 +34,17 @@ public class EsqueciSenhaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_esqueci_senha);
     }
 
+    /**
+     * volta para e tela "login"
+     */
     public void voltarTelaLogin(View view) {
         Intent voltarTelaLogin = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(voltarTelaLogin);
     }
 
+    /**
+     * Envia o email para o usuário
+     */
     public void enviarEsqueceu(View view) {
         EditText inputEmailEsqueceu;
         String email;

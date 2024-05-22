@@ -30,12 +30,14 @@ import java.util.Map;
 public class RedefinirSenhaActivity extends AppCompatActivity {
 
     private static final long tempoDelayMudarTela = 3000;
+    private Cripto cripto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redefinir_senha);
 
+        cripto = new Cripto(3);
     }
 
     /**
@@ -60,12 +62,6 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
         token = inputToken.getText().toString();
         novaSenha = inputNovaSenha.getText().toString();
         novaSenhaConfirmar = inputNovaSenhaConfirmar.getText().toString();
-
-        ClasseRedefinirSenha dadosUsuario = new ClasseRedefinirSenha(token, novaSenha, novaSenhaConfirmar);
-
-        dadosUsuario.setToken(token);
-        dadosUsuario.setNovaSenha(novaSenha);
-        dadosUsuario.setNovaSenhaConfirmar(novaSenhaConfirmar);
 
         /**
          * Se o usuário deixar algum campo vazio exibe um AlertDialog de Erro
@@ -108,6 +104,12 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
             positiveButton.setBackgroundColor(Color.parseColor("#FCBA51"));
             return;
         }
+
+
+        String novaSenhaCriptografada = cripto.encrypt(novaSenha);
+        String novaSenhaConfirmarCriptografada = cripto.encrypt(novaSenhaConfirmar);
+
+        ClasseRedefinirSenha usuarioCriptografado = new ClasseRedefinirSenha(token, novaSenhaCriptografada, novaSenhaConfirmarCriptografada);
 
         String url = "https://4nqjkx-3000.csb.app/redefinir-senha";
 
@@ -160,16 +162,15 @@ public class RedefinirSenhaActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(RedefinirSenhaActivity.this, "Ocorreu um erro. Por favor, tente novamente.", Toast.LENGTH_SHORT).show();
-
                     }
                 }
         ) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> dadosDoUsuario = new HashMap<String, String>();
-                dadosDoUsuario.put("token", dadosUsuario.getToken());
-                dadosDoUsuario.put("novaSenha", dadosUsuario.getNovaSenha());
-                dadosDoUsuario.put("novaSenhaConfirmar", dadosUsuario.getNovaSenhaConfirmar());
+                Map<String, String> dadosDoUsuario = new HashMap<>();
+                dadosDoUsuario.put("token", usuarioCriptografado.getToken());
+                dadosDoUsuario.put("novaSenha", usuarioCriptografado.getNovaSenha());
+                dadosDoUsuario.put("novaSenhaConfirmar", usuarioCriptografado.getNovaSenhaConfirmar());
                 return dadosDoUsuario;
             }
         };
