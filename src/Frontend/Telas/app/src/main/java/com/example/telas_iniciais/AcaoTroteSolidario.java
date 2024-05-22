@@ -63,6 +63,9 @@ public class AcaoTroteSolidario extends AppCompatActivity {
              * Método chamado quando a posição de rolagem do scroll muda.
              */
             @Override
+            /**
+             * Seta do carrousel
+             */
             public void onScrollChange(View viewAlterado, int novoScrollX, int novoScrollY, int anteriorScrollX, int anteriorScrollY) {
                 // Quando o usuário movimenta o carrossel para a direita, a seta esquerda fica visível
                 if (novoScrollX > 0) {

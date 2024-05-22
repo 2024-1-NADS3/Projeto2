@@ -85,6 +85,9 @@ public class SobreNos extends AppCompatActivity {
         startActivity(ir);
     }
 
+    /**
+     * Volta para e tela "home"
+     */
     public void ClicaBtn4(View view){
         Intent voltar = new Intent(getApplicationContext(), Home.class);
         startActivity(voltar);

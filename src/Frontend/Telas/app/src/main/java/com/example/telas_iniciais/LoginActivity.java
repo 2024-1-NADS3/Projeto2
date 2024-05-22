@@ -31,12 +31,15 @@ import java.util.Map;
  */
 public class LoginActivity extends AppCompatActivity {
 
+    private Cripto cripto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-    }
 
+        cripto = new Cripto(3);
+    }
 
     Map<String, String> getParamsMap(ClasseUsuario usuario) {
         Map<String, String> dadosDoUsuario = new HashMap<>();
@@ -44,8 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         dadosDoUsuario.put("password", usuario.getSenha());
         return dadosDoUsuario;
     }
-
-
 
     /**
      * Método para quando clicar no botão de voltar a tela "<", ir para a tela Configuração.
@@ -84,7 +85,21 @@ public class LoginActivity extends AppCompatActivity {
         email = inputEmailLogin.getText().toString();
         senha = inputSenhaLogin.getText().toString();
 
-        ClasseUsuario usuario = new ClasseUsuario(email, senha);
+        if (email.isEmpty() || senha.isEmpty()) {
+            AlertDialog.Builder camposVazios = new AlertDialog.Builder(LoginActivity.this);
+            camposVazios.setTitle("Erro");
+            camposVazios.setMessage("Todos os campos devem ser preenchidos");
+            camposVazios.setPositiveButton("OK", null);
+            AlertDialog dialog = camposVazios.create();
+            dialog.show();
+            return;
+        }
+
+        // Criptografar email e senha antes de enviá-los
+        String emailCriptografado = cripto.encrypt(email);
+        String senhaCriptografada = cripto.encrypt(senha);
+
+        ClasseUsuario usuario = new ClasseUsuario(emailCriptografado, senhaCriptografada);
         realizarLogin("https://4nqjkx-3000.csb.app/login", usuario);
     }
 
@@ -110,7 +125,11 @@ public class LoginActivity extends AppCompatActivity {
                                 String emailUsuario = json.getString("email_usuario");
                                 String nomeUsuario = json.getString("nome_usuario");
 
-                                salvarDadosUsuarioPreferencias(idUsuario, emailUsuario, nomeUsuario);
+                                // Opcional: descriptografar se necessário
+                                String emailDescriptografado = cripto.decrypt(emailUsuario);
+                                String nomeDescriptografado = cripto.decrypt(nomeUsuario);
+
+                                salvarDadosUsuarioPreferencias(idUsuario, emailDescriptografado, nomeDescriptografado);
 
                                 Intent intent = new Intent(LoginActivity.this, PerfilActivity.class);
                                 startActivity(intent);
@@ -147,11 +166,7 @@ public class LoginActivity extends AppCompatActivity {
         ) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String, String> dadosDoUsuario = new HashMap<String, String>();
-                dadosDoUsuario.put("login", usuario.getEmail());
-                dadosDoUsuario.put("password", usuario.getSenha());
-
-                return dadosDoUsuario;
+                return getParamsMap(usuario);
             }
         };
 
@@ -161,7 +176,6 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Método para salvar o ID e o email do usuário para ser usado na tela de Perfil
      */
-
     private void salvarDadosUsuarioPreferencias(String idUsuario, String emailUsuario, String nomeUsuario) {
         SharedPreferences preferencias = getSharedPreferences("salvarDados", Context.MODE_PRIVATE);
         SharedPreferences.Editor editorPreferencias = preferencias.edit();
@@ -170,5 +184,4 @@ public class LoginActivity extends AppCompatActivity {
         editorPreferencias.putString("nome_usuario", nomeUsuario);
         editorPreferencias.apply();
     }
-
 }

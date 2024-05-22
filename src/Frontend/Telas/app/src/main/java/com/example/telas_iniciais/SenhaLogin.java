@@ -20,12 +20,17 @@ public class SenhaLogin extends AppCompatActivity {
 
 
 
-
+    /**
+     * Avança para e tela "configurações"
+     */
     public void VoltaConfig(View view) {
         Intent volta = new Intent(getApplicationContext(), Config.class);
         startActivity(volta);
     }
 
+    /**
+     * confere a senha de acesso e direciona para a tela de login se correto
+     */
     public void IrLogin(View view) {
         EditText inputTokenLogin;
         String token = "";

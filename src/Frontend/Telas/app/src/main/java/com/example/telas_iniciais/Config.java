@@ -48,21 +48,33 @@ public class Config extends AppCompatActivity {
         });
     }
 
+    /**
+     * Avança para e tela "sobre"
+     */
     public void avancaSobre(View view) {
         Intent avancar = new Intent(getApplicationContext(), sobreApp.class);
         startActivity(avancar);
     }
 
+    /**
+     * Avança para e tela "termos"
+     */
     public void avancaTermos(View view) {
         Intent avancar = new Intent(getApplicationContext(), termos.class);
         startActivity(avancar);
     }
 
+    /**
+     * Avança para e tela "suporte"
+     */
     public void avancaSuporte(View view) {
         Intent avancar = new Intent(getApplicationContext(), suporte.class);
         startActivity(avancar);
     }
 
+    /**
+     * Avança para e tela "senha login" do acesso interno
+     */
     public void avancaAcessoInterno(View view) {
         Intent avancar = new Intent(getApplicationContext(), SenhaLogin.class);
         startActivity(avancar);
