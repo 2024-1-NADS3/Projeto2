@@ -64,7 +64,7 @@ public class Config extends AppCompatActivity {
     }
 
     public void avancaAcessoInterno(View view) {
-        Intent avancar = new Intent(getApplicationContext(), LoginActivity.class);
+        Intent avancar = new Intent(getApplicationContext(), SenhaloginActivity.class);
         startActivity(avancar);
     }
 

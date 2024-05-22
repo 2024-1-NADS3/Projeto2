@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SenhaloginActivity">
+
+    <TextView
+        android:id="@+id/textLogin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="16dp"
+        android:text="Digite o token de login para continuar"
+        android:textColor="#142755"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logofecap3" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="365dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#FCBA51"
+        android:onClick="IrLogin"
+        android:text="Entrar"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTokenLogin" />
+
+    <EditText
+        android:id="@+id/inputTokenLogin"
+        android:layout_width="365dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="12dp"
+        android:textSize="18sp"
+        android:textColorHint="#142755"
+        android:background="@drawable/borderradius"
+        android:hint="Digite seu email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLogin2" />
+
+    <ImageView
+        android:id="@+id/logofecap3"
+        android:layout_width="190dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iconVoltar"
+        app:srcCompat="@drawable/logo_fecap_social" />
+
+    <ImageView
+        android:id="@+id/iconVoltar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="22dp"
+        android:contentDescription="Botão para voltar para a tela anterior"
+        android:onClick="voltarConfig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.040"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow_back"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
