@@ -88,7 +88,7 @@ do Design Thinking, uma metodologia de desenvolvimento de produtos e serviços f
   - **Efetividade:** Os usuários conseguem atingir seus objetivos?
   - **Eficiência:** Qual é a quantidade de esforço e recursos necessários para isso?
   - **Satisfação:** A experiência foi satisfatória para os usuários?<br>
-  <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/teste_sus.png"> Clique aqui para acessar o resultado do teste SUS. </a> <br>
+  <a href="https://github.com/2024-1-NADS3/Projeto2/blob/main/img/teste_sus.png"> Clique aqui para acessar o resultado do teste SUS. </a> <br><br>
 
 ### 📱 Desenvolvimento Mobile
 Para o desenvolvimento do app foi utilizado as seguintes tecnologias:<br><br>
