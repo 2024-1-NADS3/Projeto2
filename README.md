@@ -184,24 +184,24 @@ npm install dotenv
 -Raiz<br>
 <br>
 📁|--> documentos<br>
-  &emsp;|-->Template_Projeto_de_Extensão<br>
+  📁&emsp;|-->Template_Projeto_de_Extensão<br>
        &emsp;&emsp;|-->Template_-_Projetos_de_Extensão.docx<br>
        &emsp;&emsp;|-->Template_-_Projetos_de_Extensão.pdf<br>
-  &emsp;|-->backend<br>
-    &emsp;&emsp;|-->fonts<br>
+  📁&emsp;|-->backend<br>
+    📁&emsp;&emsp;|-->fonts<br>
       &emsp;&emsp;&emsp;|-->18 arquivos<br>
-    &emsp;&emsp;|-->scripts<br>
+    📁&emsp;&emsp;|-->scripts<br>
       &emsp;&emsp;&emsp;|-->prettify<br>
       &emsp;&emsp;&emsp;|-->3 arquivos<br>
       &emsp;&emsp;&emsp;|-->linenumber.js<br>
-    &emsp;&emsp;|-->styles<br>
+    📁&emsp;&emsp;|-->styles<br>
         &emsp;&emsp;&emsp;|-->3 arquivos<br>
     &emsp;&emsp;|-->global.html<br>
     &emsp;&emsp;|-->index.html<br>
     &emsp;&emsp;|-->index.js.html<br>
-  &emsp;|-->frontend<br>
+  📁&emsp;|-->frontend<br>
     &emsp;&emsp;|-->vários arquivos que compõe a documentação frontend<br>
-  &emsp;|-->testes-devops<br>
+  📁&emsp;|-->testes-devops<br>
     &emsp;&emsp;|-->Testequaldevops_Atividade_PI.pdf<br>
     &emsp;&emsp;|-->Testequaldevops_Teste_componente.mp4<br>
     &emsp;&emsp;|-->Testequaldevops_Teste_sistema.mp4<br>
@@ -209,13 +209,13 @@ npm install dotenv
 📁|--> img<br>
    &emsp;|-->11 imagens<br>
 📁|--> src<br>
-   &emsp;|-->Backend<br>
+   📁&emsp;|-->Backend<br>
      &emsp;&emsp;|-->bancoskl.db<br>
      &emsp;&emsp;|-->criptoCesar.js<br>
      &emsp;&emsp;|-->descriptoCesar.js<br>
      &emsp;&emsp;|-->index.js<br>
      &emsp;&emsp;|-->package.json<br>   
-   &emsp;|-->Frontend<br>
+   📁&emsp;|-->Frontend<br>
      &emsp;&emsp;|-->Vários arquivos do aplicativo Fecap Social feitos no Android Studio<br>   
 |--> .gitignore<br>
 |--> README.md<br>
