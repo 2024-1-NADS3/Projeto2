@@ -47,14 +47,12 @@ public class Calendario extends AppCompatActivity {
         eventoAdapter = new EventoAdapter(eventosList);
         recyclerViewEventos.setAdapter(eventoAdapter);
 
-        // Mostra o modal de carregamento enquanto busca os eventos
-        showLoadingModal();
-
         CalendarView calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%d", dayOfMonth, month + 1, year);
+                showLoadingModal();
                 new FetchEventosTask().execute(selectedDate);
             }
         });
@@ -63,61 +61,44 @@ public class Calendario extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menuHome:
-                    Intent menuHome = new Intent(getApplicationContext(), Home.class);
-                    startActivity(menuHome);
+                    startActivity(new Intent(getApplicationContext(), Home.class));
                     finish();
                     return true;
-
                 case R.id.menuCalendar:
                     return true;
-
                 case R.id.menuDoacao:
-                    Intent menuDoacao = new Intent(getApplicationContext(), Doacao.class);
-                    startActivity(menuDoacao);
+                    startActivity(new Intent(getApplicationContext(), Doacao.class));
                     finish();
                     return true;
-
                 case R.id.menuConfig:
-                    Intent menuConfig = new Intent(getApplicationContext(), Config.class);
-                    startActivity(menuConfig);
+                    startActivity(new Intent(getApplicationContext(), Config.class));
                     finish();
                     return true;
             }
             return false;
         });
 
-        // Obtém o número de dias no mês atual
+        // Obtém o número de dias no mês atual e busca os eventos
         Calendar calendar = Calendar.getInstance();
-        int maxDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        // Itera sobre cada dia do mês atual e busca os eventos
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        int maxDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        showLoadingModal();
         for (int i = 1; i <= maxDayOfMonth; i++) {
             calendar.set(Calendar.DAY_OF_MONTH, i);
             String selectedDate = sdf.format(calendar.getTime());
             new FetchEventosTask().execute(selectedDate);
         }
-
-        // Esconde o modal de carregamento após finalizar a busca de eventos
-        hideLoadingModal();
     }
 
-    /**
-     * modal do loading
-     */
     private void showLoadingModal() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.modal_loading, null);
         builder.setView(dialogView);
         loadingDialog = builder.create();
-        loadingDialog.setCancelable(false); // Impede que o usuário cancele
+        loadingDialog.setCancelable(false);
         loadingDialog.show();
     }
 
-
-    /**
-     * esconde modal do loading
-     */
     private void hideLoadingModal() {
         if (loadingDialog != null && loadingDialog.isShowing()) {
             loadingDialog.dismiss();
@@ -169,6 +150,7 @@ public class Calendario extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
+            hideLoadingModal();
             if (result != null) {
                 try {
                     JSONObject json = new JSONObject(result);
@@ -189,7 +171,6 @@ public class Calendario extends AppCompatActivity {
                         }
                         eventoAdapter.notifyDataSetChanged();
                     }
-                    // Não precisa exibir aviso se não houver eventos para esta data
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
