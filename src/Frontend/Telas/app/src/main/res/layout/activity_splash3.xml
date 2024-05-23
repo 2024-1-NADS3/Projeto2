@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B9DFE"
-    tools:context=".Splash3">
+    tools:context="br.fecap.fecap_social.Splash3">
 
     <ImageView
         android:id="@+id/imageView11"

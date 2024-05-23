@@ -14,86 +14,86 @@
         android:theme="@style/Theme.Telas_Iniciais"
         tools:targetApi="31">
         <activity
-            android:name=".SenhaLogin"
+            android:name="br.fecap.fecap_social.SenhaLogin"
             android:exported="false" />
         <activity
-            android:name=".AtualizarCadastroUsuario"
+            android:name="br.fecap.fecap_social.AtualizarCadastroUsuario"
             android:exported="false" />
         <activity
-            android:name=".SobreNosFinanceiro"
+            android:name="br.fecap.fecap_social.SobreNosFinanceiro"
             android:exported="false" />
         <activity
-            android:name=".SobreNosProjeto"
+            android:name="br.fecap.fecap_social.SobreNosProjeto"
             android:exported="false" />
         <activity
-            android:name=".SobreNosComunicacao"
+            android:name="br.fecap.fecap_social.SobreNosComunicacao"
             android:exported="false" />
         <activity
-            android:name=".SobreNosPresidente"
+            android:name="br.fecap.fecap_social.SobreNosPresidente"
             android:exported="false" />
         <activity
-            android:name=".SobreNos"
+            android:name="br.fecap.fecap_social.SobreNos"
             android:exported="false" />
         <activity
-            android:name=".RedefinirSenhaActivity"
+            android:name="br.fecap.fecap_social.RedefinirSenhaActivity"
             android:exported="false" />
         <activity
-            android:name=".AcaoPascoaSolidaria"
+            android:name="br.fecap.fecap_social.AcaoPascoaSolidaria"
             android:exported="false" />
         <activity
-            android:name=".AcaoTroteSolidario"
+            android:name="br.fecap.fecap_social.AcaoTroteSolidario"
             android:exported="false" />
         <activity
-            android:name=".CadastroEvento"
+            android:name="br.fecap.fecap_social.CadastroEvento"
             android:exported="false" />
         <activity
-            android:name=".PerfilActivity"
+            android:name="br.fecap.fecap_social.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".EsqueciSenhaActivity"
+            android:name="br.fecap.fecap_social.EsqueciSenhaActivity"
             android:exported="false" />
         <activity
-            android:name=".CadastroActivity"
+            android:name="br.fecap.fecap_social.CadastroActivity"
             android:exported="false" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name="br.fecap.fecap_social.LoginActivity" />
         <activity
-            android:name=".suporte"
-            android:exported="false" />
-        <activity
-            android:name=".termos"
+            android:name="br.fecap.fecap_social.suporte"
             android:exported="false" />
         <activity
-            android:name=".sobreApp"
+            android:name="br.fecap.fecap_social.termos"
             android:exported="false" />
         <activity
-            android:name=".Calendario"
+            android:name="br.fecap.fecap_social.sobreApp"
             android:exported="false" />
         <activity
-            android:name=".Config"
+            android:name="br.fecap.fecap_social.Calendario"
             android:exported="false" />
         <activity
-            android:name=".AcaoHamburgada"
+            android:name="br.fecap.fecap_social.Config"
             android:exported="false" />
         <activity
-            android:name=".NossasAcoesGeral"
+            android:name="br.fecap.fecap_social.AcaoHamburgada"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name="br.fecap.fecap_social.NossasAcoesGeral"
             android:exported="false" />
         <activity
-            android:name=".Doacao"
+            android:name="br.fecap.fecap_social.Home"
             android:exported="false" />
         <activity
-            android:name=".Splash3"
+            android:name="br.fecap.fecap_social.Doacao"
             android:exported="false" />
         <activity
-            android:name=".Splash2"
+            android:name="br.fecap.fecap_social.Splash3"
             android:exported="false" />
         <activity
-            android:name=".Splash1"
+            android:name="br.fecap.fecap_social.Splash2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="br.fecap.fecap_social.Splash1"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.fecap_social.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

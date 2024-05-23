@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B9DFE"
-    tools:context=".Splash1">
+    tools:context="br.fecap.fecap_social.Splash1">
 
     <ImageView
         android:id="@+id/quadrado"
