@@ -183,7 +183,7 @@ npm install dotenv
 
 -Raiz<br>
 <br>
-|--> documentos<br>
+📁|--> documentos<br>
   &emsp;|-->Template_Projeto_de_Extensão<br>
        &emsp;&emsp;|-->Template_-_Projetos_de_Extensão.docx<br>
        &emsp;&emsp;|-->Template_-_Projetos_de_Extensão.pdf<br>
@@ -206,9 +206,9 @@ npm install dotenv
     &emsp;&emsp;|-->Testequaldevops_Teste_componente.mp4<br>
     &emsp;&emsp;|-->Testequaldevops_Teste_sistema.mp4<br>
   &emsp;|-->Políticas de Privacidade - fecap-social.pdf<br>
-|--> img<br>
+📁|--> img<br>
    &emsp;|-->11 imagens<br>
-|--> src<br>
+📁|--> src<br>
    &emsp;|-->Backend<br>
      &emsp;&emsp;|-->bancoskl.db<br>
      &emsp;&emsp;|-->criptoCesar.js<br>
@@ -217,7 +217,7 @@ npm install dotenv
      &emsp;&emsp;|-->package.json<br>   
    &emsp;|-->Frontend<br>
      &emsp;&emsp;|-->Vários arquivos do aplicativo Fecap Social feitos no Android Studio<br>   
-|--> .gitignore <br>
+|--> .gitignore<br>
 |--> README.md<br>
 
  <!--            A pasta raiz contem dois arquivos que devem ser alterados:
